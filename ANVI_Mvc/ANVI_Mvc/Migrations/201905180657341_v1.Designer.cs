@@ -13,7 +13,7 @@ namespace ANVI_Mvc.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201905171433548_v1"; }
+            get { return "201905180657341_v1"; }
         }
         
         string IMigrationMetadata.Source

@@ -7,16 +7,6 @@ namespace ANVI_Mvc.Migrations
     {
         public override void Up()
         {
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             CreateTable(
                 "dbo.Categories",
                 c => new
@@ -30,7 +20,7 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Products",
                 c => new
                     {
-                        ProductID = c.String(nullable: false, maxLength: 128),
+                        ProductID = c.Int(nullable: false),
                         ProductName = c.String(nullable: false, maxLength: 20),
                         CategoryID = c.Int(),
                         UnitPrice = c.Decimal(storeType: "money"),
@@ -50,13 +40,12 @@ namespace ANVI_Mvc.Migrations
                         Price = c.Decimal(storeType: "money"),
                         Quantity = c.Decimal(storeType: "money"),
                         Discount = c.Decimal(storeType: "money"),
-                        Products_ProductID = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.ProductID, t.OrderID })
                 .ForeignKey("dbo.Orders", t => t.OrderID)
-                .ForeignKey("dbo.Products", t => t.Products_ProductID)
-                .Index(t => t.OrderID)
-                .Index(t => t.Products_ProductID);
+                .ForeignKey("dbo.Products", t => t.ProductID)
+                .Index(t => t.ProductID)
+                .Index(t => t.OrderID);
             
             CreateTable(
                 "dbo.Orders",
@@ -92,7 +81,7 @@ namespace ANVI_Mvc.Migrations
                         City = c.String(maxLength: 15),
                         Email = c.String(nullable: false, maxLength: 50),
                         Address = c.String(),
-                        ZipCode = c.String(maxLength: 10),
+                        ZipCode = c.Int(),
                         BankAccount = c.String(maxLength: 20),
                         CreditCard = c.String(maxLength: 10, fixedLength: true),
                     })
@@ -117,15 +106,14 @@ namespace ANVI_Mvc.Migrations
                         Stock = c.Int(nullable: false),
                         SizeID = c.Int(nullable: false),
                         ColorID = c.Int(nullable: false),
-                        Products_ProductID = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.PDID)
                 .ForeignKey("dbo.Colors", t => t.ColorID)
                 .ForeignKey("dbo.Sizes", t => t.SizeID)
-                .ForeignKey("dbo.Products", t => t.Products_ProductID)
+                .ForeignKey("dbo.Products", t => t.ProductID)
+                .Index(t => t.ProductID)
                 .Index(t => t.SizeID)
-                .Index(t => t.ColorID)
-                .Index(t => t.Products_ProductID);
+                .Index(t => t.ColorID);
             
             CreateTable(
                 "dbo.Colors",
@@ -170,90 +158,27 @@ namespace ANVI_Mvc.Migrations
                     })
                 .PrimaryKey(t => new { t.name, t.principal_id, t.diagram_id });
             
-            DropTable("dbo.AspNetRoles");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetUsers");
-            DropTable("dbo.AspNetUserClaims");
-            DropTable("dbo.AspNetUserLogins");
         }
         
         public override void Down()
         {
-            CreateTable(
-                "dbo.AspNetUserLogins",
-                c => new
-                    {
-                        LoginProvider = c.String(nullable: false, maxLength: 128),
-                        ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId });
-            
-            CreateTable(
-                "dbo.AspNetUserClaims",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.AspNetUsers",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Email = c.String(maxLength: 256),
-                        EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
-                        SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
-                        PhoneNumberConfirmed = c.Boolean(nullable: false),
-                        TwoFactorEnabled = c.Boolean(nullable: false),
-                        LockoutEndDateUtc = c.DateTime(),
-                        LockoutEnabled = c.Boolean(nullable: false),
-                        AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.AspNetUserRoles",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId });
-            
-            CreateTable(
-                "dbo.AspNetRoles",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            DropForeignKey("dbo.ProductDestails", "Products_ProductID", "dbo.Products");
+            DropForeignKey("dbo.ProductDestails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.ProductDestails", "SizeID", "dbo.Sizes");
             DropForeignKey("dbo.Image", "PDID", "dbo.ProductDestails");
             DropForeignKey("dbo.ProductDestails", "ColorID", "dbo.Colors");
-            DropForeignKey("dbo.OrderDetail", "Products_ProductID", "dbo.Products");
+            DropForeignKey("dbo.OrderDetail", "ProductID", "dbo.Products");
             DropForeignKey("dbo.Orders", "ShippingID", "dbo.Shipper");
             DropForeignKey("dbo.OrderDetail", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
             DropIndex("dbo.Image", new[] { "PDID" });
-            DropIndex("dbo.ProductDestails", new[] { "Products_ProductID" });
             DropIndex("dbo.ProductDestails", new[] { "ColorID" });
             DropIndex("dbo.ProductDestails", new[] { "SizeID" });
+            DropIndex("dbo.ProductDestails", new[] { "ProductID" });
             DropIndex("dbo.Orders", new[] { "ShippingID" });
             DropIndex("dbo.Orders", new[] { "CustomerID" });
-            DropIndex("dbo.OrderDetail", new[] { "Products_ProductID" });
             DropIndex("dbo.OrderDetail", new[] { "OrderID" });
+            DropIndex("dbo.OrderDetail", new[] { "ProductID" });
             DropIndex("dbo.Products", new[] { "CategoryID" });
             DropTable("dbo.sysdiagrams");
             DropTable("dbo.Sizes");
@@ -266,16 +191,6 @@ namespace ANVI_Mvc.Migrations
             DropTable("dbo.OrderDetail");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");
-            CreateIndex("dbo.AspNetUserLogins", "UserId");
-            CreateIndex("dbo.AspNetUserClaims", "UserId");
-            CreateIndex("dbo.AspNetUsers", "UserName", unique: true, name: "UserNameIndex");
-            CreateIndex("dbo.AspNetUserRoles", "RoleId");
-            CreateIndex("dbo.AspNetUserRoles", "UserId");
-            CreateIndex("dbo.AspNetRoles", "Name", unique: true, name: "RoleNameIndex");
-            AddForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers", "Id", cascadeDelete: true);
-            AddForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles", "Id", cascadeDelete: true);
         }
     }
 }

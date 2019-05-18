@@ -175,13 +175,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905171431570_initialDB.cs" />
-    <Compile Include="Migrations\201905171431570_initialDB.Designer.cs">
-      <DependentUpon>201905171431570_initialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201905180647400_initialDB.cs" />
+    <Compile Include="Migrations\201905180647400_initialDB.Designer.cs">
+      <DependentUpon>201905180647400_initialDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905171433548_v1.cs" />
-    <Compile Include="Migrations\201905171433548_v1.Designer.cs">
-      <DependentUpon>201905171433548_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201905180657341_v1.cs" />
+    <Compile Include="Migrations\201905180657341_v1.Designer.cs">
+      <DependentUpon>201905180657341_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905180805152_v11.cs" />
+    <Compile Include="Migrations\201905180805152_v11.Designer.cs">
+      <DependentUpon>201905180805152_v11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,19 +204,19 @@
     <Compile Include="Models\Sizes.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CmsRepository.cs" />
+    <Compile Include="Repository\AnviRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\style201905181228.css" />
-    <Content Include="Assets\images\header-image\ANVI-Logo-Black_140x%402x %281%29.png" />
-    <Content Include="Assets\images\header-image\ANVI-Logo-Black_140x%402x.png" />
-    <Content Include="Assets\images\header-image\ANVI-Logo-Black_140x.png" />
-    <Content Include="Assets\images\header-image\ANVI-Logo-White_140x%402x.png" />
-    <Content Include="Assets\images\header-image\ANVI-Logo-White_140x.png" />
-    <Content Include="Assets\images\header-image\ANVI-Nav_370x230%402x.png" />
+    <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x %281%29.png" />
+    <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x.png" />
+    <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x.png" />
+    <Content Include="Assets\images\Layout\ANVI-Logo-White_140x%402x.png" />
+    <Content Include="Assets\images\Layout\ANVI-Logo-White_140x.png" />
+    <Content Include="Assets\images\Layout\ANVI-Nav_370x230%402x.png" />
     <Content Include="Assets\images\prodownlond\18k-gold.png" />
     <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_300x.jpg" />
     <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_400x.jpg" />
@@ -300,6 +304,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\images\Bracelets\" />
+    <Folder Include="Assets\images\EarRings\" />
+    <Folder Include="Assets\images\Necklaces\" />
+    <Folder Include="Assets\images\Rings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -315,11 +323,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905171431570_initialDB.resx">
-      <DependentUpon>201905171431570_initialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905180647400_initialDB.resx">
+      <DependentUpon>201905180647400_initialDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905171433548_v1.resx">
-      <DependentUpon>201905171433548_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905180657341_v1.resx">
+      <DependentUpon>201905180657341_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905180805152_v11.resx">
+      <DependentUpon>201905180805152_v11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

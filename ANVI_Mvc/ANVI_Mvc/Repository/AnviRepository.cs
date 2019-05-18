@@ -7,11 +7,11 @@ using ANVI_Mvc.Models;
 
 namespace PracMVC01.Repositories
 {
-    public class CmsRepository<T> where T : class
+    public class AnviRepository<T> where T : class
     {
         private AnviModel _context;
 
-        public CmsRepository(AnviModel context)
+        public AnviRepository(AnviModel context)
         {
             if (context == null)
             {

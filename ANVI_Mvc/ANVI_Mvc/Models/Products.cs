@@ -17,7 +17,7 @@ namespace ANVI_Mvc.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
 
         [Required]
         [StringLength(20)]
