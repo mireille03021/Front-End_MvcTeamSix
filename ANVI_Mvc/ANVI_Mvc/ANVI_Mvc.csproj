@@ -209,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
+    <Content Include="Assets\css\information.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\style201905181228.css" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x %281%29.png" />
@@ -243,6 +244,7 @@
     <Content Include="Assets\images\prodownlond\R19402_700x.jpg" />
     <Content Include="Assets\images\prodownlond\R19402_800x.jpg" />
     <Content Include="Assets\images\prodownlond\R19402_900x.jpg" />
+    <Content Include="Assets\js\information.js" />
     <Content Include="Assets\js\JavaScript201905181231.js" />
     <Content Include="Assets\js\site.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -301,6 +303,7 @@
     <Content Include="Views\Shared\_Layout4.cshtml" />
     <Content Include="Views\Shared\_Layout_ANVI_header.cshtml" />
     <Content Include="Views\Home\ProductDetailPage.cshtml" />
+    <Content Include="Views\Home\Order_Customer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

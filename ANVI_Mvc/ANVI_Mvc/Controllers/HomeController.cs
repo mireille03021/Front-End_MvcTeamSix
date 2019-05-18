@@ -26,15 +26,15 @@ namespace ANVI_Mvc.Controllers
         {
             return View();
         }
-        public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)
+        public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
         {
             return View();
         }
-        public ActionResult Order_Pay()  //下單-付費頁面
+        public ActionResult Order_Pay()  //下單-付費頁面!沒有HEADER跟FOOTER
         {
             return View();
         }
-        public ActionResult Order_Check()  //下單-確認頁面
+        public ActionResult Order_Check()  //下單-確認頁面!沒有HEADER跟FOOTER
         {
             return View();
         }
