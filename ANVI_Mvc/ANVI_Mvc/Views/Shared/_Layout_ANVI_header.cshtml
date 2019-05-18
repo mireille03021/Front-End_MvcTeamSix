@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- bootstrap 4.2.1 -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC|Titillium+Web" rel="stylesheet"> -->
+    <!-- google字體 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link href="~/Assets/css/header-styles.css" rel="stylesheet" />
+    <!-- CSS檔引入 -->
+
+    @RenderSection("topCSS", false)
+    @RenderSection("topJS", false)
+</head>
+<body>
+    <div class="topnews">全台免運費 | 海外滿 $4500 免運費</div>
+    <div id="header">
+        <div class="topnemu">
+            <div class="topnemulineone">
+                <ul class="SocialList">
+                    <li class="SListItem">
+                        <a href="https://www.facebook.com/anvistudios" class="" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="SListItem">
+                        <a href="https://instagram.com/anvistudios" class="" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <img class="LogoImage LogoImage--primaty" src="https://cdn.shopify.com/s/files/1/2023/9563/files/ANVI-Logo-Black_140x.png?v=1554253253" alt="#">
+                <!-- 圖片記得改響應式 -->
+                <div class="userlist">
+
+                    <nav class="topnemulineone">
+                        <ul class="lineonelist">
+                            <li class="account"> <a href="#">帳號</a></li>
+                            <li class="search"><a href="#">搜尋</a></li>
+                            <li class="cart"> <a href="#">購物車(<snap class="header_cartcount">0</snap>)</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <nav class="topnemulinetwo">
+
+                <ul class="linetwolist">
+                    <li class="shop"><a href="#">商店<div class="listspan"></div><span class="lineofselect"></span></a></li>
+                    <li class="new"><a href="#">最新到貨<div class="listspan"></div><span class="lineofselect"></span></a></li>
+                    <li><a href="#">About<div class="listspan"></div><span class="lineofselect"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="MenuList" >
+            <div class="MegaMenu__">
+                <div class="MegaMenu__Item">
+                    <a href="#" class="class">全部</a>
+                    <ul class="">
+                        <li class="">
+                            <a href="#" class="">發燒新品</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">人氣商品</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">SALE</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="MegaMenu__Item">
+                    <a href="#" class="class">類別</a>
+                    <ul class="">
+                        <li class="">
+                            <a href="#" class="">手環</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">耳環</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">項鍊</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="">戒指</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="MegaMenu__Item">
+
+                    <div class="MegaMenu__Push ">
+                        <div class="MegaMenu__PushImageWrapper AspectRatio">
+
+                        </div>
+                        <span class="Image__Loader"></span>
+                        <p class="MegaMenu__PushHeading h6">ANVI GIRL 摩登，經典，優雅的存在</p>
+                    </div>
+                </div>
+                <div class="MegaMenu__Item">
+
+                    <div class="MegaMenu__Push ">
+                        <div class="MegaMenu__PushImageWrapper AspectRatio">
+
+                        </div>
+                        <span class="Image__Loader"></span>
+                        <p class="MegaMenu__PushHeading h6">ANVI GIRL 摩登，經典，優雅的存在</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:34px;"></div>  <!--填充物：之後有好一點的做法再調整-->
+    @RenderBody()
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("endJS", false)
+</body>
+</html>
+
