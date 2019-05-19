@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ANVI_Mvc.Models;
+using ANVI_Mvc.ViewModels;
 
 namespace ANVI_Mvc.Controllers
 {
@@ -22,6 +23,23 @@ namespace ANVI_Mvc.Controllers
         }
         public ActionResult ProductsPage() //商品頁面
         {
+            List<Product> products = db.Products.ToList();
+            ViewBag.products = products;
+
+            var list = from cat in db.Categories
+                join p in db.Products on cat.CategoryID equals p.CategoryID
+                join pd in db.ProductDestails on p.ProductID equals pd.ProductID
+                select new pdTmp
+                {
+                    ProductID = p.ProductID,
+                    PDID = pd.PDID,
+                    ColorID = pd.ColorID,
+                    CategoryName = cat.CategoryName
+                };
+            ViewBag.productDetails = list.ToList();
+            ViewBag.Images = db.Images.ToList();
+            ViewBag.Colors = db.Colors.ToList();
+
             return View();
         }
         public ActionResult ProductDetailPage()  //單一商品頁面

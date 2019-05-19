@@ -51,17 +51,17 @@ namespace ANVI_Mvc.Migrations
             );
             context.ProductDestails.AddOrUpdate(
                 x => x.PDID,
-                new ProductDestail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 1, ColorID = 1 },
-                new ProductDestail() { PDID = "1-2", ProductID = 1, Stock = 10, SizeID = 2, ColorID = 1 },
-                new ProductDestail() { PDID = "1-3", ProductID = 1, Stock = 10, SizeID = 3, ColorID = 1 },
-                new ProductDestail() { PDID = "2-1", ProductID = 2, Stock = 10, SizeID = 4, ColorID = 1 },
-                new ProductDestail() { PDID = "3-1", ProductID = 3, Stock = 5, SizeID = 5, ColorID = 1 },
-                new ProductDestail() { PDID = "3-2", ProductID = 3, Stock = 5, SizeID = 6, ColorID = 1 },
-                new ProductDestail() { PDID = "4-1", ProductID = 4, Stock = 3, SizeID = 7, ColorID = 1 },
-                new ProductDestail() { PDID = "4-2", ProductID = 4, Stock = 3, SizeID = 8, ColorID = 1 },
-                new ProductDestail() { PDID = "5-1", ProductID = 5, Stock = 4, SizeID = 9, ColorID = 1 },
-                new ProductDestail() { PDID = "5-2", ProductID = 5, Stock = 10, SizeID = 10, ColorID = 1 },
-                new ProductDestail() { PDID = "5-3", ProductID = 5, Stock = 3, SizeID = 11, ColorID = 1 }
+                new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 1, ColorID = 1 },
+                new ProductDetail() { PDID = "1-2", ProductID = 1, Stock = 10, SizeID = 2, ColorID = 1 },
+                new ProductDetail() { PDID = "1-3", ProductID = 1, Stock = 10, SizeID = 3, ColorID = 1 },
+                new ProductDetail() { PDID = "2-1", ProductID = 2, Stock = 10, SizeID = 4, ColorID = 1 },
+                new ProductDetail() { PDID = "3-1", ProductID = 3, Stock = 5, SizeID = 5, ColorID = 1 },
+                new ProductDetail() { PDID = "3-2", ProductID = 3, Stock = 5, SizeID = 6, ColorID = 1 },
+                new ProductDetail() { PDID = "4-1", ProductID = 4, Stock = 3, SizeID = 7, ColorID = 1 },
+                new ProductDetail() { PDID = "4-2", ProductID = 4, Stock = 3, SizeID = 8, ColorID = 1 },
+                new ProductDetail() { PDID = "5-1", ProductID = 5, Stock = 4, SizeID = 9, ColorID = 1 },
+                new ProductDetail() { PDID = "5-2", ProductID = 5, Stock = 10, SizeID = 10, ColorID = 1 },
+                new ProductDetail() { PDID = "5-3", ProductID = 5, Stock = 3, SizeID = 11, ColorID = 1 }
             );
             context.Images.AddOrUpdate(
                 x => x.ImgID,

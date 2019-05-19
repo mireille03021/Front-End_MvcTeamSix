@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201905190636027_initialDB.Designer.cs">
       <DependentUpon>201905190636027_initialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905190944001_v1.1.cs" />
+    <Compile Include="Migrations\201905190944001_v1.1.Designer.cs">
+      <DependentUpon>201905190944001_v1.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnviModel.cs" />
@@ -193,14 +197,14 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\ProductDestail.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AnviRepository.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
+    <Compile Include="ViewModels\ProductsPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
@@ -311,6 +315,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905190636027_initialDB.resx">
       <DependentUpon>201905190636027_initialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905190944001_v1.1.resx">
+      <DependentUpon>201905190944001_v1.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,7 +12,7 @@ namespace ANVI_Mvc.Models
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
-            ProductDestails = new HashSet<ProductDestail>();
+            ProductDestails = new HashSet<ProductDetail>();
         }
 
         [Key]
@@ -37,6 +37,6 @@ namespace ANVI_Mvc.Models
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDestail> ProductDestails { get; set; }
+        public virtual ICollection<ProductDetail> ProductDestails { get; set; }
     }
 }

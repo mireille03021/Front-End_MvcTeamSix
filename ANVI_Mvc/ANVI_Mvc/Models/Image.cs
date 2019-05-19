@@ -20,6 +20,6 @@ namespace ANVI_Mvc.Models
         [StringLength(50)]
         public string ImgName { get; set; }
 
-        public virtual ProductDestail ProductDestails { get; set; }
+        public virtual ProductDetail ProductDestails { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace ANVI_Mvc.Models
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<ProductDestail> ProductDestails { get; set; }
+        public virtual DbSet<ProductDetail> ProductDestails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
@@ -56,7 +56,7 @@ namespace ANVI_Mvc.Models
                 .WithRequired(e => e.Orders)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ProductDestail>()
+            modelBuilder.Entity<ProductDetail>()
                 .HasMany(e => e.Images)
                 .WithRequired(e => e.ProductDestails)
                 .WillCascadeOnDelete(false);

@@ -11,7 +11,7 @@ namespace ANVI_Mvc.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Color()
         {
-            ProductDestails = new HashSet<ProductDestail>();
+            ProductDestails = new HashSet<ProductDetail>();
         }
 
         [Key]
@@ -22,6 +22,6 @@ namespace ANVI_Mvc.Models
         public string ColorName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDestail> ProductDestails { get; set; }
+        public virtual ICollection<ProductDetail> ProductDestails { get; set; }
     }
 }
