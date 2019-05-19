@@ -6,17 +6,16 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Products
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Products()
+        public Product()
         {
-            OrderDetail = new HashSet<OrderDetail>();
-            ProductDestails = new HashSet<ProductDestails>();
+            OrderDetails = new HashSet<OrderDetail>();
+            ProductDestails = new HashSet<ProductDestail>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProductID { get; set; }
 
         [Required]
@@ -32,12 +31,12 @@ namespace ANVI_Mvc.Models
 
         public string DesDetail { get; set; }
 
-        public virtual Categories Categories { get; set; }
+        public virtual Category Categories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDestails> ProductDestails { get; set; }
+        public virtual ICollection<ProductDestail> ProductDestails { get; set; }
     }
 }

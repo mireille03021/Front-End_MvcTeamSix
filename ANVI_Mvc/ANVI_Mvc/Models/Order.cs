@@ -6,16 +6,15 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Orders
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Orders()
+        public Order()
         {
-            OrderDetail = new HashSet<OrderDetail>();
+            OrderDetails = new HashSet<OrderDetail>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int OrderID { get; set; }
 
         public int CustomerID { get; set; }
@@ -45,20 +44,18 @@ namespace ANVI_Mvc.Models
         [StringLength(15)]
         public string Payment { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime OrderDate { get; set; }
 
         [StringLength(50)]
         public string Remaeks { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime ShipDate { get; set; }
 
-        public virtual Customers Customers { get; set; }
+        public virtual Customer Customers { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual Shipper Shipper { get; set; }
+        public virtual Shipper Shippers { get; set; }
     }
 }

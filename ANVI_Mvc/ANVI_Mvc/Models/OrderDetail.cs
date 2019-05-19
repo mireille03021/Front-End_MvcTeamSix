@@ -6,7 +6,6 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("OrderDetail")]
     public partial class OrderDetail
     {
         [Key]
@@ -28,8 +27,8 @@ namespace ANVI_Mvc.Models
         [Column(TypeName = "money")]
         public decimal? Discount { get; set; }
 
-        public virtual Orders Orders { get; set; }
+        public virtual Order Orders { get; set; }
 
-        public virtual Products Products { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

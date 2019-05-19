@@ -6,7 +6,6 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Image")]
     public partial class Image
     {
         [Key]
@@ -20,6 +19,7 @@ namespace ANVI_Mvc.Models
         [Required]
         [StringLength(50)]
         public string ImgName { get; set; }
-        public virtual ProductDestails ProductDestails { get; set; }
+
+        public virtual ProductDestail ProductDestails { get; set; }
     }
 }

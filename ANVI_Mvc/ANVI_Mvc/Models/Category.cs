@@ -6,27 +6,22 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Sizes
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sizes()
+        public Category()
         {
-            ProductDestails = new HashSet<ProductDestails>();
+            Products = new HashSet<Product>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SizeID { get; set; }
+        public int CategoryID { get; set; }
 
         [Required]
-        [StringLength(10)]
-        public string SizeTitle { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string SizeContext { get; set; }
+        [StringLength(50)]
+        public string CategoryName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDestails> ProductDestails { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

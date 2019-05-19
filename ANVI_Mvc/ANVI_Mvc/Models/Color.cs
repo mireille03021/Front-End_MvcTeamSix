@@ -6,33 +6,22 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class ProductDestails
+    public partial class Color
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductDestails()
+        public Color()
         {
-            Image = new HashSet<Image>();
+            ProductDestails = new HashSet<ProductDestail>();
         }
 
         [Key]
-        [StringLength(10)]
-        public string PDID { get; set; }
-
-        public int ProductID { get; set; }
-
-        public int Stock { get; set; }
-
-        public int SizeID { get; set; }
-
         public int ColorID { get; set; }
 
-        public virtual Colors Colors { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string ColorName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Image> Image { get; set; }
-
-        public virtual Products Products { get; set; }
-
-        public virtual Sizes Sizes { get; set; }
+        public virtual ICollection<ProductDestail> ProductDestails { get; set; }
     }
 }

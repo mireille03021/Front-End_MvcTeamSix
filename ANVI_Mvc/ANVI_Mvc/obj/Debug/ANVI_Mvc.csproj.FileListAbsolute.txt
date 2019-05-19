@@ -473,11 +473,9 @@ D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Ident
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.Owin.resources.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csprojAssemblyReference.cache
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v1.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v11.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CoreCompileInputs.cache
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CopyComplete
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache

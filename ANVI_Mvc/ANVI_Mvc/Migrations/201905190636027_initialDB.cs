@@ -11,7 +11,7 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Categories",
                 c => new
                     {
-                        CategoryID = c.Int(nullable: false),
+                        CategoryID = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.CategoryID);
@@ -20,7 +20,7 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Products",
                 c => new
                     {
-                        ProductID = c.Int(nullable: false),
+                        ProductID = c.Int(nullable: false, identity: true),
                         ProductName = c.String(nullable: false, maxLength: 20),
                         CategoryID = c.Int(),
                         UnitPrice = c.Decimal(storeType: "money"),
@@ -32,7 +32,7 @@ namespace ANVI_Mvc.Migrations
                 .Index(t => t.CategoryID);
             
             CreateTable(
-                "dbo.OrderDetail",
+                "dbo.OrderDetails",
                 c => new
                     {
                         ProductID = c.Int(nullable: false),
@@ -51,7 +51,7 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Orders",
                 c => new
                     {
-                        OrderID = c.Int(nullable: false),
+                        OrderID = c.Int(nullable: false, identity: true),
                         CustomerID = c.Int(nullable: false),
                         ShippingID = c.Int(),
                         RecipientName = c.String(nullable: false, maxLength: 15),
@@ -60,13 +60,13 @@ namespace ANVI_Mvc.Migrations
                         RecipientCity = c.String(nullable: false, maxLength: 10),
                         RecipientPhone = c.String(nullable: false, maxLength: 20),
                         Payment = c.String(nullable: false, maxLength: 15),
-                        OrderDate = c.DateTime(nullable: false, storeType: "smalldatetime"),
+                        OrderDate = c.DateTime(nullable: false),
                         Remaeks = c.String(maxLength: 50),
-                        ShipDate = c.DateTime(nullable: false, storeType: "smalldatetime"),
+                        ShipDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.OrderID)
                 .ForeignKey("dbo.Customers", t => t.CustomerID)
-                .ForeignKey("dbo.Shipper", t => t.ShippingID)
+                .ForeignKey("dbo.Shippers", t => t.ShippingID)
                 .Index(t => t.CustomerID)
                 .Index(t => t.ShippingID);
             
@@ -81,17 +81,17 @@ namespace ANVI_Mvc.Migrations
                         City = c.String(maxLength: 15),
                         Email = c.String(nullable: false, maxLength: 50),
                         Address = c.String(),
-                        ZipCode = c.Int(),
+                        ZipCode = c.String(maxLength: 10),
                         BankAccount = c.String(maxLength: 20),
                         CreditCard = c.String(maxLength: 10, fixedLength: true),
                     })
                 .PrimaryKey(t => t.CustomerID);
             
             CreateTable(
-                "dbo.Shipper",
+                "dbo.Shippers",
                 c => new
                     {
-                        ShipperID = c.Int(nullable: false),
+                        ShipperID = c.Int(nullable: false, identity: true),
                         ShippName = c.String(nullable: false, maxLength: 15),
                         Phone = c.String(nullable: false, maxLength: 15),
                     })
@@ -119,13 +119,13 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Colors",
                 c => new
                     {
-                        ColorID = c.Int(nullable: false),
-                        Color = c.String(nullable: false, maxLength: 50),
+                        ColorID = c.Int(nullable: false, identity: true),
+                        ColorName = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.ColorID);
             
             CreateTable(
-                "dbo.Image",
+                "dbo.Images",
                 c => new
                     {
                         ImgID = c.Int(nullable: false),
@@ -140,23 +140,11 @@ namespace ANVI_Mvc.Migrations
                 "dbo.Sizes",
                 c => new
                     {
-                        SizeID = c.Int(nullable: false),
+                        SizeID = c.Int(nullable: false, identity: true),
                         SizeTitle = c.String(nullable: false, maxLength: 10),
                         SizeContext = c.String(nullable: false, maxLength: 10),
                     })
                 .PrimaryKey(t => t.SizeID);
-            
-            CreateTable(
-                "dbo.sysdiagrams",
-                c => new
-                    {
-                        name = c.String(nullable: false, maxLength: 128),
-                        principal_id = c.Int(nullable: false),
-                        diagram_id = c.Int(nullable: false),
-                        version = c.Int(),
-                        definition = c.Binary(),
-                    })
-                .PrimaryKey(t => new { t.name, t.principal_id, t.diagram_id });
             
         }
         
@@ -164,31 +152,30 @@ namespace ANVI_Mvc.Migrations
         {
             DropForeignKey("dbo.ProductDestails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.ProductDestails", "SizeID", "dbo.Sizes");
-            DropForeignKey("dbo.Image", "PDID", "dbo.ProductDestails");
+            DropForeignKey("dbo.Images", "PDID", "dbo.ProductDestails");
             DropForeignKey("dbo.ProductDestails", "ColorID", "dbo.Colors");
-            DropForeignKey("dbo.OrderDetail", "ProductID", "dbo.Products");
-            DropForeignKey("dbo.Orders", "ShippingID", "dbo.Shipper");
-            DropForeignKey("dbo.OrderDetail", "OrderID", "dbo.Orders");
+            DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
+            DropForeignKey("dbo.Orders", "ShippingID", "dbo.Shippers");
+            DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
-            DropIndex("dbo.Image", new[] { "PDID" });
+            DropIndex("dbo.Images", new[] { "PDID" });
             DropIndex("dbo.ProductDestails", new[] { "ColorID" });
             DropIndex("dbo.ProductDestails", new[] { "SizeID" });
             DropIndex("dbo.ProductDestails", new[] { "ProductID" });
             DropIndex("dbo.Orders", new[] { "ShippingID" });
             DropIndex("dbo.Orders", new[] { "CustomerID" });
-            DropIndex("dbo.OrderDetail", new[] { "OrderID" });
-            DropIndex("dbo.OrderDetail", new[] { "ProductID" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
+            DropIndex("dbo.OrderDetails", new[] { "ProductID" });
             DropIndex("dbo.Products", new[] { "CategoryID" });
-            DropTable("dbo.sysdiagrams");
             DropTable("dbo.Sizes");
-            DropTable("dbo.Image");
+            DropTable("dbo.Images");
             DropTable("dbo.Colors");
             DropTable("dbo.ProductDestails");
-            DropTable("dbo.Shipper");
+            DropTable("dbo.Shippers");
             DropTable("dbo.Customers");
             DropTable("dbo.Orders");
-            DropTable("dbo.OrderDetail");
+            DropTable("dbo.OrderDetails");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");
         }
