@@ -18,14 +18,14 @@ namespace ANVI_Mvc.Migrations
         {
             context.Categories.AddOrUpdate(
                 x => x.CategoryID,
-                new Categories() { CategoryID = 1, CategoryName = "手環" },
-                new Categories() { CategoryID = 2, CategoryName = "耳環" },
-                new Categories() { CategoryID = 3, CategoryName = "項鍊" },
-                new Categories() { CategoryID = 4, CategoryName = "戒指" }
+                new Categories() { CategoryID = 1, CategoryName = "Bracelets" },
+                new Categories() { CategoryID = 2, CategoryName = "EarRings" },
+                new Categories() { CategoryID = 3, CategoryName = "Necklaces" },
+                new Categories() { CategoryID = 4, CategoryName = "Rings" }
             );
             context.Colors.AddOrUpdate(
                 x => x.ColorID,
-                new Colors() { ColorID = 1, Color = "18k Gold" }
+                new Colors() { ColorID = 1, Color = "18k-Gold" }
             );
             context.Sizes.AddOrUpdate(
                 x => x.SizeID,
@@ -36,14 +36,18 @@ namespace ANVI_Mvc.Migrations
                 new Sizes() { SizeID = 5, SizeTitle = "鏈長", SizeContext = "42" },
                 new Sizes() { SizeID = 6, SizeTitle = "鏈長", SizeContext = "46" },
                 new Sizes() { SizeID = 7, SizeTitle = "尺寸", SizeContext = "2" },
-                new Sizes() { SizeID = 8, SizeTitle = "尺寸", SizeContext = "3" }
+                new Sizes() { SizeID = 8, SizeTitle = "尺寸", SizeContext = "3" },
+                new Sizes() { SizeID = 9, SizeTitle = "尺寸", SizeContext = "5" },
+                new Sizes() { SizeID = 10, SizeTitle = "尺寸", SizeContext = "6" },
+                new Sizes() { SizeID = 11, SizeTitle = "尺寸", SizeContext = "7" }
             );
             context.Products.AddOrUpdate(
                 x => x.ProductID,
                 new Products() { ProductID = 1, ProductName = "細珠純銀手鍊", CategoryID = 1, UnitPrice = 1250, DesSubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味", DesDetail = "材質：純銀\r\n顏色：18k金層\r\n鏈長：14/15.5/17 cm（可調整）\r\nMORE INFORMATION" },
                 new Products() { ProductID = 2, ProductName = "鋯石純銀耳扣", CategoryID = 2, UnitPrice = 1580, DesSubTitle = "潮流型女絕不能錯過的個性耳扣，無須耳洞直接掛上耳骨，為雙耳添上時髦魅力。", DesDetail = "材質：純銀、2mm手工精鑲鋯石\r\n顏色：18k金層\r\n尺寸：單一尺寸" },
                 new Products() { ProductID = 3, ProductName = "細珠層次純銀項鍊", CategoryID = 3, UnitPrice = 2250, DesSubTitle = "多層次項鍊帶有高調華麗姿態，簡約細鍊與細小圓珠卻個性、時髦還帶有優雅性感，各種場合與穿搭都派得上場！", DesDetail = "材質：純銀\r\n顏色：18k金層\r\n鏈長：42/46 cm（可調整）" },
-                new Products() { ProductID = 4, ProductName = "八芒星圖章純銀尾戒", CategoryID = 4, UnitPrice = 1700, DesSubTitle = "潮流型女絕不能錯過的圖章尾戒，簡約大方個性十足，與其他款式做多層次穿搭，帶來新舊元素的完美結合。", DesDetail = "純銀材質\r\n18k金層\r\n1mm 手工精鑲鋯石\r\n尺寸：2 / 3" }
+                new Products() { ProductID = 4, ProductName = "八芒星圖章純銀尾戒", CategoryID = 4, UnitPrice = 1700, DesSubTitle = "潮流型女絕不能錯過的圖章尾戒，簡約大方個性十足，與其他款式做多層次穿搭，帶來新舊元素的完美結合。", DesDetail = "純銀材質\r\n18k金層\r\n1mm 手工精鑲鋯石\r\n尺寸：2 / 3" },
+                new Products() { ProductID = 5, ProductName = "鋯石C字戒指", CategoryID = 4, UnitPrice = 900, DesSubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味。", DesDetail = "材質：純銀、1mm手工精鑲鋯石\r\n顏色：18k金層\r\n尺寸：5 / 6 / 7" }
             );
             context.ProductDestails.AddOrUpdate(
                 x => x.PDID,
@@ -54,7 +58,10 @@ namespace ANVI_Mvc.Migrations
                 new ProductDestails() { PDID = "3-1", ProductID = 3, Stock = 5, SizeID = 5, ColorID = 1 },
                 new ProductDestails() { PDID = "3-2", ProductID = 3, Stock = 5, SizeID = 6, ColorID = 1 },
                 new ProductDestails() { PDID = "4-1", ProductID = 4, Stock = 3, SizeID = 7, ColorID = 1 },
-                new ProductDestails() { PDID = "4-2", ProductID = 4, Stock = 3, SizeID = 8, ColorID = 1 }
+                new ProductDestails() { PDID = "4-2", ProductID = 4, Stock = 3, SizeID = 8, ColorID = 1 },
+                new ProductDestails() { PDID = "5-1", ProductID = 5, Stock = 4, SizeID = 9, ColorID = 1 },
+                new ProductDestails() { PDID = "5-2", ProductID = 5, Stock = 10, SizeID = 10, ColorID = 1 },
+                new ProductDestails() { PDID = "5-3", ProductID = 5, Stock = 3, SizeID = 11, ColorID = 1 }
             );
             context.Image.AddOrUpdate(
                 x => x.ImgID,
@@ -66,7 +73,10 @@ namespace ANVI_Mvc.Migrations
                 new Image() { ImgID = 6, PDID = "3-1", ImgName = "細珠層次純銀項鍊1" },
                 new Image() { ImgID = 7, PDID = "3-1", ImgName = "細珠層次純銀項鍊2" },
                 new Image() { ImgID = 8, PDID = "4-1", ImgName = "八芒星圖章純銀尾戒1" },
-                new Image() { ImgID = 9, PDID = "4-1", ImgName = "八芒星圖章純銀尾戒2" }
+                new Image() { ImgID = 9, PDID = "4-1", ImgName = "八芒星圖章純銀尾戒2" },
+                new Image() { ImgID = 10, PDID = "5-1", ImgName = "R19402-2_600x.jpg" },
+                new Image() { ImgID = 11, PDID = "5-1", ImgName = "c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" },
+                new Image() { ImgID = 12, PDID = "5-1", ImgName = "C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" }
             );
             context.Customers.AddOrUpdate(
                 x => x.CustomerID,

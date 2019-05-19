@@ -212,12 +212,19 @@
     <Content Include="Assets\css\information.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\style201905181228.css" />
+    <Content Include="Assets\images\Color\18k-Gold.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x %281%29.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Nav_370x230%402x.png" />
+    <Content Include="Assets\images\Necklaces\N19304G_400x.png" />
+    <Content Include="Assets\images\Necklaces\N19304S_400x.png" />
+    <Content Include="Assets\images\Necklaces\N_BAE_G_2_300x.jpg" />
+    <Content Include="Assets\images\Necklaces\N_BAE_G_2_400x.jpg" />
+    <Content Include="Assets\images\Necklaces\N_BAE_S_2_300x.jpg" />
+    <Content Include="Assets\images\Necklaces\N_BAE_S_2_400x.jpg" />
     <Content Include="Assets\images\prodownlond\18k-gold.png" />
     <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_300x.jpg" />
     <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_400x.jpg" />
@@ -244,6 +251,11 @@
     <Content Include="Assets\images\prodownlond\R19402_700x.jpg" />
     <Content Include="Assets\images\prodownlond\R19402_800x.jpg" />
     <Content Include="Assets\images\prodownlond\R19402_900x.jpg" />
+    <Content Include="Assets\images\Rings\c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" />
+    <Content Include="Assets\images\Rings\C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" />
+    <Content Include="Assets\images\Rings\c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" />
+    <Content Include="Assets\images\Rings\R19402-2_600x.jpg" />
+    <Content Include="Assets\images\Rings\R19402_700x.jpg" />
     <Content Include="Assets\js\information.js" />
     <Content Include="Assets\js\JavaScript201905181231.js" />
     <Content Include="Assets\js\site.js" />
@@ -309,8 +321,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\images\Bracelets\" />
     <Folder Include="Assets\images\EarRings\" />
-    <Folder Include="Assets\images\Necklaces\" />
-    <Folder Include="Assets\images\Rings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
