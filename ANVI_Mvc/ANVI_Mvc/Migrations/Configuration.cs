@@ -65,18 +65,20 @@ namespace ANVI_Mvc.Migrations
             );
             context.Images.AddOrUpdate(
                 x => x.ImgID,
-                new Image() { ImgID = 1, PDID = "1-1", ImgName = "²Ó¯]¯Â»È¤âÁå1" },
-                new Image() { ImgID = 2, PDID = "1-1", ImgName = "²Ó¯]¯Â»È¤âÁå2" },
-                new Image() { ImgID = 3, PDID = "1-1", ImgName = "²Ó¯]¯Â»È¤âÁå3" },
-                new Image() { ImgID = 4, PDID = "2-1", ImgName = "èp¥Û¯Â»È¦Õ¦©1" },
-                new Image() { ImgID = 5, PDID = "2-1", ImgName = "èp¥Û¯Â»È¦Õ¦©2" },
-                new Image() { ImgID = 6, PDID = "3-1", ImgName = "²Ó¯]¼h¦¸¯Â»È¶µÁå1" },
-                new Image() { ImgID = 7, PDID = "3-1", ImgName = "²Ó¯]¼h¦¸¯Â»È¶µÁå2" },
-                new Image() { ImgID = 8, PDID = "4-1", ImgName = "¤K¨~¬P¹Ï³¹¯Â»È§À§Ù1" },
-                new Image() { ImgID = 9, PDID = "4-1", ImgName = "¤K¨~¬P¹Ï³¹¯Â»È§À§Ù2" },
-                new Image() { ImgID = 10, PDID = "5-1", ImgName = "R19402-2_600x.jpg" },
-                new Image() { ImgID = 11, PDID = "5-1", ImgName = "c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" },
-                new Image() { ImgID = 12, PDID = "5-1", ImgName = "C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" }
+                new Image() { ImgID = 1, PDID = "1-1", ImgName = "B19401_400x.jpg" },
+                new Image() { ImgID = 2, PDID = "1-1", ImgName = "3_ebcf859e-215d-4b14-8a01-6ad2535e40a2_600x.jpg" },
+                new Image() { ImgID = 3, PDID = "1-1", ImgName = "4_970e215a-18c2-4afb-826f-0c5b3835757b_900x.jpg" },
+                new Image() { ImgID = 4, PDID = "2-1", ImgName = "E19402G-1_900x.jpg" },
+                new Image() { ImgID = 5, PDID = "2-1", ImgName = "G3_a94660c7-92de-46e5-966d-617f55f9d59e_900x.jpg" },
+                new Image() { ImgID = 6, PDID = "3-1", ImgName = "N19402G_900x.jpg" },
+                new Image() { ImgID = 7, PDID = "3-1", ImgName = "3_3_2e459b5c-083d-4682-9861-2718a9292092_900x.jpg" },
+                new Image() { ImgID = 8, PDID = "4-1", ImgName = "R19401_900x.jpg" },
+                new Image() { ImgID = 9, PDID = "4-1", ImgName = "3_e011466f-942c-4c87-87df-cfaa3f0b17ee_900x.jpg" },
+                new Image() { ImgID = 10, PDID = "5-1", ImgName = "R19402-2_900x.jpg" },
+                new Image() { ImgID = 11, PDID = "5-1", ImgName = "c_2_7563982b-8284-4637-a92b-a3763e0256d3_900x.jpg" },
+                new Image() { ImgID = 12, PDID = "5-1", ImgName = "c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_900x.jpg" },
+                new Image() { ImgID = 13, PDID = "5-1", ImgName = "C_3_ef589395-f96a-4215-8b61-841d4fc579cf_900x.jpg" },
+                new Image() { ImgID = 14, PDID = "5-1", ImgName = "c_2_7563982b-8284-4637-a92b-a3763e0256d3_900x.jpg" }
             );
             context.Customers.AddOrUpdate(
                 x => x.CustomerID,

@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -197,58 +200,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AnviRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
     <Content Include="Assets\css\information.css" />
     <Content Include="Assets\css\site.css" />
-    <Content Include="Assets\css\style201905181228.css" />
+    <Content Include="Assets\css\ProductDetailPage.css" />
+    <Content Include="Assets\css\ProductPage.css" />
+    <Content Include="Assets\images\Bracelets\3_ebcf859e-215d-4b14-8a01-6ad2535e40a2_600x.jpg" />
+    <Content Include="Assets\images\Bracelets\4_970e215a-18c2-4afb-826f-0c5b3835757b_900x.jpg" />
+    <Content Include="Assets\images\Bracelets\B19401_400x.jpg" />
     <Content Include="Assets\images\Color\18k-Gold.png" />
+    <Content Include="Assets\images\EarRings\E19402G-1_900x.jpg" />
+    <Content Include="Assets\images\EarRings\G3_a94660c7-92de-46e5-966d-617f55f9d59e_900x.jpg" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x %281%29.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Nav_370x230%402x.png" />
-    <Content Include="Assets\images\Necklaces\N19304G_400x.png" />
-    <Content Include="Assets\images\Necklaces\N19304S_400x.png" />
-    <Content Include="Assets\images\Necklaces\N_BAE_G_2_300x.jpg" />
-    <Content Include="Assets\images\Necklaces\N_BAE_G_2_400x.jpg" />
-    <Content Include="Assets\images\Necklaces\N_BAE_S_2_300x.jpg" />
-    <Content Include="Assets\images\Necklaces\N_BAE_S_2_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\18k-gold.png" />
-    <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_300x.jpg" />
-    <Content Include="Assets\images\prodownlond\2_254747e7-350d-4e7c-a0e1-1c9a7584265d_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\ANVI-Logo-Black_140x.png" />
-    <Content Include="Assets\images\prodownlond\ANVI_FAVICON_32x32.png" />
-    <Content Include="Assets\images\prodownlond\cursor-zoom-in.svg" />
-    <Content Include="Assets\images\prodownlond\c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" />
-    <Content Include="Assets\images\prodownlond\C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" />
-    <Content Include="Assets\images\prodownlond\c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" />
-    <Content Include="Assets\images\prodownlond\N19303-1G_400x.png" />
-    <Content Include="Assets\images\prodownlond\N19303-1S_400x.png" />
-    <Content Include="Assets\images\prodownlond\N19304G_400x.png" />
-    <Content Include="Assets\images\prodownlond\N19304S_400x.png" />
-    <Content Include="Assets\images\prodownlond\N19405_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_BAE_G_2_300x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_BAE_G_2_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_BAE_S_2_300x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_BAE_S_2_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_LOVE_G_1_300x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_LOVE_G_1_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_LOVE_S_1_300x.jpg" />
-    <Content Include="Assets\images\prodownlond\N_LOVE_S_1_400x.jpg" />
-    <Content Include="Assets\images\prodownlond\R19402-2_250x.jpg" />
-    <Content Include="Assets\images\prodownlond\R19402_700x.jpg" />
-    <Content Include="Assets\images\prodownlond\R19402_800x.jpg" />
-    <Content Include="Assets\images\prodownlond\R19402_900x.jpg" />
-    <Content Include="Assets\images\Rings\c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" />
-    <Content Include="Assets\images\Rings\C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" />
-    <Content Include="Assets\images\Rings\c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" />
-    <Content Include="Assets\images\Rings\R19402-2_600x.jpg" />
-    <Content Include="Assets\images\Rings\R19402_700x.jpg" />
+    <Content Include="Assets\images\Necklaces\3_3_2e459b5c-083d-4682-9861-2718a9292092_900x.jpg" />
+    <Content Include="Assets\images\Necklaces\N19402G_900x.jpg" />
+    <Content Include="Assets\images\Rings\3_e011466f-942c-4c87-87df-cfaa3f0b17ee_900x.jpg" />
+    <Content Include="Assets\images\Rings\c_2_7563982b-8284-4637-a92b-a3763e0256d3_900x.jpg" />
+    <Content Include="Assets\images\Rings\C_3_ef589395-f96a-4215-8b61-841d4fc579cf_900x.jpg" />
+    <Content Include="Assets\images\Rings\c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19401_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19402-2_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19402_900x.jpg" />
     <Content Include="Assets\js\information.js" />
-    <Content Include="Assets\js\JavaScript201905181231.js" />
+    <Content Include="Assets\js\ProductPage.js" />
+    <Content Include="Assets\js\ProductDetailPage.js" />
     <Content Include="Assets\js\site.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -307,12 +290,10 @@
     <Content Include="Views\Shared\_Layout_ANVI_header.cshtml" />
     <Content Include="Views\Home\ProductDetailPage.cshtml" />
     <Content Include="Views\Home\Order_Customer.cshtml" />
+    <Content Include="Views\Home\ProductsPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\images\Bracelets\" />
-    <Folder Include="Assets\images\EarRings\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

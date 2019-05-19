@@ -479,3 +479,5 @@ D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.dll
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml

@@ -1,0 +1,436 @@
+﻿
+@{
+    ViewBag.Title = "ProductsPage";
+}
+
+@section topCSS
+{
+    <link href="~/Assets/css/ProductPage.css" rel="stylesheet" />
+}
+@section endJS
+{
+    <script type="text/javascript" src="~/Assets/js/ProductPage.js"></script>
+}
+<header class="PageHeader">
+    <div class="Container">
+        <div class="SectionHeader">
+            <h1 class="SectionHeader_Heading">PRODUCTS</h1>
+        </div>
+    </div>
+</header>
+<div class="CollectionMain">
+    <div class="ProductItemListWrapper">
+    <div class="ProductItemList ">
+        @for (int i = 0; i < 10; i++)
+        {
+            <div id="i@(i+1)" class="Grid__Cell animated-block">
+                <div class="ProductItem">
+                    <a src="">
+                        <img class="img_bottom" src="/image/S3_400x.jpg" alt=""/>
+                        <img id="#S@(i+1)" src="/image/E19301_1000x.jpg" alt=""/>
+                    </a>
+                    <div class="ProductItem_Info ">
+                        <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                        <div class="ProductItem_PriceList Heading">
+                            <span class="ProductItem_Price">
+                                <span>$1,000 TWD</span>
+                            </span>
+                        </div>
+                        @*<div class="ProductItem_ColorSwatchList">
+                            <div class="ProductItem_ColorSwatchItem">
+                                <div class="ColorSwatchItem">
+                                    <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="1" src="image/1.jpeg"></label>
+                                </div>
+                                <div class="ColorSwatchItem">
+                                    <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="2" src="image/2.jpeg"> </label>
+                                </div>
+                                <div class="ColorSwatchItem">
+                                    <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="3" src="image/3.jpg"> </label>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        }
+    @*<div id="i1" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/S3_400x.jpg" alt=""/>
+                <img id="change" src="/image/E19301_1000x.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="1" src="image/1.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="2" src="image/2.jpeg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" check="#S1" value="3" src="image/3.jpg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i2" class="Grid__Cell  animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/1.1.jpg" alt=""/>
+                <img id="#S2" src="/image/1.jpeg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i3" class="Grid__Cell  animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/2.1.jpg" alt=""/>
+                <img id="#S3" src="/image/2.jpeg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i4" class="Grid__Cell  animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/3.1.jpg" alt=""/>
+                <img id="#S4" src="/image/3.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i5" class="Grid__Cell  animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/4.1.jpg" alt=""/>
+                <img id="#S5" src="/image/4.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i6" class="Grid__Cell  animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/5.1.jpg" alt=""/>
+                <img id="#S6" src="/image/5.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i7" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/6.1.jpg" alt=""/>
+                <img id="#S7" src="/image/6.png" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i8" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/S3_400x.jpg" alt=""/>
+                <img id="#S8" src="/image/E19301_1000x.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i9" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/7.1.jpg" alt=""/>
+                <img id="#S9" src="/image/7.png" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i10" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/8.1.jpg" alt=""/>
+                <img id="#S10" src="/image/8.png" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i11" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/9.1.jpg" alt=""/>
+                <img id="#S11" src="/image/9.png" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i12" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/10.1.jpg" alt=""/>
+                <img id="#S12" src="/image/10.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="i13" class="Grid__Cell animated-block">
+        <div class="ProductItem">
+            <a src="">
+                <img class="img_bottom" src="/image/11.1.jpg" alt=""/>
+                <img id="#S13" src="/image/11.jpg" alt=""/>
+            </a>
+            <div class="ProductItem_Info ">
+                <h2 class="ProductItem_Title Heading">鋯石純銀耳環</h2>
+                <div class="ProductItem_PriceList Heading">
+                    <span class="ProductItem_Price">
+                        <span>$1,000 TWD</span>
+                    </span>
+                </div>
+                <div class="ProductItem_ColorSwatchList">
+                    <div class="ProductItem_ColorSwatchItem">
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="1" src="image/2.jpeg"></label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="2" src="image/3.jpg"> </label>
+                        </div>
+                        <div class="ColorSwatchItem">
+                            <label class="ColorSwatch ColorSwatch-small Cl" value="3" src="image/1.jpeg"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    </div>
+    </div>
+</div>
