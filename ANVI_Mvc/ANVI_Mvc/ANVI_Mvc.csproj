@@ -208,7 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
-    <Content Include="Assets\css\information.css" />
+    <Content Include="Assets\css\Order_Customer.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\ProductDetailPage.css" />
     <Content Include="Assets\css\ProductPage.css" />
@@ -233,7 +233,7 @@
     <Content Include="Assets\images\Rings\R19401_900x.jpg" />
     <Content Include="Assets\images\Rings\R19402-2_900x.jpg" />
     <Content Include="Assets\images\Rings\R19402_900x.jpg" />
-    <Content Include="Assets\js\information.js" />
+    <Content Include="Assets\js\Order_Customer.js" />
     <Content Include="Assets\js\ProductPage.js" />
     <Content Include="Assets\js\ProductDetailPage.js" />
     <Content Include="Assets\js\site.js" />
