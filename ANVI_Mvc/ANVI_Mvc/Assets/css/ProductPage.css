@@ -418,7 +418,7 @@ template {
 
 .ProductItemListWrapper .Grid__Cell {
   display: inline-block;
-  padding: 0 24px;
+  padding-left: 60px;
   margin-bottom: 50px;
   width: 20%;
 }
@@ -444,6 +444,7 @@ template {
   /* CSS3淡出淡入效果,1秒 */
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+  background-color: #ffffff;
 }
 
 .ProductItemListWrapper a .img_bottom {
@@ -455,10 +456,6 @@ template {
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   z-index: -1;
-}
-
-.ProductItemListWrapper a img:nth-of-type(2) {
-  background: #ffffff;
 }
 
 .ProductItemListWrapper a img:nth-of-type(2):hover {

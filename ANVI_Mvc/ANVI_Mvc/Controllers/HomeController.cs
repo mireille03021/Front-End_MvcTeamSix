@@ -24,6 +24,7 @@ namespace ANVI_Mvc.Controllers
         public ActionResult ProductsPage() //商品頁面
         {
             List<Product> products = db.Products.ToList();
+
             ViewBag.products = products;
 
             var list = from cat in db.Categories
@@ -42,7 +43,7 @@ namespace ANVI_Mvc.Controllers
 
             return View();
         }
-        public ActionResult ProductDetailPage()  //單一商品頁面
+        public ActionResult ProductDetailPage(int id)  //單一商品頁面
         {
             return View();
         }
