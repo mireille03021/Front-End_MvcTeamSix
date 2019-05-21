@@ -178,21 +178,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905190636027_initialDB.cs" />
-    <Compile Include="Migrations\201905190636027_initialDB.Designer.cs">
-      <DependentUpon>201905190636027_initialDB.cs</DependentUpon>
+    <Compile Include="Migrations\201905211824304_initialDB.cs" />
+    <Compile Include="Migrations\201905211824304_initialDB.Designer.cs">
+      <DependentUpon>201905211824304_initialDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905210915089_v1.cs" />
-    <Compile Include="Migrations\201905210915089_v1.Designer.cs">
-      <DependentUpon>201905210915089_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201905211827140_v1.cs" />
+    <Compile Include="Migrations\201905211827140_v1.Designer.cs">
+      <DependentUpon>201905211827140_v1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905210951193_v2.cs" />
-    <Compile Include="Migrations\201905210951193_v2.Designer.cs">
-      <DependentUpon>201905210951193_v2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905211717511_v21.cs" />
-    <Compile Include="Migrations\201905211717511_v21.Designer.cs">
-      <DependentUpon>201905211717511_v21.cs</DependentUpon>
+    <Compile Include="Migrations\201905211830477_v11.cs" />
+    <Compile Include="Migrations\201905211830477_v11.Designer.cs">
+      <DependentUpon>201905211830477_v11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,8 +213,11 @@
     <Compile Include="Models\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AnviRepository.cs" />
+    <Compile Include="Services\ProductViewModelService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ProductsPageViewModel.cs" />
+    <Compile Include="ViewModels\ProductDetailViewModel.cs" />
+    <Compile Include="ViewModels\ProductPageViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
@@ -350,17 +349,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905190636027_initialDB.resx">
-      <DependentUpon>201905190636027_initialDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905211824304_initialDB.resx">
+      <DependentUpon>201905211824304_initialDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905210915089_v1.resx">
-      <DependentUpon>201905210915089_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905211827140_v1.resx">
+      <DependentUpon>201905211827140_v1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905210951193_v2.resx">
-      <DependentUpon>201905210951193_v2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905211717511_v21.resx">
-      <DependentUpon>201905211717511_v21.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905211830477_v11.resx">
+      <DependentUpon>201905211830477_v11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

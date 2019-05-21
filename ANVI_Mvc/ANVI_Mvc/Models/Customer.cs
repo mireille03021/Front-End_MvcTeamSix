@@ -14,7 +14,6 @@ namespace ANVI_Mvc.Models
             Orders = new HashSet<Order>();
         }
 
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomerID { get; set; }
 

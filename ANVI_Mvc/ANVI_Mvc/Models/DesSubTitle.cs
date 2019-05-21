@@ -9,7 +9,6 @@ namespace ANVI_Mvc.Models
     public partial class DesSubTitle
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DSTID { get; set; }
 
         public int ProductID { get; set; }
@@ -17,6 +16,6 @@ namespace ANVI_Mvc.Models
         [Required]
         public string SubTitle { get; set; }
 
-        public virtual Product Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

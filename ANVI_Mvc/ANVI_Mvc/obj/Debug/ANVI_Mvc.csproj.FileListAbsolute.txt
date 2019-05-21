@@ -477,10 +477,9 @@ D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CoreComp
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CopyComplete
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v1.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v2.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v21.resources
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v11.resources

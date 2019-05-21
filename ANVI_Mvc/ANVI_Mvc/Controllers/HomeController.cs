@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ANVI_Mvc.Models;
+using ANVI_Mvc.Services;
 using ANVI_Mvc.ViewModels;
 
 namespace ANVI_Mvc.Controllers
@@ -30,7 +31,7 @@ namespace ANVI_Mvc.Controllers
             var list = from cat in db.Categories
                 join p in db.Products on cat.CategoryID equals p.CategoryID
                 join pd in db.ProductDetails on p.ProductID equals pd.ProductID
-                select new pdTmp
+                select new ProductPageViewModel
                 {
                     ProductID = p.ProductID,
                     PDID = pd.PDID,
@@ -45,6 +46,8 @@ namespace ANVI_Mvc.Controllers
         }
         public ActionResult ProductDetailPage(int id)  //單一商品頁面
         {
+            ProductViewModelService service = new ProductViewModelService(db, id);
+            ViewData.Model = service.PVM;
             return View();
         }
         public ActionResult Cart()  //購物車頁面

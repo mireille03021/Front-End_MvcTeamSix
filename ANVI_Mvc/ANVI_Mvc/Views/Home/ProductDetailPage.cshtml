@@ -27,16 +27,21 @@
                                 <a class="PSS_Dot" href="#"></a>
                             </div>
                         </div> -->
-
-                        <div>
-                            <img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" alt="">
-                        </div>
-                        <div>
-                            <img src="~/Assets/images/Rings/c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" alt="">
-                        </div>
-                        <div>
-                            <img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" alt="">
-                        </div>
+                        @foreach (var image in Model.Images)
+                        {
+                            <div>
+                                <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
+                            </div>
+                        }
+                        @*<div>
+                                <img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="~/Assets/images/Rings/c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" alt="">
+                            </div>*@
                     </div>
                     <div id="PSF">
                         <!-- 縮小的RWD -->

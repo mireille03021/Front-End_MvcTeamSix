@@ -4,8 +4,8 @@
 @{
     ViewBag.Title = "ProductsPage";
     List<Product> products = (List<Product>)ViewBag.products;
-    List<Image> images = (List<Image>) ViewBag.Images;
-    List<pdTmp> pdTmps = (List<pdTmp>) ViewBag.productDetails;
+    List<Image> images = (List<Image>)ViewBag.Images;
+    List<ProductPageViewModel> pdTmps = (List<ProductPageViewModel>)ViewBag.productDetails;
     int current = 0;
 }
 
@@ -36,7 +36,7 @@
                             {
                                 if (products[i].ProductID == item.ProductID)
                                 {
-                                    var imgList = images.Where(x=>x.PDID == item.PDID).Select(x=>x.ImgName).ToList();
+                                    var imgList = images.Where(x => x.PDID == item.PDID).Select(x => x.ImgName).ToList();
                                     <img class="img_bottom" src="~/Assets/images/@item.CategoryName/@imgList[1]" alt="" />
                                     <img id="#S@(i + 1)" src="~/Assets/images/@item.CategoryName/@imgList[0]" alt="" />
                                     break;

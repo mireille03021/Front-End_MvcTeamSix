@@ -3,7 +3,7 @@ namespace ANVI_Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class v21 : DbMigration
+    public partial class v1 : DbMigration
     {
         public override void Up()
         {

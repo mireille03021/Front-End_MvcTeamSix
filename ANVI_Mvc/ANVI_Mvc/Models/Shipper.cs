@@ -14,7 +14,6 @@ namespace ANVI_Mvc.Models
             Orders = new HashSet<Order>();
         }
 
-        [Key]
         public int ShipperID { get; set; }
 
         [Required]

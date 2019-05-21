@@ -14,7 +14,6 @@ namespace ANVI_Mvc.Models
             Products = new HashSet<Product>();
         }
 
-        [Key]
         public int CategoryID { get; set; }
 
         [Required]

@@ -14,7 +14,7 @@ namespace ANVI_Mvc.Models
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int OrderID { get; set; }
 
         public int CustomerID { get; set; }
@@ -51,11 +51,11 @@ namespace ANVI_Mvc.Models
 
         public DateTime ShipDate { get; set; }
 
-        public virtual Customer Customers { get; set; }
+        public virtual Customer Customer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual Shipper Shippers { get; set; }
+        public virtual Shipper Shipper { get; set; }
     }
 }

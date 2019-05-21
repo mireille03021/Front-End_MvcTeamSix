@@ -14,7 +14,6 @@ namespace ANVI_Mvc.Models
             ProductDetails = new HashSet<ProductDetail>();
         }
 
-        [Key]
         public int ColorID { get; set; }
 
         [Required]

@@ -17,6 +17,6 @@ namespace ANVI_Mvc.Models
         [StringLength(50)]
         public string Detail { get; set; }
 
-        public virtual Product Products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

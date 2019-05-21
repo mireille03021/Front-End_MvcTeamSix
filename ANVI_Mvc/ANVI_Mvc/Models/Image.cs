@@ -9,7 +9,6 @@ namespace ANVI_Mvc.Models
     public partial class Image
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ImgID { get; set; }
 
         [Required]
@@ -20,6 +19,6 @@ namespace ANVI_Mvc.Models
         [StringLength(100)]
         public string ImgName { get; set; }
 
-        public virtual ProductDetail ProductDetails { get; set; }
+        public virtual ProductDetail ProductDetail { get; set; }
     }
 }
