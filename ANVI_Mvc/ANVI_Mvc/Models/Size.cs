@@ -11,7 +11,7 @@ namespace ANVI_Mvc.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Size()
         {
-            ProductDestails = new HashSet<ProductDetail>();
+            ProductDetails = new HashSet<ProductDetail>();
         }
 
         [Key]
@@ -26,6 +26,6 @@ namespace ANVI_Mvc.Models
         public string SizeContext { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDetail> ProductDestails { get; set; }
+        public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }
 }

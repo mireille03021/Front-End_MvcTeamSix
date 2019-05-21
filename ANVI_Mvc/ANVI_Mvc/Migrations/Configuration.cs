@@ -43,13 +43,41 @@ namespace ANVI_Mvc.Migrations
             );
             context.Products.AddOrUpdate(
                 x => x.ProductID,
-                new Product() { ProductID = 1, ProductName = "細珠純銀手鍊", CategoryID = 1, UnitPrice = 1250, DesSubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味", DesDetail = "材質：純銀\r\n顏色：18k金層\r\n鏈長：14/15.5/17 cm（可調整）\r\nMORE INFORMATION" },
-                new Product() { ProductID = 2, ProductName = "鋯石純銀耳扣", CategoryID = 2, UnitPrice = 1580, DesSubTitle = "潮流型女絕不能錯過的個性耳扣，無須耳洞直接掛上耳骨，為雙耳添上時髦魅力。", DesDetail = "材質：純銀、2mm手工精鑲鋯石\r\n顏色：18k金層\r\n尺寸：單一尺寸" },
-                new Product() { ProductID = 3, ProductName = "細珠層次純銀項鍊", CategoryID = 3, UnitPrice = 2250, DesSubTitle = "多層次項鍊帶有高調華麗姿態，簡約細鍊與細小圓珠卻個性、時髦還帶有優雅性感，各種場合與穿搭都派得上場！", DesDetail = "材質：純銀\r\n顏色：18k金層\r\n鏈長：42/46 cm（可調整）" },
-                new Product() { ProductID = 4, ProductName = "八芒星圖章純銀尾戒", CategoryID = 4, UnitPrice = 1700, DesSubTitle = "潮流型女絕不能錯過的圖章尾戒，簡約大方個性十足，與其他款式做多層次穿搭，帶來新舊元素的完美結合。", DesDetail = "純銀材質\r\n18k金層\r\n1mm 手工精鑲鋯石\r\n尺寸：2 / 3" },
-                new Product() { ProductID = 5, ProductName = "鋯石C字戒指", CategoryID = 4, UnitPrice = 900, DesSubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味。", DesDetail = "材質：純銀、1mm手工精鑲鋯石\r\n顏色：18k金層\r\n尺寸：5 / 6 / 7" }
+                new Product() { ProductID = 1, ProductName = "細珠純銀手鍊", CategoryID = 1, UnitPrice = 1250 },
+                new Product() { ProductID = 2, ProductName = "鋯石純銀耳扣", CategoryID = 2, UnitPrice = 1580 },
+                new Product() { ProductID = 3, ProductName = "細珠層次純銀項鍊", CategoryID = 3, UnitPrice = 2250 },
+                new Product() { ProductID = 4, ProductName = "八芒星圖章純銀尾戒", CategoryID = 4, UnitPrice = 1700 },
+                new Product() { ProductID = 5, ProductName = "鋯石C字戒指", CategoryID = 4, UnitPrice = 900 }
             );
-            context.ProductDestails.AddOrUpdate(
+            context.DesSubTitles.AddOrUpdate(
+                x => x.DSTID,
+                new DesSubTitle() { DSTID = 1, ProductID = 1, SubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味" },
+                new DesSubTitle() { DSTID = 2, ProductID = 2, SubTitle = "潮流型女絕不能錯過的個性耳扣，無須耳洞直接掛上耳骨，為雙耳添上時髦魅力。" },
+                new DesSubTitle() { DSTID = 3, ProductID = 3, SubTitle = "多層次項鍊帶有高調華麗姿態，簡約細鍊與細小圓珠卻個性、時髦還帶有優雅性感，各種場合與穿搭都派得上場！" },
+                new DesSubTitle() { DSTID = 4, ProductID = 4, SubTitle = "潮流型女絕不能錯過的圖章尾戒，簡約大方個性十足，與其他款式做多層次穿搭，帶來新舊元素的完美結合。" },
+                new DesSubTitle() { DSTID = 5, ProductID = 5, SubTitle = "將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味。" }
+            );
+            context.DesDetails.AddOrUpdate(
+                x => x.DDID,
+                new DesDetail() { DDID = 1, ProductID = 1, Detail = "材質：純銀" },
+                new DesDetail() { DDID = 2, ProductID = 1, Detail = "顏色：18k金層" },
+                new DesDetail() { DDID = 3, ProductID = 1, Detail = "鏈長：14/15.5/17 cm（可調整）" },
+                new DesDetail() { DDID = 4, ProductID = 1, Detail = "材質：純銀、2mm手工精鑲鋯石" },
+                new DesDetail() { DDID = 5, ProductID = 2, Detail = "材質：純銀、2mm手工精鑲鋯石" },
+                new DesDetail() { DDID = 6, ProductID = 2, Detail = "顏色：18k金層" },
+                new DesDetail() { DDID = 7, ProductID = 2, Detail = "尺寸：單一尺寸" },
+                new DesDetail() { DDID = 8, ProductID = 3, Detail = "材質：純銀" },
+                new DesDetail() { DDID = 9, ProductID = 3, Detail = "顏色：18k金層" },
+                new DesDetail() { DDID = 10, ProductID = 3, Detail = "鏈長：42/46 cm（可調整）" },
+                new DesDetail() { DDID = 11, ProductID = 4, Detail = "純銀材質" },
+                new DesDetail() { DDID = 12, ProductID = 4, Detail = "18k金層" },
+                new DesDetail() { DDID = 13, ProductID = 4, Detail = "1mm 手工精鑲鋯石" },
+                new DesDetail() { DDID = 14, ProductID = 4, Detail = "尺寸：2 / 3" },
+                new DesDetail() { DDID = 15, ProductID = 5, Detail = "材質：純銀、1mm手工精鑲鋯石" },
+                new DesDetail() { DDID = 16, ProductID = 5, Detail = "顏色：18k金層" },
+                new DesDetail() { DDID = 17, ProductID = 5, Detail = "尺寸：5 / 6 / 7" }
+            );
+            context.ProductDetails.AddOrUpdate(
                 x => x.PDID,
                 new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 1, ColorID = 1 },
                 new ProductDetail() { PDID = "1-2", ProductID = 1, Stock = 10, SizeID = 2, ColorID = 1 },

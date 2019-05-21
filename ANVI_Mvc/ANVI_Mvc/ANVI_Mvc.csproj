@@ -192,6 +192,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DesDetail.cs" />
+    <Compile Include="Models\DesSubTitle.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

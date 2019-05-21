@@ -11,8 +11,10 @@ namespace ANVI_Mvc.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            DesDetails = new HashSet<DesDetail>();
+            DesSubTitles = new HashSet<DesSubTitle>();
             OrderDetails = new HashSet<OrderDetail>();
-            ProductDestails = new HashSet<ProductDetail>();
+            ProductDetails = new HashSet<ProductDetail>();
         }
 
         [Key]
@@ -27,16 +29,18 @@ namespace ANVI_Mvc.Models
         [Column(TypeName = "money")]
         public decimal? UnitPrice { get; set; }
 
-        public string DesSubTitle { get; set; }
-
-        public string DesDetail { get; set; }
-
         public virtual Category Categories { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DesDetail> DesDetails { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DesSubTitle> DesSubTitles { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDetail> ProductDestails { get; set; }
+        public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }
 }

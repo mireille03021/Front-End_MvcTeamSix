@@ -29,7 +29,7 @@ namespace ANVI_Mvc.Controllers
 
             var list = from cat in db.Categories
                 join p in db.Products on cat.CategoryID equals p.CategoryID
-                join pd in db.ProductDestails on p.ProductID equals pd.ProductID
+                join pd in db.ProductDetails on p.ProductID equals pd.ProductID
                 select new pdTmp
                 {
                     ProductID = p.ProductID,

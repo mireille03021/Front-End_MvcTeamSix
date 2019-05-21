@@ -6,20 +6,17 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Image
+    public partial class DesSubTitle
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ImgID { get; set; }
+        public int DSTID { get; set; }
+
+        public int ProductID { get; set; }
 
         [Required]
-        [StringLength(10)]
-        public string PDID { get; set; }
+        public string SubTitle { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string ImgName { get; set; }
-
-        public virtual ProductDetail ProductDetails { get; set; }
+        public virtual Product Products { get; set; }
     }
 }
