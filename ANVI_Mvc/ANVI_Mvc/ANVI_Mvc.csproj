@@ -186,9 +186,17 @@
     <Compile Include="Migrations\201905210915089_v1.Designer.cs">
       <DependentUpon>201905210915089_v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905210951193_v2.cs" />
+    <Compile Include="Migrations\201905210951193_v2.Designer.cs">
+      <DependentUpon>201905210951193_v2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnviModel.cs" />
+    <Compile Include="Models\AspNetRoles.cs" />
+    <Compile Include="Models\AspNetUserClaims.cs" />
+    <Compile Include="Models\AspNetUserLogins.cs" />
+    <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -320,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905210915089_v1.resx">
       <DependentUpon>201905210915089_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905210951193_v2.resx">
+      <DependentUpon>201905210951193_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
