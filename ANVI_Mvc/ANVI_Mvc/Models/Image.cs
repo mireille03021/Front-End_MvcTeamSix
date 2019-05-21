@@ -17,7 +17,7 @@ namespace ANVI_Mvc.Models
         public string PDID { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string ImgName { get; set; }
 
         public virtual ProductDetail ProductDetails { get; set; }

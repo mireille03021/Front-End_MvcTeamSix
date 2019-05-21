@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201905210951193_v2.Designer.cs">
       <DependentUpon>201905210951193_v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905211717511_v21.cs" />
+    <Compile Include="Migrations\201905211717511_v21.Designer.cs">
+      <DependentUpon>201905211717511_v21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnviModel.cs" />
@@ -226,23 +230,46 @@
     <Content Include="Assets\images\Bracelets\4_970e215a-18c2-4afb-826f-0c5b3835757b_900x.jpg" />
     <Content Include="Assets\images\Bracelets\B19401_400x.jpg" />
     <Content Include="Assets\images\Color\18k-Gold.png" />
+    <Content Include="Assets\images\EarRings\3_ebcf859e-215d-4b14-8a01-6ad2535e40a2_900x.jpg" />
+    <Content Include="Assets\images\EarRings\4_970e215a-18c2-4afb-826f-0c5b3835757b_900x.jpg" />
+    <Content Include="Assets\images\EarRings\B19401_900x.jpg" />
     <Content Include="Assets\images\EarRings\E19402G-1_900x.jpg" />
+    <Content Include="Assets\images\EarRings\E19402_900x.jpg" />
+    <Content Include="Assets\images\EarRings\f5251328ce40a7a02253945753c430e6_900x.jpg" />
+    <Content Include="Assets\images\EarRings\G2_f583a5ec-d1b5-4c7c-aee4-d70ea9c43d85_900x.jpg" />
     <Content Include="Assets\images\EarRings\G3_a94660c7-92de-46e5-966d-617f55f9d59e_900x.jpg" />
+    <Content Include="Assets\images\EarRings\G4_7951994a-a222-4b80-8b9e-e178648ae724_900x.jpg" />
+    <Content Include="Assets\images\EarRings\G_900x.jpg" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x %281%29.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-Black_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x%402x.png" />
     <Content Include="Assets\images\Layout\ANVI-Logo-White_140x.png" />
     <Content Include="Assets\images\Layout\ANVI-Nav_370x230%402x.png" />
+    <Content Include="Assets\images\Necklaces\3_0f400335-81ef-4b14-b646-481183164d3a_900x.jpg" />
     <Content Include="Assets\images\Necklaces\3_3_2e459b5c-083d-4682-9861-2718a9292092_900x.jpg" />
+    <Content Include="Assets\images\Necklaces\3_c4bfb307-ddd3-43b2-b5bf-0bc9eb854216_900x.jpg" />
+    <Content Include="Assets\images\Necklaces\N19401B_5c4f29c5-d0a0-4d72-b6c7-e7688895c60f_900x.jpg" />
     <Content Include="Assets\images\Necklaces\N19402G_900x.jpg" />
+    <Content Include="Assets\images\Rings\1_0fe82ab3-bb99-4711-96c4-b47f2b1d25ac_900x.jpg" />
+    <Content Include="Assets\images\Rings\2_f318b4e4-ff07-4ca4-8bd8-d181206cba26_900x.jpg" />
+    <Content Include="Assets\images\Rings\3-2_900x.jpg" />
     <Content Include="Assets\images\Rings\3_e011466f-942c-4c87-87df-cfaa3f0b17ee_900x.jpg" />
     <Content Include="Assets\images\Rings\c_2_7563982b-8284-4637-a92b-a3763e0256d3_900x.jpg" />
     <Content Include="Assets\images\Rings\C_3_ef589395-f96a-4215-8b61-841d4fc579cf_900x.jpg" />
     <Content Include="Assets\images\Rings\c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_900x.jpg" />
+    <Content Include="Assets\images\Rings\Gold_900x.jpg" />
+    <Content Include="Assets\images\Rings\IG1212_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19301-1_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19301-2_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19301_900x.jpg" />
+    <Content Include="Assets\images\Rings\R19401-1_900x.jpg" />
     <Content Include="Assets\images\Rings\R19401_900x.jpg" />
     <Content Include="Assets\images\Rings\R19402-2_900x.jpg" />
     <Content Include="Assets\images\Rings\R19402_900x.jpg" />
+    <Content Include="Assets\images\Rings\RG_900x.jpg" />
+    <Content Include="Assets\images\Rings\R_1_836d4863-9ce7-40dd-8292-5854d4510951_900x.jpg" />
+    <Content Include="Assets\images\Rings\R_2_254969e1-1c77-4080-97c5-2c01f726250b_900x.jpg" />
     <Content Include="Assets\js\Order_Customer.js" />
     <Content Include="Assets\js\ProductPage.js" />
     <Content Include="Assets\js\ProductDetailPage.js" />
@@ -331,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905210951193_v2.resx">
       <DependentUpon>201905210951193_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905211717511_v21.resx">
+      <DependentUpon>201905211717511_v21.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
