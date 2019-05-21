@@ -21,7 +21,7 @@ namespace ANVI_Mvc.Models
         public int ProductID { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string ProductName { get; set; }
 
         public int? CategoryID { get; set; }
