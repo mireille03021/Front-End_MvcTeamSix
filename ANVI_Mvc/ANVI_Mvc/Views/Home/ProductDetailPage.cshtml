@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Collections
+@model ProductViewModel
 @{
     ViewBag.Title = "ProductDetailPage";
 }
@@ -47,11 +48,17 @@
                         <!-- 縮小的RWD -->
                         <div id="FV" class="FV_01">
                             <div id="FS" class="FS_01">
-                                <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" /></div>
-                                <div><img src="~/Assets/images/Rings/c_2_7563 982b-8284-4637-a92b-a3763e0256d3_700x.jpg" /></div>
-                                <div><img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" /></div>
-                                <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" /></div>
-                                <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" /></div>
+                                @foreach (var image in Model.Images)
+                                {
+                                    <div>
+                                        <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
+                                    </div>
+                                }
+                                @*<div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>
+                                    <div><img src="~/Assets/images/Rings/c_2_7563 982b-8284-4637-a92b-a3763e0256d3_700x.jpg"/></div>
+                                    <div><img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg"/></div>
+                                    <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>
+                                    <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>*@
                             </div>
                         </div>
                         <ol id="FPB" class="FPB_01">
@@ -69,8 +76,8 @@
                         <div class="container">
                             <div id="P-Meta" class="P-Meta">
                                 <h2 class="font-h6 font-Heading P-Meta-Vd">ANVI</h2>
-                                <h1 class="font-h2 font-Heading">鋯石C字戒指</h1>
-                                <div class="font-Heading P-Meta-PL">$900 TWD</div>
+                                <h1 class="font-h2 font-Heading">@Model.Product.ProductName</h1>
+                                <div class="font-Heading P-Meta-PL">$@Model.Product.UnitPrice TWD</div>
                             </div>
                             <form action="" method="post" class="P-Form">
                                 <div id="PF-V">
@@ -80,30 +87,50 @@
                                             <span id="PFON">18KGold</span>
                                             <svg class="Icon ISA"></svg>
                                         </button>
+                                        @{
+                                            var List = Model.ProductDetailViewModels.GroupBy(x => x.Color).Select(x => x.Key);
+                                            SelectList ColorList = new SelectList(List, "ColorID", "ColorName");
+                                        }
+                                        @Html.DropDownList("DropDownList_Color", ColorList)
                                     </div>
-                                    <div id="PF-O_01" class="PF-O PF-O-lab">
-                                        <span>
-                                            Size：
-                                            <button class="PFLL Text-s Link">Size chart</button>
-                                        </span>
-                                        <ul class="HorList HorList-spT">
-                                            <li class="HL-Item">
-                                                <input type="radio" id="option-1-0" name="option-1" value="5"
-                                                       class="SizeSW-Radio" checked="checked">
-                                                <label for="option-1-0" class="SizeSW">5</label>
-                                            </li>
-                                            <li class="HL-Item">
-                                                <input type="radio" id="option-1-1" name="option-1" value="6"
-                                                       class="SizeSW-Radio">
-                                                <label for="option-1-1" class="SizeSW">6</label>
-                                            </li>
-                                            <li class="HL-Item">
-                                                <input type="radio" id="option-1-2" name="option-1" value="7"
-                                                       class="SizeSW-Radio">
-                                                <label for="option-1-2" class="SizeSW">7</label>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @if (Model.ProductDetailViewModels.Select(x => x.Size).Count() > 1)
+                                    {
+                                        <div id="PF-O_01" class="PF-O PF-O-lab">
+                                            <span>
+                                                Size：
+                                                <button class="PFLL Text-s Link">Size chart</button>
+                                            </span>
+                                            <ul class="HorList HorList-spT">
+                                                @{
+                                                    var i = 0;
+                                                }
+                                                @foreach (var size in Model.ProductDetailViewModels.GroupBy(x => x.Size).Select(x => x.Key))
+                                                {
+                                                    <li class="HL-Item">
+                                                        <input type="radio" id="option-1-@i" name="option-1" value="@size.SizeContext"
+                                                               class="SizeSW-Radio" checked="checked">
+                                                        <label for="option-1-@i" class="SizeSW">@size.SizeContext</label>
+                                                    </li>
+                                                    i++;
+                                                }
+                                                @*<li class="HL-Item">
+                                                        <input type="radio" id="option-1-0" name="option-1" value="5"
+                                                               class="SizeSW-Radio" checked="checked">
+                                                        <label for="option-1-0" class="SizeSW">5</label>
+                                                    </li>
+                                                    <li class="HL-Item">
+                                                        <input type="radio" id="option-1-1" name="option-1" value="6"
+                                                               class="SizeSW-Radio">
+                                                        <label for="option-1-1" class="SizeSW">6</label>
+                                                    </li>
+                                                    <li class="HL-Item">
+                                                        <input type="radio" id="option-1-2" name="option-1" value="7"
+                                                               class="SizeSW-Radio">
+                                                        <label for="option-1-2" class="SizeSW">7</label>
+                                                    </li>*@
+                                            </ul>
+                                        </div>
+                                    }
                                     <div class="PF-O">
                                         <p class="PF-Invt Text-s">Only 3 pieces in stock!</p> <!-- 資料庫??JS?? -->
                                     </div>
