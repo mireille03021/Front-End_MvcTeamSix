@@ -221,7 +221,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\header-styles.css" />
+    <Content Include="Assets\css\Order_Check.css" />
+    <Content Include="Assets\css\Order_Customerclone.css" />
     <Content Include="Assets\css\Order_Customer.css" />
+    <Content Include="Assets\css\Order_Pay.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\ProductDetailPage.css" />
     <Content Include="Assets\css\ProductPage.css" />
@@ -250,6 +253,10 @@
     <Content Include="Assets\images\Necklaces\3_c4bfb307-ddd3-43b2-b5bf-0bc9eb854216_900x.jpg" />
     <Content Include="Assets\images\Necklaces\N19401B_5c4f29c5-d0a0-4d72-b6c7-e7688895c60f_900x.jpg" />
     <Content Include="Assets\images\Necklaces\N19402G_900x.jpg" />
+    <Content Include="Assets\images\otherphoto\2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" />
+    <Content Include="Assets\images\otherphoto\9189498-big13852424.jpg" />
+    <Content Include="Assets\images\otherphoto\ANVI-Logo-Black_140x.png" />
+    <Content Include="Assets\images\otherphoto\ANVI_LOGO120.png" />
     <Content Include="Assets\images\Rings\1_0fe82ab3-bb99-4711-96c4-b47f2b1d25ac_900x.jpg" />
     <Content Include="Assets\images\Rings\2_f318b4e4-ff07-4ca4-8bd8-d181206cba26_900x.jpg" />
     <Content Include="Assets\images\Rings\3-2_900x.jpg" />
@@ -269,6 +276,7 @@
     <Content Include="Assets\images\Rings\RG_900x.jpg" />
     <Content Include="Assets\images\Rings\R_1_836d4863-9ce7-40dd-8292-5854d4510951_900x.jpg" />
     <Content Include="Assets\images\Rings\R_2_254969e1-1c77-4080-97c5-2c01f726250b_900x.jpg" />
+    <Content Include="Assets\js\Order_Check.js" />
     <Content Include="Assets\js\Order_Customer.js" />
     <Content Include="Assets\js\ProductPage.js" />
     <Content Include="Assets\js\ProductDetailPage.js" />
@@ -331,9 +339,14 @@
     <Content Include="Views\Home\ProductDetailPage.cshtml" />
     <Content Include="Views\Home\Order_Customer.cshtml" />
     <Content Include="Views\Home\ProductsPage.cshtml" />
+    <Content Include="Views\_ViewOrder.cshtml" />
+    <Content Include="Views\Home\Order_Pay.cshtml" />
+    <Content Include="Views\Home\Order_Check.cshtml" />
+    <Content Include="Views\Home\Order_End.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\images\Logo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

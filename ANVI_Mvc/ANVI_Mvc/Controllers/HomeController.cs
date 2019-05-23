@@ -66,5 +66,9 @@ namespace ANVI_Mvc.Controllers
         {
             return View();
         }
+        public ActionResult Order_End()  //下單-確認頁面!沒有HEADER跟FOOTER
+        {
+            return View();
+        }
     }
 }
