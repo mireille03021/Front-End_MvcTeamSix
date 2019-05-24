@@ -352,9 +352,6 @@ C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bi
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csprojAssemblyReference.cache
-C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
-C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v1.resources
-C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v11.resources
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CoreCompileInputs.cache
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CopyComplete
@@ -606,3 +603,4 @@ C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bi
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialFB.resources
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
+C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialFB.resources
