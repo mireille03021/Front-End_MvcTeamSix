@@ -3,7 +3,6 @@
 @model ProductViewModel
 @{
     ViewBag.Title = "ProductDetailPage";
-    var Stock = Model.ProductDetailViewModels.Where(x => x.ColorName == ViewData["ColorName"].ToString());
 }
 @section topCSS
 {
@@ -411,7 +410,7 @@
             }
 
 
-            if (product == 0) {
+            if (product["Stock"] == 0) {
                 document.getElementsByClassName("PF-O")[2].style.display = "none"; /*消失*/
                 console.log(document.getElementsByClassName("PF-O")[2]);
                 document.getElementsByClassName("S-pay-Btn")[0].style.display = "none";

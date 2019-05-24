@@ -52,8 +52,9 @@ namespace ANVI_Mvc.Controllers
             var sPVM = service.PVM;
             ViewData.Model = sPVM;
             ViewBag.ColorList = db.Colors.ToList();
-            ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].ColorName;
             ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM.ProductDetailViewModels);
+
+            ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].ColorName;
             return View();
         }
         [HttpPost]
@@ -63,8 +64,9 @@ namespace ANVI_Mvc.Controllers
             var sPVM = service.PVM;
             ViewData.Model = sPVM;
             ViewBag.ColorList = db.Colors.ToList();
-            ViewData["ColorName"] = DropDownList_Color;
             ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM.ProductDetailViewModels);
+
+            ViewData["ColorName"] = DropDownList_Color;
             return View();
         }
         public ActionResult Cart()  //購物車頁面
