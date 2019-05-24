@@ -178,25 +178,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905211824304_initialDB.cs" />
-    <Compile Include="Migrations\201905211824304_initialDB.Designer.cs">
-      <DependentUpon>201905211824304_initialDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905211827140_v1.cs" />
-    <Compile Include="Migrations\201905211827140_v1.Designer.cs">
-      <DependentUpon>201905211827140_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905211830477_v11.cs" />
-    <Compile Include="Migrations\201905211830477_v11.Designer.cs">
-      <DependentUpon>201905211830477_v11.cs</DependentUpon>
+    <Compile Include="Migrations\201905240538315_initialDB.cs" />
+    <Compile Include="Migrations\201905240538315_initialDB.Designer.cs">
+      <DependentUpon>201905240538315_initialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnviModel.cs" />
-    <Compile Include="Models\AspNetRoles.cs" />
-    <Compile Include="Models\AspNetUserClaims.cs" />
-    <Compile Include="Models\AspNetUserLogins.cs" />
-    <Compile Include="Models\AspNetUsers.cs" />
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -205,10 +197,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\ProductDetail.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,14 +360,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905211824304_initialDB.resx">
-      <DependentUpon>201905211824304_initialDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905211827140_v1.resx">
-      <DependentUpon>201905211827140_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905211830477_v11.resx">
-      <DependentUpon>201905211830477_v11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905240538315_initialDB.resx">
+      <DependentUpon>201905240538315_initialDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
