@@ -13,7 +13,6 @@ namespace ANVI_Mvc.Models
         {
             DesDetails = new HashSet<DesDetail>();
             DesSubTitles = new HashSet<DesSubTitle>();
-            OrderDetails = new HashSet<OrderDetail>();
             ProductDetails = new HashSet<ProductDetail>();
         }
 
@@ -36,9 +35,6 @@ namespace ANVI_Mvc.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesSubTitle> DesSubTitles { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }

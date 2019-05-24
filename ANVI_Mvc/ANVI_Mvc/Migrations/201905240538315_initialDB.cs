@@ -3,7 +3,7 @@ namespace ANVI_Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialDB : DbMigration
+    public partial class initialFB : DbMigration
     {
         public override void Up()
         {
@@ -74,7 +74,7 @@ namespace ANVI_Mvc.Migrations
                 c => new
                     {
                         ProductID = c.Int(nullable: false),
-                        ProductName = c.String(nullable: false, maxLength: 20),
+                        ProductName = c.String(nullable: false, maxLength: 50),
                         CategoryID = c.Int(),
                         UnitPrice = c.Decimal(storeType: "money"),
                     })
@@ -107,19 +107,58 @@ namespace ANVI_Mvc.Migrations
                 .Index(t => t.ProductID);
             
             CreateTable(
+                "dbo.ProductDetails",
+                c => new
+                    {
+                        PDID = c.String(nullable: false, maxLength: 10),
+                        ProductID = c.Int(nullable: false),
+                        Stock = c.Int(nullable: false),
+                        SizeID = c.Int(nullable: false),
+                        ColorID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.PDID)
+                .ForeignKey("dbo.Colors", t => t.ColorID)
+                .ForeignKey("dbo.Sizes", t => t.SizeID)
+                .ForeignKey("dbo.Products", t => t.ProductID)
+                .Index(t => t.ProductID)
+                .Index(t => t.SizeID)
+                .Index(t => t.ColorID);
+            
+            CreateTable(
+                "dbo.Colors",
+                c => new
+                    {
+                        ColorID = c.Int(nullable: false, identity: true),
+                        ColorName = c.String(nullable: false, maxLength: 50),
+                    })
+                .PrimaryKey(t => t.ColorID);
+            
+            CreateTable(
+                "dbo.Images",
+                c => new
+                    {
+                        ImgID = c.Int(nullable: false, identity: true),
+                        PDID = c.String(nullable: false, maxLength: 10),
+                        ImgName = c.String(nullable: false, maxLength: 100),
+                    })
+                .PrimaryKey(t => t.ImgID)
+                .ForeignKey("dbo.ProductDetails", t => t.PDID)
+                .Index(t => t.PDID);
+            
+            CreateTable(
                 "dbo.OrderDetails",
                 c => new
                     {
-                        ProductID = c.Int(nullable: false),
+                        PDID = c.String(nullable: false, maxLength: 10),
                         OrderID = c.Int(nullable: false),
                         Price = c.Decimal(storeType: "money"),
                         Quantity = c.Decimal(storeType: "money"),
                         Discount = c.Decimal(storeType: "money"),
                     })
-                .PrimaryKey(t => new { t.ProductID, t.OrderID })
+                .PrimaryKey(t => new { t.PDID, t.OrderID })
                 .ForeignKey("dbo.Orders", t => t.OrderID)
-                .ForeignKey("dbo.Products", t => t.ProductID)
-                .Index(t => t.ProductID)
+                .ForeignKey("dbo.ProductDetails", t => t.PDID)
+                .Index(t => t.PDID)
                 .Index(t => t.OrderID);
             
             CreateTable(
@@ -173,45 +212,6 @@ namespace ANVI_Mvc.Migrations
                 .PrimaryKey(t => t.ShipperID);
             
             CreateTable(
-                "dbo.ProductDetails",
-                c => new
-                    {
-                        PDID = c.String(nullable: false, maxLength: 10),
-                        ProductID = c.Int(nullable: false),
-                        Stock = c.Int(nullable: false),
-                        SizeID = c.Int(nullable: false),
-                        ColorID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.PDID)
-                .ForeignKey("dbo.Colors", t => t.ColorID)
-                .ForeignKey("dbo.Sizes", t => t.SizeID)
-                .ForeignKey("dbo.Products", t => t.ProductID)
-                .Index(t => t.ProductID)
-                .Index(t => t.SizeID)
-                .Index(t => t.ColorID);
-            
-            CreateTable(
-                "dbo.Colors",
-                c => new
-                    {
-                        ColorID = c.Int(nullable: false, identity: true),
-                        ColorName = c.String(nullable: false, maxLength: 50),
-                    })
-                .PrimaryKey(t => t.ColorID);
-            
-            CreateTable(
-                "dbo.Images",
-                c => new
-                    {
-                        ImgID = c.Int(nullable: false, identity: true),
-                        PDID = c.String(nullable: false, maxLength: 10),
-                        ImgName = c.String(nullable: false, maxLength: 50),
-                    })
-                .PrimaryKey(t => t.ImgID)
-                .ForeignKey("dbo.ProductDetails", t => t.PDID)
-                .Index(t => t.PDID);
-            
-            CreateTable(
                 "dbo.Sizes",
                 c => new
                     {
@@ -240,12 +240,12 @@ namespace ANVI_Mvc.Migrations
         {
             DropForeignKey("dbo.ProductDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.ProductDetails", "SizeID", "dbo.Sizes");
-            DropForeignKey("dbo.Images", "PDID", "dbo.ProductDetails");
-            DropForeignKey("dbo.ProductDetails", "ColorID", "dbo.Colors");
-            DropForeignKey("dbo.OrderDetails", "ProductID", "dbo.Products");
+            DropForeignKey("dbo.OrderDetails", "PDID", "dbo.ProductDetails");
             DropForeignKey("dbo.Orders", "ShippingID", "dbo.Shippers");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
             DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
+            DropForeignKey("dbo.Images", "PDID", "dbo.ProductDetails");
+            DropForeignKey("dbo.ProductDetails", "ColorID", "dbo.Colors");
             DropForeignKey("dbo.DesSubTitles", "ProductID", "dbo.Products");
             DropForeignKey("dbo.DesDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
@@ -255,14 +255,14 @@ namespace ANVI_Mvc.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.Orders", new[] { "ShippingID" });
+            DropIndex("dbo.Orders", new[] { "CustomerID" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
+            DropIndex("dbo.OrderDetails", new[] { "PDID" });
             DropIndex("dbo.Images", new[] { "PDID" });
             DropIndex("dbo.ProductDetails", new[] { "ColorID" });
             DropIndex("dbo.ProductDetails", new[] { "SizeID" });
             DropIndex("dbo.ProductDetails", new[] { "ProductID" });
-            DropIndex("dbo.Orders", new[] { "ShippingID" });
-            DropIndex("dbo.Orders", new[] { "CustomerID" });
-            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
-            DropIndex("dbo.OrderDetails", new[] { "ProductID" });
             DropIndex("dbo.DesSubTitles", new[] { "ProductID" });
             DropIndex("dbo.DesDetails", new[] { "ProductID" });
             DropIndex("dbo.Products", new[] { "CategoryID" });
@@ -270,13 +270,13 @@ namespace ANVI_Mvc.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.Sizes");
-            DropTable("dbo.Images");
-            DropTable("dbo.Colors");
-            DropTable("dbo.ProductDetails");
             DropTable("dbo.Shippers");
             DropTable("dbo.Customers");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
+            DropTable("dbo.Images");
+            DropTable("dbo.Colors");
+            DropTable("dbo.ProductDetails");
             DropTable("dbo.DesSubTitles");
             DropTable("dbo.DesDetails");
             DropTable("dbo.Products");

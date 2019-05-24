@@ -6,7 +6,7 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class AspNetUserClaims
+    public partial class AspNetUserClaim
     {
         public int Id { get; set; }
 
@@ -18,6 +18,6 @@ namespace ANVI_Mvc.Models
 
         public string ClaimValue { get; set; }
 
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

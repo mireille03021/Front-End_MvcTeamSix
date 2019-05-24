@@ -479,10 +479,6 @@ D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.dll
 D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v1.resources
-D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v11.resources
 D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.dll.config
 D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.dll
 D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.pdb
@@ -608,3 +604,5 @@ D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.dll
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialFB.resources
+D:\Git\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.GenerateResource.cache

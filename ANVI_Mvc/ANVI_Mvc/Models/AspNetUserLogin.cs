@@ -6,7 +6,7 @@ namespace ANVI_Mvc.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class AspNetUserLogins
+    public partial class AspNetUserLogin
     {
         [Key]
         [Column(Order = 0)]
@@ -20,6 +20,6 @@ namespace ANVI_Mvc.Models
         [Column(Order = 2)]
         public string UserId { get; set; }
 
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

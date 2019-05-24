@@ -164,7 +164,7 @@ namespace ANVI_Mvc.Migrations
             );
             context.OrderDetails.AddOrUpdate(
                 x => x.OrderID,
-                new OrderDetail() { OrderID = 1, ProductID = 4, Price = 1700, Quantity = 1 }
+                new OrderDetail() { OrderID = 1, PDID = "4-1", Price = 1700, Quantity = 1 }
             );
         }
     }

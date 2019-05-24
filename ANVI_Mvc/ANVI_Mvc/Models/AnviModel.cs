@@ -11,10 +11,11 @@ namespace ANVI_Mvc.Models
             : base("name=AnviConnection")
         {
         }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
@@ -30,19 +31,19 @@ namespace ANVI_Mvc.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AspNetRoles>()
+            modelBuilder.Entity<AspNetRole>()
                 .HasMany(e => e.AspNetUsers)
                 .WithMany(e => e.AspNetRoles)
                 .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));
 
-            modelBuilder.Entity<AspNetUsers>()
+            modelBuilder.Entity<AspNetUser>()
                 .HasMany(e => e.AspNetUserClaims)
-                .WithRequired(e => e.AspNetUsers)
+                .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
 
-            modelBuilder.Entity<AspNetUsers>()
+            modelBuilder.Entity<AspNetUser>()
                 .HasMany(e => e.AspNetUserLogins)
-                .WithRequired(e => e.AspNetUsers)
+                .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
 
             modelBuilder.Entity<Color>()
@@ -81,6 +82,11 @@ namespace ANVI_Mvc.Models
                 .WithRequired(e => e.ProductDetail)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<ProductDetail>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.ProductDetail)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
@@ -92,11 +98,6 @@ namespace ANVI_Mvc.Models
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.DesSubTitles)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 

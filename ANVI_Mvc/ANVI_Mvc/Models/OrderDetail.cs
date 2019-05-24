@@ -10,8 +10,8 @@ namespace ANVI_Mvc.Models
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ProductID { get; set; }
+        [StringLength(10)]
+        public string PDID { get; set; }
 
         [Key]
         [Column(Order = 1)]
@@ -29,6 +29,6 @@ namespace ANVI_Mvc.Models
 
         public virtual Order Order { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual ProductDetail ProductDetail { get; set; }
     }
 }
