@@ -44,10 +44,23 @@ namespace ANVI_Mvc.Controllers
 
             return View();
         }
-        public ActionResult ProductDetailPage(int id)  //單一商品頁面
+        [HttpGet]
+        public ActionResult ProductDetailPage(int id)  //單一商品頁面 Get
         {
             ProductViewModelService service = new ProductViewModelService(db, id);
-            ViewData.Model = service.PVM;
+            var sPVM = service.PVM;
+            ViewData.Model = sPVM;
+            ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].Color.ColorName;
+            //ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ProductDetailPage(int id, string DropDownList_Color)  //單一商品頁面Post
+        {
+            ProductViewModelService service = new ProductViewModelService(db, id);
+            var sPVM = service.PVM;
+            ViewData.Model = sPVM;
+            ViewData["ColorName"] = DropDownList_Color;
             return View();
         }
         public ActionResult Cart()  //購物車頁面
