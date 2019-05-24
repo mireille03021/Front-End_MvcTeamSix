@@ -3,7 +3,7 @@ namespace ANVI_Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialFB : DbMigration
+    public partial class InitialFB : DbMigration
     {
         public override void Up()
         {
