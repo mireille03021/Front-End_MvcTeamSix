@@ -339,10 +339,10 @@
     <Content Include="Views\Home\ProductDetailPage.cshtml" />
     <Content Include="Views\Home\Order_Customer.cshtml" />
     <Content Include="Views\Home\ProductsPage.cshtml" />
-    <Content Include="Views\_ViewOrder.cshtml" />
+    <Content Include="Views\Home\Order_Ship.cshtml" />
     <Content Include="Views\Home\Order_Pay.cshtml" />
     <Content Include="Views\Home\Order_Check.cshtml" />
-    <Content Include="Views\Home\Order_End.cshtml" />
+    <Content Include="Views\Shared\_Layout_ANVI.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

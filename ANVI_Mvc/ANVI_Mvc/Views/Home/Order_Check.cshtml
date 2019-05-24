@@ -1,17 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "Order_Check";
+    Layout = "~/Views/Shared/_Layout_ANVI.cshtml";
+    ViewBag.Title = "Order_End";
 }
+
+
 @section topCSS
 {
     <link href="~/Assets/css/Order_Customer.css" rel="stylesheet" />
-    <link href="~/Assets/css/Order_Check.css" rel="stylesheet" />
+ 
 }
 }
 @section endJS
 {
     <script src="~/Assets/js/Order_Customer.js"></script>
 }
+
+
 <div class="content">
     <div class="wrap">
         <div class="leftview">
@@ -21,276 +26,158 @@
                         <img src="~/Assets/images/otherphoto/ANVI_LOGO120.png" alt="ANVI" class="logo_image">
                     </a>
                     <!-- <h1 class="">客戶資訊</h1> -->
-                    <ul class="bread-crumb">
-                        <li class="breadcrumb__item">
-                            <a href="/cart" class="breadcrumb__link">購物車</a><i class="fas fa-chevron-right"></i>
-                        </li>
-                        <li class="breadcrumb__item"><span class="breadcrumb__text">客戶資訊</span><i class="fas fa-chevron-right"></i></li>
-                        <li class="breadcrumb__item"><span class="breadcrumb__text">運送方式</span><i class="fas fa-chevron-right"></i></li>
-                        <li class="breadcrumb__item"><span class="breadcrumb__text">付款方式</span></li>
-                    </ul>
+
                 </div>
                 <div class="main__content">
-                    <div class="step">
-                        <form action="" class="edit_checkout">
-                            <!-- 有用input hidden去記表單 -->
-                            <div class="step__sections">
-                                <div class="section">
-                                    <div class="content-box">
-                                        <div class="content-box__row content-box__row--tight-spacing-vertical">
-                                            <div class="review-block">
-                                                <div class="review-block__inner">
-                                                    <div class="review-block__label">Contact</div>
-                                                    <div class="review-block__content">
-                                                        <bdo dir="ltr">bebe1996715548@gmail.com</bdo>
-                                                    </div>
-                                                </div>
-
-                                                <div class="review-block__link">
-                                                    <a href="" class="link--small">
-                                                        <span aria-hidden="true">Cange</span>
-                                                        <span class="visually-hidden">Change contact information</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="review-block">
-                                                <div class="review-block__inner">
-                                                    <div class="review-block__label">Ship&nbspto</div>
-                                                    <div class="review-block__content">
-                                                        <address class="address address--tight">
-                                                            新竹市香山區五福路二段,30012 新竹</ddress>
-                                                            <!-- 不知道原本這邊為啥會有一個地址元素?不懂 -->
-                                                    </div>
-                                                </div>
-                                                <div class="review-block__link">
-                                                    <a href="" class="link--small">
-                                                        <span aria-hidden="true">Cange</span>
-                                                        <span class="visually-hidden">Change contact information</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="review-block">
-                                                <div class="review-block__inner">
-                                                    <div class="review-block__label">Method</div>
-                                                    <div class="review-block__content">
-                                                        <bdo dir="ltr">FREE SHIPPING．</bdo>
 
 
+                    <div class="section">
 
-                                                        <strong class="emphasis" aria-hidden="true">免費</strong>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="section__header os-header">
+                            <!-- <svg class="icon-svg icon-svg--color-accent icon-svg--size-48 os-header__hanging-icon os-header__hanging-icon--animate" aria-hidden="true" focusable="false">
+                                <use xlink:href="#checkmark">
+                                    <symbol id="checkmark">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="none" stroke-width="2" class="checkmark">
+                                            <path class="checkmark__circle" d="M25 49c13.255 0 24-10.745 24-24S38.255 1 25 1 1 11.745 1 25s10.745 24 24 24z">
+
+                                            </path>
+                                            <path class="checkmark__check" d="M15 24.51l7.307 7.308L35.125 19"></path>
+                                        </svg>
+                            </symbol>
+                            </use>
+                            </svg> -->
+                            <div class="svggo">
+
+                            </div>
+
+                            <div class="os-header__heading ">
+                                <span class="os-order-number">訂單 #2635</span>
+                                <h2 id="main-header" class="os-header__title">感謝 "帳單姓名"!</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section__content">
+
+                            <div class="content-box">
+                                <div class="content-box__row text-container">
+
+                                    <h2 id="main-header" class="heading-2 os-step__title">您的訂單已確認</h2>
+                                    <div class="os-step__special-descriotion">
+                                        <P>戶名:超棒棒國際有限公司 AVIN CO.,LTD</P>
+                                        <P>棒棒銀行 讚讚分行(000) 0000-000-000000</P>
+                                        <P></P>
+                                        <P>▲匯款完成後請將姓名、銀行代碼/名稱、帳號末五碼、匯款金額、匯款日期及連絡電話email至XXXXXX@XXXX.com，並於標題註明Bank Deposit</P>
+                                        <P>▲請在48小時以內完成付款，否則將自動取消訂單</P>
+                                        <P>▲有問題請Instagram Inbox 或 facebook私訊小編</P>
                                     </div>
                                 </div>
-                                <div class="section section--payment-method">
-                                    <div class="section__header">
-                                        <h2 class="section__title">付款方式</h2>
-                                        <P class="section__text">
-                                            All transactions are secure and encrypted.
-                                        </P>
-                                    </div>
-                                    <div class="section__content">
-                                        <div class="content-box">
-                                            <div class="radio-wrapper content-box__row">
-
-
-
-                                                <div class="radio__input">
-                                                    <input type="radio" id="checkout_payment__gateway__6510346263" class="input-radio" name="checkout[payment__gateway]" checked="checked">
-                                                </div>
-                                                <div class="radio__label">
-                                                    <label for="checkout_payment__gateway__6510346263" class="radio__label__primary content-box__emphasis">ATM&nbsp轉帳</label>
-                                                </div>
-
-
-
-
-
-
-                                            </div>
-                                            <div id="checkout_payment__gateway__6510346263" class="radio-wrapper content-box__row content-box__row--secondary">
-                                                <div class="blank-skate">
-                                                    <P>所有訂單幣別均以"新台幣"計算。</P>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="section section--payment-method">
-                                    <div class="section__header">
-                                        <h2 class="section__title">Billing address</h2>
-
-                                    </div>
-                                    <div class="section__content">
-                                        <div class="content-box">
-                                            <div class="radio-wrapper content-box__row">
-
-
-                                                <div class="radio__input">
-                                                    <input value="false" type="radio" id="checkout_different_billing_address__false" class="input-radio" aria-label="FREE SHIPPING" name="checkout[different_billing_address]" checked="checked">
-                                                </div>
-
-                                                <label for="checkout_different_billing_address__false" class="radio__label content-box__emphasis">
-                                                    Same as shipping address
-                                                </label>
-
-
-
-                                            </div>
-
-                                            <div class="radio-wrapper content-box__row">
-
-
-                                                <div class="radio__input">
-                                                    <input value="true" type="radio" id="checkout_different_billing_address__true" class="input-radio" aria-label="FREE SHIPPING" name="checkout[different_billing_address]">
-                                                </div>
-
-                                                <label for="checkout_different_billing_address__true" class="radio__label content-box__emphasis">
-                                                    Use a different billing address
-                                                </label>
-
-                                            </div>
-                                            <div id="section--billing-address__different" class="radio-group__row content-box__row content-box__row--secondary">
-                                                <div class="fiedset">
-                                                    <div class="fieldset">
-                                                        <div class="half-to">
-                                                            <div class="field field--half">
-                                                                <div class="field__input-wrapper">
-                                                                    <!-- <label class="field__label" for="checkout_shipping_address_last_name">姓氏</label> -->
-                                                                    <input type="text" class="field__input" placeholder="姓氏" size="30" name="checkout[shipping_address][last_name]" id="checkout_shipping_address_last_name">
-                                                                </div>
-                                                            </div>
-                                                            <div class="field field--half">
-                                                                <div class="field__input-wrapper">
-                                                                    <!-- <label class="field__label" for="checkout_shipping_address_first_name">姓名</label> -->
-                                                                    <input type="text" class="field__input" placeholder="姓名" size="30" name="checkout[shipping_address][first_name]" id="checkout_shipping_address_first_name">
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="half-to">
-                                                            <div class="field field--required field--half-city field--show-floating-label" data-address-field="city" data-autocomplete-field-container="true">
-
-                                                                <div class="field__input-wrapper field__input-wrapper--select">
-                                                                    <!-- <label class="field__label field__label--visible" for="checkout_shipping_address_city">城市</label> -->
-                                                                    <select size="1" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
-                                                                        <option disabled="disabled" value="---">請選擇</option>
-                                                                        <option value="台北市"> 台北市 </option>
-                                                                        <option value="基隆市"> 基隆市 </option>
-                                                                        <option value="新北市"> 新北市 </option>
-                                                                        <option value="宜蘭縣"> 宜蘭縣 </option>
-                                                                        <option value="新竹市"> 新竹市 </option>
-                                                                        <option value="新竹縣"> 新竹縣 </option>
-                                                                        <option value="桃園縣"> 桃園縣 </option>
-                                                                        <option value="苗栗縣"> 苗栗縣 </option>
-                                                                        <option value="台中市"> 台中市 </option>
-                                                                        <option value="彰化縣"> 彰化縣 </option>
-                                                                        <option value="南投縣"> 南投縣 </option>
-                                                                        <option value="嘉義市"> 嘉義市 </option>
-                                                                        <option value="嘉義縣"> 嘉義縣 </option>
-                                                                        <option value="雲林縣"> 雲林縣 </option>
-                                                                        <option value="台南市"> 台南市 </option>
-                                                                        <option value="高雄市"> 高雄市 </option>
-                                                                        <option value="澎湖縣"> 澎湖縣 </option>
-                                                                        <option value="屏東縣"> 屏東縣 </option>
-                                                                        <option value="台東縣"> 台東縣 </option>
-                                                                        <option value="花蓮縣"> 花蓮縣 </option>
-                                                                        <option value="金門縣"> 金門縣 </option>
-                                                                        <option value="連江縣"> 連江縣 </option>
-                                                                    </select>
-
-                                                                    <div class="field__caret">
-                                                                        <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false"> <use xlink:href="#caret-down"></use> </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="field field--half-city">
-                                                                <div class="field__input-wrapper">
-                                                                    <label class="field__label">城市</label>
-                                                                    <input type="text" class="field__input" id="checkout_shipping_address_city" placeholder="城市" size="30" name="checkout[shipping_address][city]">
-                                                                </div>
-                                                            </div> -->
-                                                            <div class="field field--half-zip">
-                                                                <div class="field__input-wrapper">
-                                                                    <!-- <label class="field__label">郵遞區號</label> -->
-                                                                    <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="checkout[shipping_address][zip]">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="field">
-                                                            <div class="field__input-wrapper">
-                                                                <!-- <label class="field__label">地址</label> -->
-                                                                <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="checkout[shipping_address][address]">
-                                                            </div>
-                                                        </div>
-                                                        <div class="field">
-                                                            <div class="field__input-wrapper">
-                                                                <!-- <label class="field__label">電話</label> -->
-                                                                <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="checkout[shipping_address][phone]">
-                                                                <div id="phone_tooltip" class="field__icon">
-                                                                    <!-- <span id="tooltip-for-phone" class="tooltip">
-                                                                        In case we need to contact you about your order.
-                                                                    </span>
-                                                                    <i class="fas fa-question-circle"></i> -->
-
-                                                                    <div class="field__icon-svg" data-toggle="tooltip" data-placement="top" title=' In case we need to contact you about your order.'>
-
-                                                                        <i class="fas fa-question-circle"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-
-
                             </div>
 
 
 
+                            <div class="content-box">
+                                <div class="content-box__row text-container">
+                                    <h2 class="heading-2 os-step__title">Order updates</h2>
+                                    <p class="os-step__descriotion">You'll get shipping and delivery update by email.</p>
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="content-box">
+                                <div class="content-box__row content-box__row--no-border">
+                                    <h2 class="heading-2 os-step__title">客戶資訊</h2>
+
+                                </div>
+                                <div class="content-box__row">
+
+                                    <div class="section__content__colum section__content__colum--half">
+                                        <div class="text-container">
+                                            <h3 class="heading-3">聯絡資訊</h3>
+                                            <p>shipping@gmail.com</p>
+                                            <h3 class="heading-3">運送地址</h3>
+                                            <p>
+                                                哭 碼
+                                                <br> 哭碼的家
+                                                <br> 郵遞區號 新竹市
+
+                                            </p>
+                                            <h3 class="heading-3">運送方式</h3>
+                                            <p>FREE SHIPPING</p>
+                                        </div>
+                                    </div>
+                                    <div class="section__content__colum section__content__colum--half">
+                                        <div class="text-container">
+                                            <h3 class="heading-3">付款方式</h3>
+                                            <Ul class="payment-method-list">
+                                                <li class="payment-method-list__item">
+                                                    <span class="payment-method-list__item__info">
+                                                        ATM 轉帳
+
+                                                    </span>
+                                                </li>
+                                            </Ul>
+                                            <h3 class="heading-3">帳單地址</h3>
+                                            <p>
+                                                哭 碼
+                                                <br> 哭碼的家
+                                                <br> 郵遞區號 新竹市
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
                     </div>
-                    <div class="step__footer">
-                        <button id="continue_button" class="step__footer__continue-btn btn" type="submit" name="button">
+
+
+                    <div class=" step__footer ">
+                        <button id="continue_button " class="step__footer__continue-btn btn " type="submit " name="button ">
                             <!-- loading ICON -->
-                            <span class="btn__content">完成訂單</span>
+                            <span class="btn__content ">繼續購物</span>
                         </button>
-                        <a href="" class="step__footer__previous-link">
-                            <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">返回運送資訊</span>
-                        </a>
+                        <P class="step__footer__info">
+                            Need help?
+                            <a href=" ">
+                                Contact us
+                            </a>
+                        </P>
+
                     </div>
-                    </form>
+
                 </div>
                 <!-- 一堆SPAN -->
-                <div class="main__footer">
+                <div class="main__footer ">
                     <div>
-                        <ul class="policy-list">
+                        <ul class="policy-list ">
                             <!-- 做跳出頁面 -->
-                            <li class="policy-list__item">
-                                <a aria-haspopup="dialog" href="Refund__policy.html">Refund policy</a>
+                            <li class="policy-list__item ">
+                                <a aria-haspopup="dialog " href="Refund__policy.html ">Refund policy</a>
                             </li>
 
-                            <li class="policy-list__item">
-                                <a aria-haspopup="dialog" href="Privacy__policy.html">Privacy policy</a>
+                            <li class="policy-list__item ">
+                                <a aria-haspopup="dialog " href="Privacy__policy.html ">Privacy policy</a>
                             </li>
 
-                            <li class="policy-list__item">
-                                <a aria-haspopup="dialog" href="Terms__of__service.html">Terms of service</a>
+                            <li class="policy-list__item ">
+                                <a aria-haspopup="dialog " href="Terms__of__service.html ">Terms of service</a>
                             </li>
 
                         </ul>
@@ -301,21 +188,21 @@
 
         </div>
 
-        <div class="color-right">
-            <div class="rightview">
-                <div class="sidebar" role="complementary">
-                    <!-- <div class="sidebar__header">
-                     <a href="" class="logo">
+        <div class="color-right ">
+            <div class="rightview ">
+                <div class="sidebar " role="complementary ">
+                    <!-- <div class="sidebar__header ">
+                     <a href=" " class="logo ">
                           <h1></h1>
                      </a>
                     </div> -->
-                    <div class="sidebar__content">
-                        <div id="order-summary" class="order-summary">
-                            <div class="order-summary__sections">
-                                <div class="order-summary__section order-summary__section--product-list">
-                                    <div class="order-summary__section_content">
-                                        <table class="product-table">
-                                            <!-- <thead class="producy-table__header">
+                    <div class="sidebar__content ">
+                        <div id="order-summary " class="order-summary ">
+                            <div class="order-summary__sections ">
+                                <div class="order-summary__section order-summary__section--product-list ">
+                                    <div class="order-summary__section_content ">
+                                        <table class="product-table ">
+                                            <!-- <thead class="producy-table__header ">
                                             <tr>
                                                 <th><span>Product images</span></th>
                                                 <th><span>資訊</span></th>
@@ -326,56 +213,56 @@
 
 
                                             <tbody>
-                                                <tr class="product">
-                                                    <td class="product__image">
-                                                        <div class="product-thumbnail">
-                                                            <div class="product-thumbnail__wrapper">
-                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image"></img>
+                                                <tr class="product ">
+                                                    <td class="product__image ">
+                                                        <div class="product-thumbnail ">
+                                                            <div class="product-thumbnail__wrapper ">
+                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg " class="product-thumbnail_image "></img>
 
 
                                                             </div>
-                                                            <span class="product-thumbnail__quantity">1</span>
+                                                            <span class="product-thumbnail__quantity ">1</span>
                                                         </div>
                                                     </td>
-                                                    <td class="product__description">
-                                                        <span class="product_description_name order-summary__emphasis">
+                                                    <td class="product__description ">
+                                                        <span class="product_description_name order-summary__emphasis ">
                                                             金屬面側編浩石耳環(MINI)
                                                         </span>
-                                                        <span class="product_description_variant order-summary__small-text">
+                                                        <span class="product_description_variant order-summary__small-text ">
                                                             Silver
                                                         </span>
 
                                                     </td>
                                                     <!--有一個TD序號 -->
-                                                    <td class="product__price">
-                                                        <span class=" .order-summary__emphasis">$1,185.01 TWD</span>
+                                                    <td class="product__price ">
+                                                        <span class=" .order-summary__emphasis ">$1,185.01 TWD</span>
                                                     </td>
                                                 </tr>
 
 
-                                                <tr class="product">
-                                                    <td class="product__image">
-                                                        <div class="product-thumbnail">
-                                                            <div class="product-thumbnail__wrapper">
-                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image"></img>
+                                                <tr class="product ">
+                                                    <td class="product__image ">
+                                                        <div class="product-thumbnail ">
+                                                            <div class="product-thumbnail__wrapper ">
+                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg " class="product-thumbnail_image "></img>
 
 
                                                             </div>
-                                                            <span class="product-thumbnail__quantity">1</span>
+                                                            <span class="product-thumbnail__quantity ">1</span>
                                                         </div>
                                                     </td>
-                                                    <td class="product__description">
-                                                        <span class="product_description_name order-summary__emphasis">
+                                                    <td class="product__description ">
+                                                        <span class="product_description_name order-summary__emphasis ">
                                                             金屬面側編浩石耳環(MINI)
                                                         </span>
-                                                        <span class="product_description_variant order-summary__small-text">
+                                                        <span class="product_description_variant order-summary__small-text ">
                                                             Silver
                                                         </span>
 
                                                     </td>
                                                     <!--有一個TD序號 -->
-                                                    <td class="product__price">
-                                                        <span class=" .order-summary__emphasis">$1,185.01 TWD</span>
+                                                    <td class="product__price ">
+                                                        <span class=" .order-summary__emphasis ">$1,185.01 TWD</span>
                                                     </td>
                                                 </tr>
 
@@ -388,69 +275,47 @@
                                 </div>
 
 
-                                <div class="order-summary__section order-summary__section--discount">
 
-                                    <!-- 禮品或折扣代碼 -->
-
-                                    <form action="" class="edit__checkout">
-                                        <div class="fieldset">
-                                            <div class="field">
-                                                <div class="field__input-btn-wrapper">
-                                                    <div class="field__input-wrapper">
-                                                        <input class="field__input" type="text" id="checkout_reduction_code" placeholder="禮卡 或 折扣代碼" size="30" name="checkout[reduction_code]">
-                                                    </div>
-                                                    <button class="btn field__input-btn btn--disabled" name="button" type="submit" disabled="disabled">
-                                                        <!-- 應該寫JS控制 -->
-                                                        <span class="btn__content">Apply</span>
-                                                        <!-- loadingicon -->
-                                                    </button>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                                <div class="order-summary__section">
-                                    <table class="total-line-table">
+                                <div class="order-summary__section ">
+                                    <table class="total-line-table ">
                                         <thead></thead>
-                                        <tbody class="total-line-table__tbody">
+                                        <tbody class="total-line-table__tbody ">
 
-                                            <tr class="total-line total-line--subtotal">
-                                                <th class="total-line__name" scope="row">小計</th>
-                                                <td class="total-line__price">
-                                                    <span class="order-summary__emphasis">$1,185.01 TWD</span>
+                                            <tr class="total-line total-line--subtotal ">
+                                                <th class="total-line__name " scope="row ">小計</th>
+                                                <td class="total-line__price ">
+                                                    <span class="order-summary__emphasis ">$1,185.01 TWD</span>
                                                 </td>
                                             </tr>
-                                            <tr class="total-line total-line--shipping">
-                                                <th class="total-line__name" scope="row">
+                                            <tr class="total-line total-line--shipping ">
+                                                <th class="total-line__name " scope="row ">
                                                     運費
 
                                                 </th>
-                                                <td class="total-line__price">
+                                                <td class="total-line__price ">
                                                     免費
-                                                    <span class="order-summary__small-text">
+                                                    <span class="order-summary__small-text ">
 
                                                     </span>
                                                 </td>
 
                                             </tr>
                                         </tbody>
-                                        <tfoot class="total-line-table__footer">
-                                            <tr class="total-line">
-                                                <th class="total-line_name payment-sue-label" scope="row">
-                                                    <span class="payment-due-label__total">
+                                        <tfoot class="total-line-table__footer ">
+                                            <tr class="total-line ">
+                                                <th class="total-line_name payment-sue-label " scope="row ">
+                                                    <span class="payment-due-label__total ">
                                                         總計
 
                                                     </span>
-                                                    <!-- <span class="payment-due-label__taxes order-summary__small-text">
+                                                    <!-- <span class="payment-due-label__taxes order-summary__small-text ">
                                                     稅:
                                                     <span>$56.43 TWD</span>
                                                         </span> -->
                                                 </th>
-                                                <td class="total-line__price payment-due">
+                                                <td class="total-line__price payment-due ">
 
-                                                    <span class="payment-due__price">
+                                                    <span class="payment-due__price ">
                                                         $1,185.01 TWD
 
                                                     </span>
