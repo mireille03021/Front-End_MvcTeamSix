@@ -177,7 +177,7 @@ a {
     margin: 13px 0;
     padding: 30px 40px;
     border-bottom: #dddddd 1px solid;
-    display: block;
+    visibility: hidden;
 }
 
 .topnemu a :hover .MenuList {
