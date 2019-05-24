@@ -177,18 +177,18 @@
                                 <p>
                                     <strong>商品描述與細節</strong>
                                 </p>
-                                @foreach (var title in Model.DesSubTitles.Where(x => x.ProductID == Model.Product.ProductID))
+                                @foreach (var title in Model.DesSubTitles.Where(x => x.ProductID == Model.Product.ProductID).Select(x=>x.SubTitle).Distinct())
                                 {
                                     <p>
-                                        <span>@title.SubTitle</span>
+                                        <span>@title</span>
                                     </p>
                                 }
                                 @*<span>將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味。</span>*@
                                 <div>
                                     <ul>
-                                        @foreach (var detail in Model.DesDetails.Where(x => x.ProductID == Model.Product.ProductID))
+                                        @foreach (var detail in Model.DesDetails.Where(x => x.ProductID == Model.Product.ProductID).Select(x=>x.Detail).Distinct())
                                         {
-                                            <li style="font-size: 10px">@detail.Detail</li>
+                                            <li style="font-size: 10px">@detail</li>
                                         }
                                         @*<li style="font-size: 10px">材質：純銀、1mm手工精鑲鋯石</li>
                                             <li style="font-size: 10px">顏色：18k金層</li>
@@ -360,10 +360,13 @@
         var pickColor = $("#PFON").text();
 
         var pvm = @Html.Raw(ViewBag.JsonPVM);
-        console.log(pvm);
-        console.log(pickColor);
-        $(".HL-Item").on('click', PF_Invt_text);
+        //console.log(pvm);
+        //console.log(pickColor);
+        $(".HL-Item").on('click', PF_Invt_text);    
         $(".HL-Item").click();
+        if (!$(".HL-Item").exists) {
+            PF_Invt_text();
+        }
         function PF_Invt_text() {
             console.log("1");
             var size;
@@ -385,7 +388,7 @@
                     product["Stock"] = element["Stock"];
                 }
             });
-            console.log(product);
+            //console.log(product);
 
             @*var dataUser = "@Model.ProductDetailViewModels.Where(x => x.Color.ColorName == ColorName)";
             var reg = new RegExp("&quot;", "g"); //创建正则RegExp对象
@@ -411,7 +414,8 @@
 
 
             if (product["Stock"] == 0) {
-                document.getElementsByClassName("PF-O")[2].style.display = "none"; /*消失*/
+                $(".PF-O:last-child").attr('style', 'display:none');
+                //document.getElementsByClassName("PF-O")[2].setAttribute("style","display: none"); /*消失*/
                 console.log(document.getElementsByClassName("PF-O")[2]);
                 document.getElementsByClassName("S-pay-Btn")[0].style.display = "none";
                 document.getElementsByClassName("PF-AddToCart")[0].setAttribute("disabled", "disabled");
@@ -419,9 +423,10 @@
             } else {
                 document.getElementsByClassName("PF-AddToCart")[0].innerHTML = addcartext;
                 document.getElementsByClassName("S-pay-Btn")[0].style = "";
-                document.getElementsByClassName("PF-O")[2].style = "";
+                $(".PF-O:last-child").attr('style', "");
+                //document.getElementsByClassName("PF-O")[2].style = "";
             }
-            console.log(document.getElementsByClassName("S-pay-Btn")[0]);
+            //console.log(document.getElementsByClassName("S-pay-Btn")[0]);
             document.getElementById("Stock").innerHTML = product["Stock"];
         }
     </script>

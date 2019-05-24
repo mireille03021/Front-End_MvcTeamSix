@@ -39,7 +39,7 @@ namespace ANVI_Mvc.Services
         }
         private List<Image> GetImages()
         {
-            return DB.Images.Where(x => x.PDID.Substring(0, 1) == PID.ToString()).ToList();
+            return DB.Images.Where(x => x.PDID.Substring(0, PID.ToString().Length) == PID.ToString()).ToList();
         }
         public List<ProductDetailViewModel> GetProductDetailViewModels()
         {
