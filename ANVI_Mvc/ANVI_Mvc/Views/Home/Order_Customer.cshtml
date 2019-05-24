@@ -34,7 +34,7 @@
                 </div>
                 <div class="main__content">
                     <div class="step">
-                        <form action="" class="edit_checkout">
+                        <form action="/Home/Order_Customer" class="edit_checkout" method="post">
                             <div class="step__sections">
                                 <div class="section">
                                     <div class="section__header">
@@ -51,19 +51,19 @@
 
                                     <!-- 會員登入後的樣子 -->
                                     <!--
-                                    <input value="XXXXXX@gmail.com" size="30" type="hidden" name="checkout[email]" id="checkout_email">
-                                    <div class="logged-in-customer-information">
-                                        <div class="logged-in-customer-information__avatar-wrapper">
-                                            <div class="logged-in-customer-information__avatar gravatar"></div>
-                                        </div>
+            <input value="XXXXXX@gmail.com" size="30" type="hidden" name="checkout[email]" id="checkout_email">
+            <div class="logged-in-customer-information">
+                <div class="logged-in-customer-information__avatar-wrapper">
+                    <div class="logged-in-customer-information__avatar gravatar"></div>
+                </div>
 
-                                        <p class="logged-in-customer-information__paragraph">
-                                            <span class="page-main__emphasis">哭 碼</span>
-                                            <span>(XXXXXX@gmail.com)</span>
-                                            <br>
-                                            <a href="#">登出</a>
-                                        </p>
-                                    </div> -->
+                <p class="logged-in-customer-information__paragraph">
+                    <span class="page-main__emphasis">哭 碼</span>
+                    <span>(XXXXXX@gmail.com)</span>
+                    <br>
+                    <a href="#">登出</a>
+                </p>
+            </div> -->
                                     <!-- 登入前的樣子 -->
                                     <div class="fieldset">
                                         <div class="field">
@@ -194,11 +194,11 @@
                                                 </div>
                                             </div>
                                             <!-- <div class="field field--half-city">
-                                                <div class="field__input-wrapper">
-                                                    <label class="field__label">城市</label>
-                                                    <input type="text" class="field__input" id="checkout_shipping_address_city" placeholder="城市" size="30" name="checkout[shipping_address][city]">
-                                                </div>
-                                            </div> -->
+                        <div class="field__input-wrapper">
+                            <label class="field__label">城市</label>
+                            <input type="text" class="field__input" id="checkout_shipping_address_city" placeholder="城市" size="30" name="checkout[shipping_address][city]">
+                        </div>
+                    </div> -->
                                             <div class="field field--half-zip">
                                                 <div class="field__input-wrapper">
                                                     <!-- <label class="field__label">郵遞區號</label> -->
@@ -218,9 +218,9 @@
                                                 <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="checkout[shipping_address][phone]">
                                                 <div id="phone_tooltip" class="field__icon">
                                                     <!-- <span id="tooltip-for-phone" class="tooltip">
-                                                        In case we need to contact you about your order.
-                                                    </span>
-                                                    <i class="fas fa-question-circle"></i> -->
+                                In case we need to contact you about your order.
+                            </span>
+                            <i class="fas fa-question-circle"></i> -->
 
                                                     <div class="field__icon-svg" data-toggle="tooltip" data-placement="top" title=' In case we need to contact you about your order.'>
 
@@ -251,6 +251,7 @@
                                 </div>
 
                             </div>
+                        </form>
                     </div>
                     <div class="step__footer">
                         <button id="continue_button" class="step__footer__continue-btn btn" type="submit" name="button">
@@ -261,8 +262,8 @@
                             <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">回到購物車</span>
                         </a>
                     </div>
-                    </form>
                 </div>
+                    
                 <!-- 一堆SPAN -->
                 <div class="main__footer">
                     <div>
