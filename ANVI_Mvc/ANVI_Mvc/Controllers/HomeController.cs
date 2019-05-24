@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.HtmlControls;
 using ANVI_Mvc.Models;
 using ANVI_Mvc.Services;
 using ANVI_Mvc.ViewModels;
@@ -50,8 +51,9 @@ namespace ANVI_Mvc.Controllers
             ProductViewModelService service = new ProductViewModelService(db, id);
             var sPVM = service.PVM;
             ViewData.Model = sPVM;
-            ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].Color.ColorName;
-            //ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM);
+            ViewBag.ColorList = db.Colors.ToList();
+            ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].ColorName;
+            ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM.ProductDetailViewModels);
             return View();
         }
         [HttpPost]
@@ -60,7 +62,9 @@ namespace ANVI_Mvc.Controllers
             ProductViewModelService service = new ProductViewModelService(db, id);
             var sPVM = service.PVM;
             ViewData.Model = sPVM;
+            ViewBag.ColorList = db.Colors.ToList();
             ViewData["ColorName"] = DropDownList_Color;
+            ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM.ProductDetailViewModels);
             return View();
         }
         public ActionResult Cart()  //購物車頁面

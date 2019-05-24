@@ -49,9 +49,13 @@ namespace ANVI_Mvc.Services
                 where pd.ProductID == PID
                 select new ProductDetailViewModel
                 {
-                    PD = pd,
-                    Color = c,
-                    Size = s
+                    ProductID = pd.ProductID,
+                    Stock = pd.Stock,
+                    ColorID = c.ColorID,
+                    ColorName = c.ColorName,
+                    SizeID = s.SizeID,
+                    SizeTitle = s.SizeTitle,
+                    SizeContext = s.SizeContext
                 };
             return PDVMList.ToList();
         }
