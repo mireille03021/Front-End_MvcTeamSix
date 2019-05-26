@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -17,6 +19,7 @@ namespace ANVI_Mvc.Models
         [StringLength(50)]
         public string Detail { get; set; }
 
+        [JsonIgnore]
         public virtual Product Product { get; set; }
     }
 }
