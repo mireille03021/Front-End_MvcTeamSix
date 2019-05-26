@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ANVI_Mvc.ViewModels
 {
-    public class CartItemViewModel
+    public class CartPageViewModel
     {
         public int? CategoryID { get; set; }
         public int ProductID { get; set; }
