@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -26,16 +28,20 @@ namespace ANVI_Mvc.Models
         public int? CategoryID { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
+        [JsonIgnore]
         public virtual Category Category { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesDetail> DesDetails { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesSubTitle> DesSubTitles { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }

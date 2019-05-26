@@ -69,8 +69,33 @@ namespace ANVI_Mvc.Controllers
             ViewData["ColorName"] = DropDownList_Color;
             return View();
         }
-        public ActionResult Cart()  //購物車頁面
+        public ActionResult ShoppingCart()  //購物車頁面
         {
+            //暫時傳入一筆資料，之後改用List存選到的物品資訊
+            IQueryable<CartItemViewModel> productDetail =
+                from p in db.Products
+                join pd in db.ProductDetails on p.ProductID equals pd.ProductID
+                join s in db.Sizes on pd.SizeID equals s.SizeID
+                join c in db.Colors on pd.ColorID equals c.ColorID
+                join i in db.Images on pd.PDID equals  i.PDID
+                where pd.PDID == "1-1"            //只有一筆資料，所以只要改這個PDID就好
+                select new CartItemViewModel()
+                {
+                    CategoryID = p.CategoryID,
+                    ProductID = p.ProductID,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    PDID = pd.PDID,
+                    Stock = pd.Stock,
+                    ColorID = c.ColorID,
+                    ColorName = c.ColorName,
+                    SizeID = s.SizeID,
+                    SizeTitle = s.SizeTitle,
+                    SizeContext = s.SizeContext,
+                    ImageName = i.ImgName
+                };
+            ViewBag.Category = db.Categories.ToList();
+            ViewData.Model = productDetail.First();
             return View();
         }
 

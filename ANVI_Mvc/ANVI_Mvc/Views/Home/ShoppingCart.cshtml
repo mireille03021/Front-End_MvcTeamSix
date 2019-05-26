@@ -1,0 +1,238 @@
+﻿@model CartItemViewModel
+@{
+    ViewBag.Title = "Cart";
+    var category = (List<Category>)ViewBag.Category;
+}
+
+@section topCSS
+{
+    <link rel="stylesheet" href="~/Assets/css/ShoppingCart_CSS.css" />
+}
+@section endJS
+{
+    <script type="text/javascript" src="~/Assets/js/ShoppingCart.js"></script>
+}
+
+<main id="main" role="main">
+    <div class="Container">
+        <header class="PageHeader">
+            <div class="SectionHeader SectionHeader_center">
+                <h1 class="SectionHeader_Heading Heading u-h1">購物車</h1>
+            </div>
+        </header>
+
+        <div class="PageContent">
+            <form action="/cart?locale=zh"
+                  method="POST"
+                  class="Cart Cart--expanded"
+                  novalidate>
+                <!--不清楚input在這裡的作用-->
+                <input type="hidden"
+                       name="attributes[collection_mobile_items_per_row]"
+                       value="" />
+                <input type="hidden"
+                       name="attributes[collection_desktop_items_per_row]"
+                       value="" />
+                <div class="Cart_ItemList">
+                    <div class="Cart_Head hidden-phone">
+                        <span class="Cart__HeadItem Heading Text--subdued u-h7">
+                            商品
+                        </span>
+                        <span class="Cart__HeadItem"> </span>
+                        <span class="Cart__HeadItem Heading Text--subdued u-h7"
+                              style="text-align: center">
+                            數量
+                        </span>
+                        <span class="Cart__HeadItem Heading Text--subdued u-h7"
+                              style="text-align: right">
+                            金額
+                        </span>
+                    </div>
+                    @*@foreach (var item in ViewBag.CartList)*@  @*之後兩筆明細以上需要用到*@
+                    <div class="CartItem">
+                        <div class="CartItem__ImageWrapper AspectRatio">
+                            <div class="AspectRatio" style="--aspect-ratio: 1.0">
+                                <!----aspect-ratio: 1.0-->
+                                <img class="Cart_Image"
+                                     src="~/Assets/images/@category.Find(x=>x.CategoryID == Model.CategoryID).CategoryName/@Model.ImageName"
+                                     alt="@Model.ProductName" />
+                            </div>
+                        </div>
+
+                        <div class="CartItem__Info">
+                            <h2 class="CartItem__Title Heading">
+                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@Model.ProductName</a>
+                            </h2>
+                            <div class="CartItem__Meta Heading Text_subdued">
+                                <p class="CartItem__Variant">
+                                    @Model.ColorName / @Model.SizeContext
+                                </p>
+                                <ul class="CartItem__PropertyList"></ul>
+                                <!--空白區塊-->
+                                <div class="CartItem__PriceList">
+                                    <span class="CartItem__Price Price"
+                                          data-money-convertible>
+                                        <span id="UnitPrice" value="@Model.UnitPrice">
+                                            $@(Model.UnitPrice.ToString("##,###")) TWD
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="CartItem__Actions Heading Text--subdued"
+                             style="text-align: center">
+                            <div class="CartItem__QuantitySelector">
+                                <div class="QuantitySelector">
+                                    <a id="cut"
+                                       class="QuantitySelector__Button Link Link--primary"
+                                       title="減少數量"
+                                       data-quantity="0"
+                                       data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                       data-action="update-item-quantity">
+                                        <svg class="Icon Icon--minus"
+                                             role="presentation"
+                                             viewBox="0 0 16 2">
+                                            <path d="M1,1 L15,1"
+                                                  stroke="currentColor"
+                                                  fill="none"
+                                                  fill-rule="evenodd"
+                                                  stroke-linecap="square"></path>
+                                        </svg>
+                                    </a>
+                                    <input type="text"
+                                           name="updates[13339254456343:20c4ad971c16ff4d76408e716f513255]"
+                                           id="cutValue"
+                                           class="QuantitySelector__CurrentQuantity"
+                                           pattern="[0-9]*"
+                                           data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                           value="1" />
+                                    <a id="add"
+                                       class="QuantitySelector__Button Link Link--primary"
+                                       title="增加數量"
+                                       data-quantity="2"
+                                       data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                       data-action="update-item-quantity">
+                                        <svg class="Icon Icon--plus"
+                                             role="presentation"
+                                             viewBox="0 0 16 16">
+                                            <g stroke="currentColor"
+                                               fill="none"
+                                               fill-rule="evenodd"
+                                               stroke-linecap="square">
+                                                <path d="M8,1 L8,15"></path>
+                                                <path d="M1,8 L15,8"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="/cart/change?quantity=0&id=13339254456343:20c4ad971c16ff4d76408e716f513255"
+                               style="text-decoration:none;"
+                               class="CartItem__Remove Link Link--underline"
+                               data-quantity="0"
+                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                               data-action="remove-item">移除</a>
+                        </div>
+                        <span id="pc"
+                              class="CartItem__LinePrice Price Heading Text--subdued u-h7"
+                              style="text-align: right">
+                            <span id="">$@Model.UnitPrice.ToString("##,###") TWD</span>
+                            <div id="" value="3" class="" style="display: none"></div>
+                        </span>
+                    </div>
+                </div>
+                <footer class="Cart__Footer">
+                    <div class="Cart__NoteContainer">
+                        <span class="Cart__NoteButton">備註</span>
+                        <textarea class="Cart__Note Form__Textarea"
+                                  name="note"
+                                  id="cart-note"
+                                  rows="4"
+                                  placeholder="填寫備註..."></textarea>
+                    </div>
+                    <div class="Cart__Recap">
+                        <span class="Cart__Total Heading u-h6">
+                            總額:
+                            <span data-money-convertible>
+                                <span id="up">$2,200 TWD</span>
+                                <div id="count" value="@Model.Stock" class="" style="display: none"></div>  @*庫存量*@
+                            </span>
+                        </span>
+                        <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>
+                        <button type="submit"
+                                name="checkout"
+                                class="Cart__Checkout Button Button--primary Button--full">
+                            前往結帳
+                        </button>
+                    </div>
+                </footer>
+            </form>
+            <div class="Section Section--spacingExtraLarge">
+                <div class="Panel">
+                    <h2 class="Panel__Title Heading u-h2">運費估計</h2>
+
+                    <div class="Panel__Content">
+                        <div class="ShippingEstimator">
+                            <div class="ShippingEstimator__Form">
+                                <div class="ShippingEstimator__Country Form__Select Select Select--primary">
+                                    <svg class="Icon Icon--select-arrow"
+                                         role="presentation"
+                                         viewBox="0 0 19 12">
+                                        <polyline fill="none"
+                                                  stroke="currentColor"
+                                                  points="17 2 9.5 10 2 2"
+                                                  fill-rule="evenodd"
+                                                  stroke-width="2"
+                                                  stroke-linecap="square"></polyline>
+                                    </svg><select name="country"
+                                                  title="國家"
+                                                  data-default="United States">
+
+                                        <option value="台北市"> 台北市 </option>
+                                        <option value="基隆市"> 基隆市 </option>
+                                        <option value="新北市"> 新北市 </option>
+                                        <option value="宜蘭縣"> 宜蘭縣 </option>
+                                        <option value="新竹市"> 新竹市 </option>
+                                        <option value="新竹縣"> 新竹縣 </option>
+                                        <option value="桃園縣"> 桃園縣 </option>
+                                        <option value="苗栗縣"> 苗栗縣 </option>
+                                        <option value="台中市"> 台中市 </option>
+                                        <option value="彰化縣"> 彰化縣 </option>
+                                        <option value="南投縣"> 南投縣 </option>
+                                        <option value="嘉義市"> 嘉義市 </option>
+                                        <option value="嘉義縣"> 嘉義縣 </option>
+                                        <option value="雲林縣"> 雲林縣 </option>
+                                        <option value="台南市"> 台南市 </option>
+                                        <option value="高雄市"> 高雄市 </option>
+                                        <option value="澎湖縣"> 澎湖縣 </option>
+                                        <option value="屏東縣"> 屏東縣 </option>
+                                        <option value="台東縣"> 台東縣 </option>
+                                        <option value="花蓮縣"> 花蓮縣 </option>
+                                        <option value="金門縣"> 金門縣 </option>
+                                        <option value="連江縣"> 連江縣 </option>
+                                    </select>
+                                </div>
+                                <input type="text"
+                                       class="ShippingEstimator__Zip Form__Input"
+                                       name="zip"
+                                       placeholder="郵遞區號" />
+                                <button type="button"
+                                        class="ShippingEstimator__Submit Button Button--primary">
+                                    計算
+                                </button>
+                            </div>
+
+                            <div class="ShippingEstimator__Error Alert Alert--error"
+                                 style="display: none"></div>
+                            <div class="ShippingEstimator__Results">
+                                <div class="ShippingEstimator__ResultsInner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
