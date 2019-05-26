@@ -217,6 +217,7 @@
     <Content Include="Assets\css\Order_Customerclone.css" />
     <Content Include="Assets\css\Order_Customer.css" />
     <Content Include="Assets\css\Order_Pay.css" />
+    <Content Include="Assets\css\ShoppingCart_CSS.css" />
     <Content Include="Assets\css\site.css" />
     <Content Include="Assets\css\ProductDetailPage.css" />
     <Content Include="Assets\css\ProductPage.css" />
@@ -311,6 +312,7 @@
     <Content Include="Assets\js\Order_Customer.js" />
     <Content Include="Assets\js\ProductPage.js" />
     <Content Include="Assets\js\ProductDetailPage.js" />
+    <Content Include="Assets\js\ShoppingCart.js" />
     <Content Include="Assets\js\site.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -374,6 +376,7 @@
     <Content Include="Views\Home\Order_Pay.cshtml" />
     <Content Include="Views\Home\Order_Check.cshtml" />
     <Content Include="Views\Shared\_Layout_ANVI.cshtml" />
+    <Content Include="Views\Home\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -69,7 +69,7 @@ namespace ANVI_Mvc.Controllers
             ViewData["ColorName"] = DropDownList_Color;
             return View();
         }
-        public ActionResult Cart()  //購物車頁面
+        public ActionResult ShoppingCart()  //購物車頁面
         {
             return View();
         }
