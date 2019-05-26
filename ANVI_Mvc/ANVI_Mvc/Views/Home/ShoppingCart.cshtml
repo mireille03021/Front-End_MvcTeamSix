@@ -1,6 +1,7 @@
-﻿
+﻿@model CartItemViewModel
 @{
     ViewBag.Title = "Cart";
+    var category = (List<Category>)ViewBag.Category;
 }
 
 @section topCSS
@@ -47,28 +48,33 @@
                             金額
                         </span>
                     </div>
+                    @*@foreach (var item in ViewBag.CartList)*@  @*之後兩筆明細以上需要用到*@
                     <div class="CartItem">
                         <div class="CartItem__ImageWrapper AspectRatio">
                             <div class="AspectRatio" style="--aspect-ratio: 1.0">
                                 <!----aspect-ratio: 1.0-->
                                 <img class="Cart_Image"
-                                     src="//cdn.shopify.com/s/files/1/2023/9563/products/E19304S_240x.jpg?v=1554251705"
-                                     alt="BAE字樣不對稱耳環" />
+                                     src="~/Assets/images/@category.Find(x=>x.CategoryID == Model.CategoryID).CategoryName/@Model.ImageName"
+                                     alt="@Model.ProductName" />
                             </div>
                         </div>
 
                         <div class="CartItem__Info">
                             <h2 class="CartItem__Title Heading">
-                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">BAE字樣不對稱耳環</a>
+                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@Model.ProductName</a>
                             </h2>
                             <div class="CartItem__Meta Heading Text_subdued">
-                                <p class="CartItem__Variant">Silver</p>
+                                <p class="CartItem__Variant">
+                                    @Model.ColorName / @Model.SizeContext
+                                </p>
                                 <ul class="CartItem__PropertyList"></ul>
                                 <!--空白區塊-->
                                 <div class="CartItem__PriceList">
                                     <span class="CartItem__Price Price"
                                           data-money-convertible>
-                                        <span id="UnitPrice" value="2200">$2,200 TWD</span>  @*value="2200"之後代成後端的ViewData即可*@
+                                        <span id="UnitPrice" value="@Model.UnitPrice">
+                                            $@(Model.UnitPrice.ToString("##,###")) TWD
+                                        </span>
                                     </span>
                                 </div>
                             </div>
@@ -131,7 +137,7 @@
                         <span id="pc"
                               class="CartItem__LinePrice Price Heading Text--subdued u-h7"
                               style="text-align: right">
-                            <span id="">$2,200 TWD</span>
+                            <span id="">$@Model.UnitPrice.ToString("##,###") TWD</span>
                             <div id="" value="3" class="" style="display: none"></div>
                         </span>
                     </div>
@@ -150,7 +156,7 @@
                             總額:
                             <span data-money-convertible>
                                 <span id="up">$2,200 TWD</span>
-                                <div id="count" value="3" class="" style="display: none"></div>  @*庫存量*@
+                                <div id="count" value="@Model.Stock" class="" style="display: none"></div>  @*庫存量*@
                             </span>
                         </span>
                         <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>

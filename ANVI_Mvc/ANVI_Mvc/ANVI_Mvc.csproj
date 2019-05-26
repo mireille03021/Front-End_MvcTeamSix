@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201905240538315_initialDB.Designer.cs">
       <DependentUpon>201905240538315_initialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905261340521_v1.cs" />
+    <Compile Include="Migrations\201905261340521_v1.Designer.cs">
+      <DependentUpon>201905261340521_v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnviModel.cs" />
@@ -207,6 +211,7 @@
     <Compile Include="Repository\AnviRepository.cs" />
     <Compile Include="Services\ProductViewModelService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CartItemViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -398,6 +403,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905240538315_initialDB.resx">
       <DependentUpon>201905240538315_initialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905261340521_v1.resx">
+      <DependentUpon>201905261340521_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

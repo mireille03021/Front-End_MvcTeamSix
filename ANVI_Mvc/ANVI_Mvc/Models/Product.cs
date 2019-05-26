@@ -26,7 +26,7 @@ namespace ANVI_Mvc.Models
         public int? CategoryID { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
         public virtual Category Category { get; set; }
 
