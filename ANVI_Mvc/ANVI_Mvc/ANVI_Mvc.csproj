@@ -220,6 +220,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\Account.css" />
     <Content Include="Assets\css\header-styles.css" />
     <Content Include="Assets\css\Order_Check.css" />
     <Content Include="Assets\css\Order_Customerclone.css" />
@@ -385,6 +386,7 @@
     <Content Include="Views\Home\Order_Check.cshtml" />
     <Content Include="Views\Shared\_Layout_ANVI.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\AccountPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

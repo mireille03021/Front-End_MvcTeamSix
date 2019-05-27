@@ -131,5 +131,10 @@ namespace ANVI_Mvc.Controllers
         {
             return View();
         }
+
+        public ActionResult AccountPage()   //主頁面
+        {
+            return View();
+        }
     }
 }
