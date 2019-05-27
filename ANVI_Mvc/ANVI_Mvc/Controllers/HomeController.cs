@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -69,17 +70,31 @@ namespace ANVI_Mvc.Controllers
             ViewData["ColorName"] = DropDownList_Color;
             return View();
         }
+        //測試購物車用
+        public ActionResult GetCart()
+        {
+            var cart = CartService.GetCurrentCart();
+            if (cart.CartItems.Count == 0) //如果沒有在Session裡暫存數量
+            {
+                cart.CartItems.Add(new CartItemModel()
+                {
+                    PDID = "1-1"  //待補充
+                });
+            }
+
+            return View();
+        }
         public ActionResult ShoppingCart()  //購物車頁面
         {
             //暫時傳入一筆資料，之後改用List存選到的物品資訊
-            IQueryable<CartItemViewModel> productDetail =
+            IQueryable<CartPageViewModel> productDetail =
                 from p in db.Products
                 join pd in db.ProductDetails on p.ProductID equals pd.ProductID
                 join s in db.Sizes on pd.SizeID equals s.SizeID
                 join c in db.Colors on pd.ColorID equals c.ColorID
                 join i in db.Images on pd.PDID equals  i.PDID
                 where pd.PDID == "1-1"            //只有一筆資料，所以只要改這個PDID就好
-                select new CartItemViewModel()
+                select new CartPageViewModel()
                 {
                     CategoryID = p.CategoryID,
                     ProductID = p.ProductID,
@@ -136,6 +151,11 @@ namespace ANVI_Mvc.Controllers
             return View();
         }
         public ActionResult Order_Check()  //下單-確認頁面!沒有HEADER跟FOOTER
+        {
+            return View();
+        }
+
+        public ActionResult AccountPage()   //主頁面
         {
             return View();
         }
