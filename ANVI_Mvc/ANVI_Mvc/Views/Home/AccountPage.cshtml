@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "AccountPage";
+}
+
+@section topCSS
+{
+    <link href="~/Assets/css/Account.css" rel="stylesheet" />
+}
+@section endJS
+{
+    @*<script src="~/Assets/js/Order_Customer.js"></script>*@
+}
+<main id="main" role="main">
+    <div class="Container Container--narrow">
+        <header class="PageHeader">
+            <a href="/account/logout" class="PageHeader__Back Heading Text--subdued Link Link--primary u-h7">Logout</a>
+            <div class="SectionHeader">
+                <h1 class="SectionHeader__Heading Heading u-h1">My account</h1>
+                <p class="SectionHeader__Description">Welcome back, Zeng!</p>
+            </div>
+        </header>
+        <div class="PageLayout PageLayout--breakLap">
+            <div class="PageLayout__Section">
+                <h2 class="Segment__Title Heading u-h7">My orders</h2>
+                <div class="Segment__Content">
+                    <p>You haven't placed any orders yet</p>
+                </div>
+            </div>
+            <div class="PageLayout__Section PageLayout__Section--secondary">
+                <div class="Segment">
+                    <h2 class="Segment__Title Heading u-h7">No addresses</h2>
+                    <div class="Segment__Content">
+                        <p>No addresses are currently saved</p>
+                        <div class="Segment__ButtonWrapper">
+                            <a href="/account/addresses" class="Button Button--primary">Manage addresses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
