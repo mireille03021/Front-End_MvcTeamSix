@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using ANVI_Mvc.Models;
+using ANVI_Mvc.ViewModels;
 using Microsoft.SqlServer.Server;
 
 namespace ANVI_Mvc.Services
@@ -20,11 +21,11 @@ namespace ANVI_Mvc.Services
                 //如果Session["Cart"]不存在，就建一個空的Cart物件
                 if (HttpContext.Current.Session["Cart"] == null)
                 {
-                    var order = new CartItemModel();
+                    var order = new CartModel();
                     HttpContext.Current.Session["Cart"] = order;
                 }
 
-                return (CartModel)HttpContext.Current.Session["Cart"];
+                return (CartModel) HttpContext.Current.Session["Cart"];
             }
             else
             {
@@ -32,3 +33,4 @@ namespace ANVI_Mvc.Services
             }
         }
     }
+}

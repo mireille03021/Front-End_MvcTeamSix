@@ -20,30 +20,12 @@
                     <span id="ProductGallery" class="Anchor"></span>
                     <!--按鈕轉移位置-->
                     <div id="PS">
-                        <!-- <div id="PS-dots" class="PS_01 PS-dots_01">
-                            <div id="PSS" class="PSS_01">
-                                <a class="PSS_Dot" href="#"></a>
-                                <a class="PSS_Dot" href="#"></a>
-                                <a class="PSS_Dot" href="#"></a>
-                                <a class="PSS_Dot" href="#"></a>
-                                <a class="PSS_Dot" href="#"></a>
-                            </div>
-                        </div> -->
                         @foreach (var image in Model.Images)
                         {
                             <div>
                                 <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
                             </div>
                         }
-                        @*<div>
-                                <img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="~/Assets/images/Rings/c_2_7563982b-8284-4637-a92b-a3763e0256d3_700x.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg" alt="">
-                            </div>*@
                     </div>
                     <div id="PSF">
                         <!-- 縮小的RWD -->
@@ -55,11 +37,6 @@
                                         <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
                                     </div>
                                 }
-                                @*<div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>
-                                    <div><img src="~/Assets/images/Rings/c_2_7563 982b-8284-4637-a92b-a3763e0256d3_700x.jpg"/></div>
-                                    <div><img src="~/Assets/images/Rings/C_3_ef589395-f96a-4215-8b61-841d4fc579cf_700x.jpg"/></div>
-                                    <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>
-                                    <div><img src="~/Assets/images/Rings/c_bf10070a-2fe0-4aca-8aaa-b4af42889cdf_700x.jpg"/></div>*@
                             </div>
                         </div>
                         <ol id="FPB" class="FPB_01">
@@ -88,22 +65,20 @@
                                             <span id="PFON">@ViewData["ColorName"]</span>
                                             <svg class="Icon ISA"></svg>
                                         </button>
-                                        <form action="/Home/ProductDetailPage" method="post">
-                                            @* 這個form之後會搬到PartialView *@
-                                            @{
-                                                var colorList = new List<Color>();
-                                                foreach (var item in Model.ProductDetailViewModels)
+                                        @* 這個form之後會搬到PartialView *@
+                                        @{
+                                            var colorList = new List<Color>();
+                                            foreach (var item in Model.ProductDetailViewModels)
+                                            {
+                                                if (colorList.All(x => x.ColorID != item.ColorID))
                                                 {
-                                                    if (colorList.All(x => x.ColorID != item.ColorID))
-                                                    {
-                                                        colorList.Add(new Color() { ColorID = item.ColorID, ColorName = item.ColorName });
-                                                    }
+                                                    colorList.Add(new Color() { ColorID = item.ColorID, ColorName = item.ColorName });
                                                 }
-                                                var ColorList = new SelectList(colorList, "ColorName", "ColorName");
                                             }
-                                            @Html.DropDownList("DropDownList_Color", ColorList)
-                                            <input type="submit" value="確認顏色" />
-                                        </form>
+                                            var ColorList = new SelectList(colorList, "ColorName", "ColorName");
+                                        }
+                                        @Html.DropDownList("DropDownList_Color", ColorList, new { @class = "" })
+                                        <input type="submit" value="確認顏色" name="ChangeColor" />
                                     </div>
                                     @if (Model.ProductDetailViewModels.GroupBy(x => x.SizeID).Count() > 1)
                                     {
@@ -134,42 +109,27 @@
                                                     </li>
                                                     i++;
                                                 }
-                                                @*<li class="HL-Item">
-                                                        <input type="radio" id="option-1-0" name="option-1" value="5"
-                                                               class="SizeSW-Radio" checked="checked">
-                                                        <label for="option-1-0" class="SizeSW">5</label>
-                                                    </li>
-                                                    <li class="HL-Item">
-                                                        <input type="radio" id="option-1-1" name="option-1" value="6"
-                                                               class="SizeSW-Radio">
-                                                        <label for="option-1-1" class="SizeSW">6</label>
-                                                    </li>
-                                                    <li class="HL-Item">
-                                                        <input type="radio" id="option-1-2" name="option-1" value="7"
-                                                               class="SizeSW-Radio">
-                                                        <label for="option-1-2" class="SizeSW">7</label>
-                                                    </li>*@
                                             </ul>
                                         </div>
                                     }
-                                <div class="PF-O">
-                                    <label>庫存量 : </label>
-                                    <span class="PF-Invt Text-s" id="Stock" name="Stock">
-                                        @if (Model.ProductDetailViewModels.GroupBy(x => x.SizeID).Count() == 1)
-                                        {
-                                            @Model.ProductDetailViewModels[0].Stock
-                                        }
-                                    </span>
+                                    <div class="PF-O">
+                                        <label>庫存量 : </label>
+                                        <span class="PF-Invt Text-s" id="Stock" name="Stock">
+                                            @if (Model.ProductDetailViewModels.GroupBy(x => x.SizeID).Count() == 1)
+                                            {
+                                                @Model.ProductDetailViewModels[0].Stock
+                                            }
+                                        </span>
                                     </div>
                                 </div>
-                                <button class="PF-AddToCart Btn Btn-sec Btn-full">
+                                <button type="submit" class="PF-AddToCart Btn Btn-sec Btn-full" name="ToCart">
                                     <span>Add to cart</span>
                                     <span class="Btn-SepDot"></span>
-                                    <span>$@Math.Floor((decimal)Model.Product.UnitPrice) TWD</span>
+                                    <span>$@Model.Product.UnitPrice.ToString("##,###") TWD</span>
                                 </button>
                                 <div id="S-pay-Btn" class="S-pay-Btn">
                                     <div>
-                                        <button class="S-pay-Btn_btn S-pay-Btn_btn-unb">BUY IT NOW</button>
+                                        <button type="submit" class="S-pay-Btn_btn S-pay-Btn_btn-unb" name="BuyItNow">BUY IT NOW</button>
                                     </div>
                                 </div>
                             </form>
@@ -177,49 +137,21 @@
                                 <p>
                                     <strong>商品描述與細節</strong>
                                 </p>
-                                @foreach (var title in Model.DesSubTitles.Where(x => x.ProductID == Model.Product.ProductID).Select(x=>x.SubTitle).Distinct())
+                                @foreach (var title in Model.DesSubTitles.Where(x => x.ProductID == Model.Product.ProductID).Select(x => x.SubTitle).Distinct())
                                 {
                                     <p>
                                         <span>@title</span>
                                     </p>
                                 }
-                                @*<span>將簡約而質感主義貫徹於日常穿搭中，細緻的做工、純粹的造型飾品，擁有絕佳搭配性與優雅迷人韻味。</span>*@
                                 <div>
                                     <ul>
-                                        @foreach (var detail in Model.DesDetails.Where(x => x.ProductID == Model.Product.ProductID).Select(x=>x.Detail).Distinct())
+                                        @foreach (var detail in Model.DesDetails.Where(x => x.ProductID == Model.Product.ProductID).Select(x => x.Detail).Distinct())
                                         {
                                             <li style="font-size: 10px">@detail</li>
                                         }
-                                        @*<li style="font-size: 10px">材質：純銀、1mm手工精鑲鋯石</li>
-                                            <li style="font-size: 10px">顏色：18k金層</li>
-                                            <li style="font-size: 10px">尺寸：5 / 6 / 7</li>*@
                                     </ul>
                                 </div>
                             </div>
-                            <!--跳轉位置-->
-                            <!-- <div id="jump" class="P-QuickNav hid-pock">
-                                <div class="P-QuickNav-W">
-                                    <a role="button" class="font-Heading Link Link-sec" onclick="is_flipped()"
-                                       href="#ProductAside">
-                                        More information
-                                        <svg class="Icon Icon--select-arrow-right" role="presentation"
-                                             viewBox="0 0 11 18">
-                                            <path d="M1.5 1.5l8 7.5-8 7.5" stroke-width="2" stroke="currentColor"
-                                                  fill="none" fill-rule="evenodd" stroke-linecap="square"></path>
-                                        </svg>
-                                    </a>
-
-                                    <a role="button" class="font-Heading Link Link-sec" onclick="is_flipped()"
-                                       href="#ProductGallery">
-                                        View images
-                                        <svg class="Icon Icon--select-arrow-right" role="presentation"
-                                             viewBox="0 0 11 18">
-                                            <path d="M1.5 1.5l8 7.5-8 7.5" stroke-width="2" stroke="currentColor"
-                                                  fill="none" fill-rule="evenodd" stroke-linecap="square"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <div id="PA-shave" class="PA-shave_01">
@@ -313,10 +245,7 @@
 @section endJS
 {
     <script>
-
-        //console.log("A");
-
-/*運送、退貨*/
+        /*運送、退貨*/
         var Collapsible_Btn_OC = document.getElementsByClassName("Collapsible-Btn");
         for (var i = 0; i < Collapsible_Btn_OC.length; i++) {
             Collapsible_Btn_OC[i].onclick = Collapsible_Btn_TF;
@@ -362,7 +291,7 @@
         var pvm = @Html.Raw(ViewBag.JsonPVM);
         //console.log(pvm);
         //console.log(pickColor);
-        $(".HL-Item").on('click', PF_Invt_text);    
+        $(".HL-Item").on('click', PF_Invt_text);
         $(".HL-Item").click();
         if (!$(".HL-Item").exists) {
             PF_Invt_text();

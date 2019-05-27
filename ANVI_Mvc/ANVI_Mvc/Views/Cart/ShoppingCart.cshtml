@@ -1,7 +1,8 @@
-﻿@model CartItemViewModel
+﻿@using ANVI_Mvc.Services
 @{
     ViewBag.Title = "Cart";
-    var category = (List<Category>)ViewBag.Category;
+    var currentCart = CartService.GetCurrentCart();
+    var stocks = (List<int>)ViewBag.Stocks;
 }
 
 @section topCSS
@@ -54,26 +55,26 @@
                             <div class="AspectRatio" style="--aspect-ratio: 1.0">
                                 <!----aspect-ratio: 1.0-->
                                 <img class="Cart_Image"
-                                     src="~/Assets/images/@category.Find(x=>x.CategoryID == Model.CategoryID).CategoryName/@Model.ImageName"
-                                     alt="@Model.ProductName" />
+                                     src="~/Assets/images/@currentCart.CartItems[0].CategoryName/@currentCart.CartItems[0].ImageName"
+                                     alt="@currentCart.CartItems[0].ProductName" />
                             </div>
                         </div>
 
                         <div class="CartItem__Info">
                             <h2 class="CartItem__Title Heading">
-                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@Model.ProductName</a>
+                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@currentCart.CartItems[0].ProductName</a>
                             </h2>
                             <div class="CartItem__Meta Heading Text_subdued">
                                 <p class="CartItem__Variant">
-                                    @Model.ColorName / @Model.SizeContext
+                                    @currentCart.CartItems[0].ColorName / @currentCart.CartItems[0].SizeContext
                                 </p>
                                 <ul class="CartItem__PropertyList"></ul>
                                 <!--空白區塊-->
                                 <div class="CartItem__PriceList">
                                     <span class="CartItem__Price Price"
                                           data-money-convertible>
-                                        <span id="UnitPrice" value="@Model.UnitPrice">
-                                            $@(Model.UnitPrice.ToString("##,###")) TWD
+                                        <span id="UnitPrice" value="@currentCart.CartItems[0].UnitPrice">
+                                            $@(currentCart.CartItems[0].UnitPrice.ToString("##,###")) TWD
                                         </span>
                                     </span>
                                 </div>
@@ -137,7 +138,7 @@
                         <span id="pc"
                               class="CartItem__LinePrice Price Heading Text--subdued u-h7"
                               style="text-align: right">
-                            <span id="">$@Model.UnitPrice.ToString("##,###") TWD</span>
+                            <span id="">$@currentCart.CartItems[0].UnitPrice.ToString("##,###") TWD</span>
                             <div id="" value="3" class="" style="display: none"></div>
                         </span>
                     </div>
@@ -156,7 +157,7 @@
                             總額:
                             <span data-money-convertible>
                                 <span id="up">$2,200 TWD</span>
-                                <div id="count" value="@Model.Stock" class="" style="display: none"></div>  @*庫存量*@
+                                <div id="count" value="@stocks[0]" class="" style="display: none"></div>  @*庫存量*@
                             </span>
                         </span>
                         <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>

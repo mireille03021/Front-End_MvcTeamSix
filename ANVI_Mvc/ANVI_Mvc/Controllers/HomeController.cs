@@ -46,6 +46,7 @@ namespace ANVI_Mvc.Controllers
 
             return View();
         }
+        //---------------------單一商品頁面-----------------------
         [HttpGet]
         public ActionResult ProductDetailPage(int id)  //單一商品頁面 Get
         {
@@ -58,8 +59,9 @@ namespace ANVI_Mvc.Controllers
             ViewData["ColorName"] = sPVM.ProductDetailViewModels[0].ColorName;
             return View();
         }
+        [MultiButton("ChangeColor")]
         [HttpPost]
-        public ActionResult ProductDetailPage(int id, string DropDownList_Color)  //單一商品頁面Post
+        public ActionResult ChangeColor(int id, string DropDownList_Color)  //單一商品頁面Post
         {
             ProductViewModelService service = new ProductViewModelService(db, id);
             var sPVM = service.PVM;
@@ -68,53 +70,50 @@ namespace ANVI_Mvc.Controllers
             ViewBag.JsonPVM = Newtonsoft.Json.JsonConvert.SerializeObject(sPVM.ProductDetailViewModels);
 
             ViewData["ColorName"] = DropDownList_Color;
-            return View();
+            return View("ProductDetailPage");
         }
-        //測試購物車用
-        public ActionResult GetCart()
+        [MultiButton("BuyItNow")]
+        [HttpPost]
+        public ActionResult ProductDetailPage()  //單一商品頁面 Get
+        {
+            return View("Order_Customer");
+        }
+        //-----------------------------------------------------------------
+        //-----------------------------購物車------------------------------
+        //取得目前購物車頁面
+        public ActionResult GetCart(/*CartItemViewModel cartItem*/)
         {
             var cart = CartService.GetCurrentCart();
-            if (cart.CartItems.Count == 0) //如果沒有在Session裡暫存數量
-            {
-                cart.CartItems.Add(new CartItemModel()
-                {
-                    PDID = "1-1"  //待補充
-                });
-            }
-
-            return View();
+            //if (cart.CartItems.Count == 0) //如果沒有在Session裡暫存數量
+            //{
+            //    cart.CartItems.Add(new CartItemViewModel()
+            //    {
+            //        PDID = cartItem.PDID,
+            //        ProductName = cartItem.ProductName,
+            //        UnitPrice = cartItem.UnitPrice,
+            //        CategoryName = cartItem.CategoryName,
+            //        ColorName = cartItem.ColorName,
+            //        SizeContext = cartItem.SizeContext,
+            //        ImageName = cartItem.ImageName
+            //    });
+            //}
+            //else
+            //{
+            //    cart.CartItems.First().Quantity += 1;
+            //}
+            cart.AddCartItem("1-1");
+            return Content(string.Format("目前總共 : {0} 元", cart.TotalAmount));
         }
-        public ActionResult ShoppingCart()  //購物車頁面
-        {
-            //暫時傳入一筆資料，之後改用List存選到的物品資訊
-            IQueryable<CartPageViewModel> productDetail =
-                from p in db.Products
-                join pd in db.ProductDetails on p.ProductID equals pd.ProductID
-                join s in db.Sizes on pd.SizeID equals s.SizeID
-                join c in db.Colors on pd.ColorID equals c.ColorID
-                join i in db.Images on pd.PDID equals  i.PDID
-                where pd.PDID == "1-1"            //只有一筆資料，所以只要改這個PDID就好
-                select new CartPageViewModel()
-                {
-                    CategoryID = p.CategoryID,
-                    ProductID = p.ProductID,
-                    ProductName = p.ProductName,
-                    UnitPrice = p.UnitPrice,
-                    PDID = pd.PDID,
-                    Stock = pd.Stock,
-                    ColorID = c.ColorID,
-                    ColorName = c.ColorName,
-                    SizeID = s.SizeID,
-                    SizeTitle = s.SizeTitle,
-                    SizeContext = s.SizeContext,
-                    ImageName = i.ImgName
-                };
-            ViewBag.Category = db.Categories.ToList();
-            ViewData.Model = productDetail.First();
-            return View();
-        }
-
+        //-------------------------------------------------------------
+        //----------------------------下單-----------------------------
+        [HttpGet]
         public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Order_Customer(FormCollection fc)
         {
             return View();
         }
