@@ -725,3 +725,4 @@ C:\Users\Walter-Zeng\Desktop\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\
 C:\Users\Walter-Zeng\Desktop\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Walter-Zeng\Desktop\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\zh-Hant\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Walter-Zeng\Desktop\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CopyComplete
+C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.v1.resources
