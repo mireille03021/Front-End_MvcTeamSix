@@ -99,9 +99,32 @@ namespace ANVI_Mvc.Controllers
             return View();
         }
 
+       [HttpGet]
         public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
         {
+            //OrderViewModelService service = new OrderViewModelService(db, id);
+            //var sOCVM = service.OCVM;
+            //ViewData.Model = sOCVM;
+            //ViewData["last_name"] = sOCVM.CustomerName;
+            //ViewData["city"] = sOCVM.City;
+            //ViewData["address"] = sOCVM.Address;
+            //ViewData["phone"] = sOCVM.Phone;
+
             return View();
+        }
+
+        [HttpPost, ActionName("Order_Customer")]
+        public ActionResult Order_Customer_post()
+        {
+
+            ViewData["last_name"] = Request.Form["checkout[shipping_address][last_name]"];
+            ViewData["first_name"] = Request.Form["checkout[shipping_address][first_name]"];
+            ViewData["city"] = Request.Form["checkout[shipping_address][city]"];
+            ViewData["zip"] = Request.Form["checkout[shipping_address][zip]"];
+            ViewData["address"] = Request.Form["checkout[shipping_address][address]"];
+            ViewData["phone"] = Request.Form["checkout[shipping_address][phone]"];
+
+            return View("Order_Customer_post");
         }
 
         public ActionResult Order_Ship()  //下單-運送頁面!沒有HEADER跟FOOTER

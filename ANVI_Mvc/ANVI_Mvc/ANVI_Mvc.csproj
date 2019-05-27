@@ -209,9 +209,11 @@
     <Compile Include="Models\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AnviRepository.cs" />
+    <Compile Include="Services\OrderViewModelService.cs" />
     <Compile Include="Services\ProductViewModelService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CartItemViewModel.cs" />
+    <Compile Include="ViewModels\OrderCustomerViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
@@ -382,6 +384,7 @@
     <Content Include="Views\Home\Order_Check.cshtml" />
     <Content Include="Views\Shared\_Layout_ANVI.cshtml" />
     <Content Include="Views\Home\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\Order_Customer_post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
