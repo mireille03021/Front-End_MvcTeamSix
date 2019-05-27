@@ -1,17 +1,19 @@
 ﻿@using ANVI_Mvc.Services
 @{
     ViewBag.Title = "Cart";
-    var currentCart = CartService.GetCurrentCart();
+    bool something = false;
+    var currentCart = new CartModel();
+    if (CartService.GetCurrentCart() != null)
+    {
+        something = true;
+        currentCart = CartService.GetCurrentCart();
+    }
     var stocks = (List<int>)ViewBag.Stocks;
 }
 
 @section topCSS
 {
     <link rel="stylesheet" href="~/Assets/css/ShoppingCart_CSS.css" />
-}
-@section endJS
-{
-    <script type="text/javascript" src="~/Assets/js/ShoppingCart.js"></script>
 }
 
 <main id="main" role="main">
@@ -49,99 +51,106 @@
                             金額
                         </span>
                     </div>
-                    @*@foreach (var item in ViewBag.CartList)*@  @*之後兩筆明細以上需要用到*@
-                    <div class="CartItem">
-                        <div class="CartItem__ImageWrapper AspectRatio">
-                            <div class="AspectRatio" style="--aspect-ratio: 1.0">
-                                <!----aspect-ratio: 1.0-->
-                                <img class="Cart_Image"
-                                     src="~/Assets/images/@currentCart.CartItems[0].CategoryName/@currentCart.CartItems[0].ImageName"
-                                     alt="@currentCart.CartItems[0].ProductName" />
-                            </div>
-                        </div>
-
-                        <div class="CartItem__Info">
-                            <h2 class="CartItem__Title Heading">
-                                <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@currentCart.CartItems[0].ProductName</a>
-                            </h2>
-                            <div class="CartItem__Meta Heading Text_subdued">
-                                <p class="CartItem__Variant">
-                                    @currentCart.CartItems[0].ColorName / @currentCart.CartItems[0].SizeContext
-                                </p>
-                                <ul class="CartItem__PropertyList"></ul>
-                                <!--空白區塊-->
-                                <div class="CartItem__PriceList">
-                                    <span class="CartItem__Price Price"
-                                          data-money-convertible>
-                                        <span id="UnitPrice" value="@currentCart.CartItems[0].UnitPrice">
-                                            $@(currentCart.CartItems[0].UnitPrice.ToString("##,###")) TWD
-                                        </span>
-                                    </span>
+                    @if (something)
+                    {
+                        var i = 0;
+                        foreach (var cartItem in currentCart)
+                        {
+                            <div class="CartItem">
+                                <div class="CartItem__ImageWrapper AspectRatio">
+                                    <div class="AspectRatio" style="--aspect-ratio: 1.0">
+                                        <!----aspect-ratio: 1.0-->
+                                        <img class="Cart_Image"
+                                             src="~/Assets/images/@cartItem.CategoryName/@cartItem.ImageName"
+                                             alt="@cartItem.ProductName" />
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="CartItem__Actions Heading Text--subdued"
-                             style="text-align: center">
-                            <div class="CartItem__QuantitySelector">
-                                <div class="QuantitySelector">
-                                    <a id="cut"
-                                       class="QuantitySelector__Button Link Link--primary"
-                                       title="減少數量"
+                                <div class="CartItem__Info">
+                                    <h2 class="CartItem__Title Heading">
+                                        <a href="//www.anvistudios.com/products/bae-earring-silver?variant=13339254456343">@cartItem.ProductName</a>
+                                    </h2>
+                                    <div class="CartItem__Meta Heading Text_subdued">
+                                        <p class="CartItem__Variant">
+                                            @cartItem.ColorName / @cartItem.SizeContext
+                                        </p>
+                                        <ul class="CartItem__PropertyList"></ul>
+                                        <!--空白區塊-->
+                                        <div class="CartItem__PriceList">
+                                            <span class="CartItem__Price Price"
+                                                  data-money-convertible>
+                                                <span id="UnitPrice" value="@cartItem.UnitPrice">
+                                                    $@(cartItem.UnitPrice.ToString("##,###")) TWD
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="CartItem__Actions Heading Text--subdued"
+                                     style="text-align: center">
+                                    <div class="CartItem__QuantitySelector">
+                                        <div class="QuantitySelector">
+                                            <a id="cut_@i"
+                                               class="QuantitySelector__Button Link Link--primary"
+                                               title="減少數量"
+                                               data-quantity="0"
+                                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                               data-action="update-item-quantity">
+                                                <svg class="Icon Icon--minus"
+                                                     role="presentation"
+                                                     viewBox="0 0 16 2">
+                                                    <path d="M1,1 L15,1"
+                                                          stroke="currentColor"
+                                                          fill="none"
+                                                          fill-rule="evenodd"
+                                                          stroke-linecap="square"></path>
+                                                </svg>
+                                            </a>
+                                            <input type="text"
+                                                   name="updates[13339254456343:20c4ad971c16ff4d76408e716f513255]"
+                                                   id="cutValue"
+                                                   class="QuantitySelector__CurrentQuantity"
+                                                   pattern="[0-9]*"
+                                                   data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                                   value="1" />
+                                            <a id="add_@i"
+                                               class="QuantitySelector__Button Link Link--primary"
+                                               title="增加數量"
+                                               data-quantity="2"
+                                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                               data-action="update-item-quantity">
+                                                <svg class="Icon Icon--plus"
+                                                     role="presentation"
+                                                     viewBox="0 0 16 16">
+                                                    <g stroke="currentColor"
+                                                       fill="none"
+                                                       fill-rule="evenodd"
+                                                       stroke-linecap="square">
+                                                        <path d="M8,1 L8,15"></path>
+                                                        <path d="M1,8 L15,8"></path>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <div id="Stock_@i" value="@stocks[i]" style="display: none"></div>
+                                        </div>
+                                    </div>
+                                    <a href="/cart/change?quantity=0&id=13339254456343:20c4ad971c16ff4d76408e716f513255"
+                                       style="text-decoration:none;"
+                                       class="CartItem__Remove Link Link--underline"
                                        data-quantity="0"
                                        data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                                       data-action="update-item-quantity">
-                                        <svg class="Icon Icon--minus"
-                                             role="presentation"
-                                             viewBox="0 0 16 2">
-                                            <path d="M1,1 L15,1"
-                                                  stroke="currentColor"
-                                                  fill="none"
-                                                  fill-rule="evenodd"
-                                                  stroke-linecap="square"></path>
-                                        </svg>
-                                    </a>
-                                    <input type="text"
-                                           name="updates[13339254456343:20c4ad971c16ff4d76408e716f513255]"
-                                           id="cutValue"
-                                           class="QuantitySelector__CurrentQuantity"
-                                           pattern="[0-9]*"
-                                           data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                                           value="1" />
-                                    <a id="add"
-                                       class="QuantitySelector__Button Link Link--primary"
-                                       title="增加數量"
-                                       data-quantity="2"
-                                       data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                                       data-action="update-item-quantity">
-                                        <svg class="Icon Icon--plus"
-                                             role="presentation"
-                                             viewBox="0 0 16 16">
-                                            <g stroke="currentColor"
-                                               fill="none"
-                                               fill-rule="evenodd"
-                                               stroke-linecap="square">
-                                                <path d="M8,1 L8,15"></path>
-                                                <path d="M1,8 L15,8"></path>
-                                            </g>
-                                        </svg>
-                                    </a>
+                                       data-action="remove-item">移除</a>
                                 </div>
+                                <span id="pc"
+                                      class="CartItem__LinePrice Price Heading Text--subdued u-h7"
+                                      style="text-align: right">
+                                    <span id="">$@cartItem.UnitPrice.ToString("##,###") TWD</span>
+                                </span>
                             </div>
-                            <a href="/cart/change?quantity=0&id=13339254456343:20c4ad971c16ff4d76408e716f513255"
-                               style="text-decoration:none;"
-                               class="CartItem__Remove Link Link--underline"
-                               data-quantity="0"
-                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                               data-action="remove-item">移除</a>
-                        </div>
-                        <span id="pc"
-                              class="CartItem__LinePrice Price Heading Text--subdued u-h7"
-                              style="text-align: right">
-                            <span id="">$@currentCart.CartItems[0].UnitPrice.ToString("##,###") TWD</span>
-                            <div id="" value="3" class="" style="display: none"></div>
-                        </span>
-                    </div>
+                            i++;
+                        }
+                    }
                 </div>
                 <footer class="Cart__Footer">
                     <div class="Cart__NoteContainer">
@@ -156,8 +165,8 @@
                         <span class="Cart__Total Heading u-h6">
                             總額:
                             <span data-money-convertible>
-                                <span id="up">$2,200 TWD</span>
-                                <div id="count" value="@stocks[0]" class="" style="display: none"></div>  @*庫存量*@
+                                <span id="up">$@currentCart.TotalAmount.ToString("##,###") TWD</span>
+                                <div id="count" value="" class="" style="display: none"></div>
                             </span>
                         </span>
                         <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>
@@ -237,3 +246,60 @@
     </div>
 </main>
 
+@section endJS
+{
+    <script>
+        $("")
+        var nb = parseInt($("#UnitPrice").attr('value'));
+        var tnb = nb;
+        var add = document.getElementById("add");
+        var cut = document.getElementById("cut");
+        var price = document.getElementById("pc");
+        var count = parseInt(document.getElementById("count").getAttribute("value"));
+        var pickNumber = 1;
+        //var cutValue = document.getElementById("cutValue").getAttribute("value");
+        var cutValue = $("#cutValue");
+        for (var i = 0; i < @currentCart.Count; i++) {
+            $("#add" + i).on('click', doAdd);
+            $("#cut" + i).on('click', doCut);
+        }
+        add.onclick = doAdd;
+        cut.onclick = doCut;
+        function doAdd() {
+            // var cv = cutvalue++;
+            if (count - pickNumber > 0) {
+                pickNumber++;
+                cutValue.val(parseInt(cutValue.val()) + 1);
+                tnb = nb * parseInt(cutValue.val());
+                // cutValue.innerText = cv;
+                document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+                cutValue.text(cutValue.val());
+            }
+        }
+        function doCut() {
+            // var cv = cutvalue++;
+            if (count - pickNumber < count - 1) {
+                pickNumber--;
+                cutValue.val(parseInt(cutValue.val()) - 1);
+                tnb = nb * parseInt(cutValue.val());
+                // cutValue.innerText = cv;
+                document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+                cutValue.text(cutValue.val());
+            }
+        }
+
+        function formatMoney(n, c, d, t) {
+            var c = isNaN(c = Math.abs(c)) ? 2 : c,
+                d = d == undefined ? "." : d,
+                t = t == undefined ? "," : t,
+                s = n < 0 ? "-" : "",
+                i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+                j = (j = i.length) > 3 ? j % 3 : 0;
+
+            return s + (j ? i.substr(0, j) + t : "") + i.toString("##,###") + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+        };
+
+
+    </script>
+
+}

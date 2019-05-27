@@ -69,7 +69,7 @@ namespace ANVI_Mvc.Migrations
             );
             context.ProductDetails.AddOrUpdate(
             x => x.PDID,
-            new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 13, ColorID = 1 },
+            new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 14, ColorID = 1 },
             new ProductDetail() { PDID = "2-1", ProductID = 2, Stock = 10, SizeID = 4, ColorID = 1 },
             new ProductDetail() { PDID = "3-1", ProductID = 3, Stock = 5, SizeID = 13, ColorID = 1 },
             new ProductDetail() { PDID = "4-1", ProductID = 4, Stock = 3, SizeID = 7, ColorID = 1 },

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,29 +7,18 @@ using ANVI_Mvc.ViewModels;
 
 namespace ANVI_Mvc.Models
 {
-    public class CartModel
+    public class CartModel : IEnumerable<CartItemViewModel>
     {
-        public List<CartItemViewModel> CartItems;
 
         //建構值，初始化
-        private List<CartItemViewModel> cartItems;
+        public List<CartItemViewModel> cartItems;
 
         public CartModel()
         {
-            this.CartItems = new List<CartItemViewModel>();
+            this.cartItems = new List<CartItemViewModel>();
         }
 
-        public int Count
-        {
-            get
-            {
-                if (this.cartItems == null)
-                {
-                    return 0;
-                }
-                return this.cartItems.Count;
-            }
-        }
+        public int Count => this.cartItems.Count;
 
         //取得商品總價
         public decimal TotalAmount
@@ -36,7 +26,7 @@ namespace ANVI_Mvc.Models
             get
             {
                 decimal totalAmount = 0;
-                foreach (var item in CartItems)
+                foreach (var item in cartItems)
                 {
                     totalAmount += item.Amount;
                 }
@@ -47,16 +37,13 @@ namespace ANVI_Mvc.Models
 
         public bool AddCartItem(string PDID)
         {
-            var findItem = new CartItemViewModel();
             //搜尋加入購物車的產品
-            if (cartItems != null)
-            {
-                findItem = this.cartItems
+            var findItem = this.cartItems
                                 .Where(item => item.PDID == PDID)
                                 .Select(item => item).FirstOrDefault();
-            }
+
             //判斷是否有相同產品存在購物車中
-            if (findItem != default(ViewModels.CartItemViewModel))
+            if (findItem == default(ViewModels.CartItemViewModel))
             {
                 using (AnviModel db = new AnviModel())
                 {
@@ -108,15 +95,20 @@ namespace ANVI_Mvc.Models
                 SizeContext = cartItem.SizeContext,
                 ImageName = cartItem.ImageName
             };
-            if (cartItems == null)
-            {
-                cartItems = new List<CartItemViewModel>(){item};
-            }
-            else
-            {
-                cartItems.Add(item);
-            }
+
+            cartItems.Add(item);
             return true;
+        }
+
+        public IEnumerator<CartItemViewModel> GetEnumerator()
+        {
+            IEnumerable<CartItemViewModel> nothing = cartItems;
+            return nothing.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
