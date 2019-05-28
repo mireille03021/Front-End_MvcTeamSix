@@ -117,39 +117,80 @@ namespace ANVI_Mvc.Controllers
        [HttpGet]
         public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
         {
-            //OrderViewModelService service = new OrderViewModelService(db, id);
-            //var sOCVM = service.OCVM;
-            //ViewData.Model = sOCVM;
-            //ViewData["last_name"] = sOCVM.CustomerName;
-            //ViewData["city"] = sOCVM.City;
-            //ViewData["address"] = sOCVM.Address;
-            //ViewData["phone"] = sOCVM.Phone;
-
+            if(Session["Order_Session"] != null)
+            {
+                var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+                ViewData["CustomerName_"] = OCVM.CustomerName;
+                ViewData["City_"] = OCVM.City;
+                ViewData["ZipCode"] = OCVM.ZipCode;
+                ViewData["Address_"] = OCVM.Address;
+                ViewData["Phone_"] = OCVM.Phone;
+                ViewData["Email_"] = OCVM.Email;
+            }
             return View();
         }
 
-        [HttpPost, ActionName("Order_Customer")]
-        public ActionResult Order_Customer_post()
+        [HttpPost]
+        public ActionResult Order_Customer(OrderCustomerViewModel OCVM)
         {
+            Session["Order_Session"] = OCVM;
+            ViewData["CustomerName_"] = OCVM.CustomerName;
+            ViewData["City_"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address_"] = OCVM.Address;
+            ViewData["Phone_"] = OCVM.Phone;
+            ViewData["Email_"] = OCVM.Email;
 
-            ViewData["last_name"] = Request.Form["checkout[shipping_address][last_name]"];
-            ViewData["first_name"] = Request.Form["checkout[shipping_address][first_name]"];
-            ViewData["city"] = Request.Form["checkout[shipping_address][city]"];
-            ViewData["zip"] = Request.Form["checkout[shipping_address][zip]"];
-            ViewData["address"] = Request.Form["checkout[shipping_address][address]"];
-            ViewData["phone"] = Request.Form["checkout[shipping_address][phone]"];
-
-            return View("Order_Customer_post");
+            return View("Order_Ship");
         }
-
+        [HttpGet]
         public ActionResult Order_Ship()  //下單-運送頁面!沒有HEADER跟FOOTER
         {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["Email_"] = OCVM.Email;
+            ViewData["Address_"] = OCVM.Address;
+            ViewData.Model = OCVM;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Order_Ship(string Nothing)  //下單-運送頁面!沒有HEADER跟FOOTER
+        {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["CustomerName_"] = OCVM.CustomerName;
+            ViewData["City_"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address_"] = OCVM.Address;
+            ViewData["Phone_"] = OCVM.Phone;
+            ViewData["Email_"] = OCVM.Email;
+            ViewData.Model = OCVM;
+
+            return View("Order_Pay");
+        }
+        [HttpGet]
         public ActionResult Order_Pay()  //下單-付費頁面!沒有HEADER跟FOOTER
         {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Pay"];
+            ViewData["Email_"] = OCVM.Email;
+            ViewData["Address_"] = OCVM.Address;
+            ViewData.Model = OCVM;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Order_Pay(string Nothing)  //下單-付費頁面!沒有HEADER跟FOOTER
+        {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Ship"];
+            ViewData["CustomerName_"] = OCVM.CustomerName;
+            ViewData["City_"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address_"] = OCVM.Address;
+            ViewData["Phone_"] = OCVM.Phone;
+            ViewData["Email_"] = OCVM.Email;
+            ViewData.Model = OCVM;
+            return View();
+        }
+
         public ActionResult Order_Check()  //下單-確認頁面!沒有HEADER跟FOOTER
         {
             return View();
