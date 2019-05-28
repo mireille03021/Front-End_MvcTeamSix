@@ -51,7 +51,6 @@ namespace ANVI_Mvc.Models
                                     join pd in db.ProductDetails on p.ProductID equals pd.ProductID
                                     join s in db.Sizes on pd.SizeID equals s.SizeID
                                     join c in db.Colors on pd.ColorID equals c.ColorID
-                                    join i in db.Images on pd.PDID equals i.PDID
                                     join cat in db.Categories on p.CategoryID equals cat.CategoryID
                                     where pd.PDID == PDID
                                     select new CartItemViewModel()
@@ -66,8 +65,7 @@ namespace ANVI_Mvc.Models
                                         ColorName = c.ColorName,
                                         //SizeID = s.SizeID,
                                         //SizeTitle = s.SizeTitle,
-                                        SizeContext = s.SizeContext,
-                                        ImageName = i.ImgName
+                                        SizeContext = s.SizeContext
                                     }).FirstOrDefault();
                     if (cartItem != default(ViewModels.CartItemViewModel))
                     {
@@ -92,8 +90,7 @@ namespace ANVI_Mvc.Models
                 Quantity = 1,
                 CategoryName = cartItem.CategoryName,
                 ColorName = cartItem.ColorName,
-                SizeContext = cartItem.SizeContext,
-                ImageName = cartItem.ImageName
+                SizeContext = cartItem.SizeContext
             };
 
             cartItems.Add(item);

@@ -21,7 +21,6 @@ namespace ANVI_Mvc.ViewModels
         //public int SizeID { get; set; }
         //public string SizeTitle { get; set; }
         public string SizeContext { get; set; }
-        public string ImageName { get; set; }
         public decimal Amount => this.UnitPrice * this.Quantity;
     }
 }
