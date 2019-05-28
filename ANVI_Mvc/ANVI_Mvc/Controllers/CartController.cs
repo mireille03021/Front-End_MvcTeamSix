@@ -54,6 +54,25 @@ namespace ANVI_Mvc.Controllers
         }
         public ActionResult ShoppingCart()  //購物車頁面
         {
+            if (CartService.GetCurrentCart() != null)
+            {
+                var currentCart = CartService.GetCurrentCart();
+                int count = currentCart.Count;
+                var stocks = new int[count];
+                for (var i = 0; i < currentCart.Count; i++)
+                {
+                    foreach (var item in db.ProductDetails)
+                    {
+                        if (item.PDID == currentCart.cartItems[i].PDID)
+                        {
+                            stocks[i] = item.Stock;
+                            break;
+                        }
+                    }
+                }
+                ViewBag.Stocks = stocks;
+            }
+
             return View();
         }
     }

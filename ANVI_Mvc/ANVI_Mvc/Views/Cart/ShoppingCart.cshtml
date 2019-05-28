@@ -8,7 +8,7 @@
         something = true;
         currentCart = CartService.GetCurrentCart();
     }
-    var stocks = (List<int>)ViewBag.Stocks;
+    var stocks = (int[])ViewBag.Stocks;
 }
 
 @section topCSS
@@ -79,7 +79,7 @@
                                         <div class="CartItem__PriceList">
                                             <span class="CartItem__Price Price"
                                                   data-money-convertible>
-                                                <span id="UnitPrice" value="@cartItem.UnitPrice">
+                                                <span id="UnitPrice_@i" value="@cartItem.UnitPrice">
                                                     $@(cartItem.UnitPrice.ToString("##,###")) TWD
                                                 </span>
                                             </span>
@@ -166,7 +166,6 @@
                             總額:
                             <span data-money-convertible>
                                 <span id="up">$@currentCart.TotalAmount.ToString("##,###") TWD</span>
-                                <div id="count" value="" class="" style="display: none"></div>
                             </span>
                         </span>
                         <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>
@@ -249,45 +248,65 @@
 @section endJS
 {
     <script>
-        $("")
-        var nb = parseInt($("#UnitPrice").attr('value'));
-        var tnb = nb;
-        var add = document.getElementById("add");
-        var cut = document.getElementById("cut");
-        var price = document.getElementById("pc");
-        var count = parseInt(document.getElementById("count").getAttribute("value"));
-        var pickNumber = 1;
+        //var nb = parseInt($("#UnitPrice").attr('value'));
+        //var tnb = nb;
+        //var add = document.getElementById("add");
+        //var cut = document.getElementById("cut");
+        //var price = document.getElementById("pc");
+        //var count = parseInt(document.getElementById("count").getAttribute("value"));
+        //var pickNumber = 1;
         //var cutValue = document.getElementById("cutValue").getAttribute("value");
-        var cutValue = $("#cutValue");
+        //var cutValue = $("#cutValue");
         for (var i = 0; i < @currentCart.Count; i++) {
-            $("#add" + i).on('click', doAdd);
-            $("#cut" + i).on('click', doCut);
+            $("#add_" + i).on('click', function doAdd() {
+                console.log("hi" + i);
+                //// var cv = cutvalue++;
+                //if (count - pickNumber > 0) {
+                //    pickNumber++;
+                //    cutValue.val(parseInt(cutValue.val()) + 1);
+                //    tnb = nb * parseInt(cutValue.val());
+                //    // cutValue.innerText = cv;
+                //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+                //    cutValue.text(cutValue.val());
+                //}
+            });
+            $("#cut_" + i).on('click', function doCut() {
+                console.log("ho" + i);
+                //// var cv = cutvalue++;
+                //if (count - pickNumber < count - 1) {
+                //    pickNumber--;
+                //    cutValue.val(parseInt(cutValue.val()) - 1);
+                //    tnb = nb * parseInt(cutValue.val());
+                //    // cutValue.innerText = cv;
+                //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+                //    cutValue.text(cutValue.val());
+                //}
+            });
         }
-        add.onclick = doAdd;
-        cut.onclick = doCut;
-        function doAdd() {
-            // var cv = cutvalue++;
-            if (count - pickNumber > 0) {
-                pickNumber++;
-                cutValue.val(parseInt(cutValue.val()) + 1);
-                tnb = nb * parseInt(cutValue.val());
-                // cutValue.innerText = cv;
-                document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-                cutValue.text(cutValue.val());
-            }
-        }
-        function doCut() {
-            // var cv = cutvalue++;
-            if (count - pickNumber < count - 1) {
-                pickNumber--;
-                cutValue.val(parseInt(cutValue.val()) - 1);
-                tnb = nb * parseInt(cutValue.val());
-                // cutValue.innerText = cv;
-                document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-                cutValue.text(cutValue.val());
-            }
-        }
-
+        //function doAdd(i) {
+        //    console.log("hi" + i);
+        //    //// var cv = cutvalue++;
+        //    //if (count - pickNumber > 0) {
+        //    //    pickNumber++;
+        //    //    cutValue.val(parseInt(cutValue.val()) + 1);
+        //    //    tnb = nb * parseInt(cutValue.val());
+        //    //    // cutValue.innerText = cv;
+        //    //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+        //    //    cutValue.text(cutValue.val());
+        //    //}
+        //}
+        //function doCut(i) {
+        //    console.log("ho" + i);
+        //    //// var cv = cutvalue++;
+        //    //if (count - pickNumber < count - 1) {
+        //    //    pickNumber--;
+        //    //    cutValue.val(parseInt(cutValue.val()) - 1);
+        //    //    tnb = nb * parseInt(cutValue.val());
+        //    //    // cutValue.innerText = cv;
+        //    //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
+        //    //    cutValue.text(cutValue.val());
+        //    //}
+        //}
         function formatMoney(n, c, d, t) {
             var c = isNaN(c = Math.abs(c)) ? 2 : c,
                 d = d == undefined ? "." : d,
@@ -298,8 +317,5 @@
 
             return s + (j ? i.substr(0, j) + t : "") + i.toString("##,###") + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
         };
-
-
     </script>
-
 }

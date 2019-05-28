@@ -386,6 +386,7 @@
     <Content Include="Views\Home\Order_Check.cshtml" />
     <Content Include="Views\Shared\_Layout_ANVI.cshtml" />
     <Content Include="Views\Cart\ShoppingCart.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
