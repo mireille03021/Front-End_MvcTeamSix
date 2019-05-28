@@ -54,7 +54,7 @@ namespace ANVI_Mvc.Controllers
                 var currentCart = CartService.GetCurrentCart();
                 var stocks = CartService.getEachProductStocks(db);
                 var images = CartService.getEachProductImages(db);
-                ViewBag.Stocks = stocks;
+                ViewBag.Stocks = stocks; //因為只是要給JQuery用，等到Jquery寫完再考慮需不需要改用Json就好
                 ViewBag.Images = images;
             }
             return View();
