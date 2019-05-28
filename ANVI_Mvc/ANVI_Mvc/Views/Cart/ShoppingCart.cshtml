@@ -29,7 +29,6 @@
                   method="POST"
                   class="Cart Cart--expanded"
                   novalidate>
-                <!--不清楚input在這裡的作用-->
                 <input type="hidden"
                        name="attributes[collection_mobile_items_per_row]"
                        value="" />
@@ -94,9 +93,7 @@
                                             <a id="cut_@i"
                                                class="QuantitySelector__Button Link Link--primary"
                                                title="減少數量"
-                                               data-quantity="0"
-                                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                                               data-action="update-item-quantity">
+                                               data-quantity="0">
                                                 <svg class="Icon Icon--minus"
                                                      role="presentation"
                                                      viewBox="0 0 16 2">
@@ -108,18 +105,15 @@
                                                 </svg>
                                             </a>
                                             <input type="text"
-                                                   name="updates[13339254456343:20c4ad971c16ff4d76408e716f513255]"
+                                                   name=""
                                                    id="cutValue"
                                                    class="QuantitySelector__CurrentQuantity"
                                                    pattern="[0-9]*"
-                                                   data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
                                                    value="1" />
                                             <a id="add_@i"
                                                class="QuantitySelector__Button Link Link--primary"
                                                title="增加數量"
-                                               data-quantity="2"
-                                               data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
-                                               data-action="update-item-quantity">
+                                               data-quantity="2">
                                                 <svg class="Icon Icon--plus"
                                                      role="presentation"
                                                      viewBox="0 0 16 16">
@@ -139,7 +133,6 @@
                                        style="text-decoration:none;"
                                        class="CartItem__Remove Link Link--underline"
                                        data-quantity="0"
-                                       data-line-id="13339254456343:20c4ad971c16ff4d76408e716f513255"
                                        data-action="remove-item">移除</a>
                                 </div>
                                 <span id="pc"

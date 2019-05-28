@@ -6,6 +6,7 @@
 }
 @section topCSS
 {
+    <link rel="stylesheet" href="https://npmcdn.com/flickity@2/dist/flickity.css">
     <link href="~/Assets/css/ProductDetailPage.css" rel="stylesheet" />
 }
 @section topJS
@@ -13,57 +14,69 @@
     <script type="text/javascript" src="~/Assets/js/jquery-3.3.1.js"></script>
 }
 <main id="main">
-    <div id="SS-border" class="SS-border">
-        <section class="section01 P-med">
-            <div id="Product-main(W)" class="Pm-W_01">
-                <div id="PG" class="PG_01">
+    <div id="SS-border" class="shopify-section--bordered">
+        <section class="product Product--medium">
+            <div id="Product-main(W)" class="Product__Wrapper">
+                <div id="PG" class="Product__Gallery">
                     <span id="ProductGallery" class="Anchor"></span>
                     <!--按鈕轉移位置-->
-                    <div id="PS">
-                        @foreach (var image in Model.Images)
-                        {
-                            <div>
-                                <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
-                            </div>
-                        }
-                    </div>
-                    <div id="PSF">
-                        <!-- 縮小的RWD -->
-                        <div id="FV" class="FV_01">
-                            <div id="FS" class="FS_01">
+                    @*<div id="PS">
+                            @foreach (var image in Model.Images)
+                            {
+                                <div>
+                                    <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
+                                </div>
+                            }
+                        </div>
+                        <div id="PSF">*@
+                    <!-- 縮小的RWD -->
+                    <div id="PSF" class="Product__Slideshow Carousel flickity-enabled is-draggable"
+                         data-flickity-config='{
+                            "prevNextButtons": false,
+                            "pageDots": true,
+                            "adaptiveHeight": true,
+                            "watchCSS": true,
+                            "dragThreshold": 8,
+                            "initialIndex": 0,
+                            "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                          }'>
+                        <div id="FV" class="flickity-viewport" style="touch-action: pan-y;">
+                            <div id="FS" class="flickity-slider" style="left: 0px; transform: translateX(0%);">
                                 @foreach (var image in Model.Images)
                                 {
-                                    <div>
-                                        <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
+                                    <div class="Product__SlideItem Carousel__Cell is-selected" style="position: absolute; left: 0%;">
+                                        <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: 100.0%; --aspect-ratio: 1.0;">
+                                            <img name="ImgName" src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName" class="Image--fadeIn Image--lazyLoaded" />
+                                            <span class="Image__Loader"></span>
+                                        </div>
                                     </div>
                                 }
                             </div>
                         </div>
-                        <ol id="FPB" class="FPB_01">
-                            <li class="dot is-sel"></li>
+                        <ol id="FPD" class="flickity-page-dots">
+                            <li class="dot is-selected"></li>
                             <li class="dot"></li>
                             <li class="dot"></li>
                             <li class="dot"></li>
                             <li class="dot"></li>
                         </ol>
                     </div>
-
                 </div>
-                <div id="PI" class="PI_01">
-                    <div id="P-info" class="P-info_01">
-                        <div class="container">
-                            <div id="P-Meta" class="P-Meta">
-                                <h2 class="font-h6 font-Heading P-Meta-Vd">ANVI</h2>
-                                <h1 class="font-h2 font-Heading">@Model.Product.ProductName</h1>
-                                <div class="font-Heading P-Meta-PL">$@Model.Product.UnitPrice TWD</div>
+                <div id="PI" class="Product__InfoWrapper">
+                    <div id="P-info" class="Product__Info">
+                        <div class="Container">
+                            <div id="P-Meta" class="ProductMeta">
+                                <h2 class="u-h6 Heading ProductMeta__Vendor">ANVI</h2>
+                                <h1 name="ProductName" class="u-h2 Heading">@Model.Product.ProductName</h1>
+                                <div name="UnitPrice" class="Heading ProductMeta__PriceList">$@Model.Product.UnitPrice TWD</div>
                             </div>
-                            <form action="" method="post" class="P-Form">
+                            <form action="" method="post" class="ProductForm">
                                 <div id="PF-V">
-                                    <div id="PF-O" class="PF-O PF-O-lab">
+                                    <div id="PF-O" class="ProductForm__Option ProductForm__Option--labelled">
                                         <span>COLOR：</span>
-                                        <button id="PFI-b" class="PFI-b_01">
+                                        <button type="button" id="PFI-b" class="ProductForm__Item">
                                             <span id="PFON">@ViewData["ColorName"]</span>
-                                            <svg class="Icon ISA"></svg>
+                                            <svg class="Icon Icon--select-arrow"></svg>
                                         </button>
                                         @* 這個form之後會搬到PartialView *@
                                         @{
@@ -82,39 +95,40 @@
                                     </div>
                                     @if (Model.ProductDetailViewModels.GroupBy(x => x.SizeID).Count() > 1)
                                     {
-                                        <div id="PF-O_01" class="PF-O PF-O-lab">
+                                        <div id="PF-O_01" class="ProductForm__Option ProductForm__Option--labelled">
                                             <span>
                                                 Size：
-                                                <button class="PFLL Text-s Link">Size chart</button>
+                                                <button type="button" class="ProductForm__LabelLink Text--subdued Link">
+                                                    Size chart
+                                                </button>
+                                                <!-- data-action="open-modal" aria-controls="modal-size-chart" -->
                                             </span>
-                                            <ul class="HorList HorList-spT">
+                                            <ul class="HorizontalList HorizontalList--spacingTight">
                                                 @{
                                                     var i = 0;
                                                 }
                                                 @foreach (var size in Model.ProductDetailViewModels.Where(x => x.ColorName == ViewData["ColorName"].ToString()))
                                                 {
-                                                    <li class="HL-Item">
+                                                    <li class="HorizontalList__Item">
                                                         @if (i != 0)
                                                         {
-                                                            <input type="radio" id="option-1-@i" name="option-1" value="@size.SizeContext"
-                                                                   class="SizeSW-Radio">
+                                                            <input type="radio" id="option-1-@i" name="option-1" value="@size.SizeContext" class="SizeSwatch__Radio">
                                                         }
                                                         else
                                                         {
-                                                            <input type="radio" id="option-1-@i" name="option-1" value="@size.SizeContext"
-                                                                   class="SizeSW-Radio" checked="checked">
+                                                            <input type="radio" id="option-1-@i" name="option-1" value="@size.SizeContext" class="SizeSwatch__Radio" checked="checked">
                                                         }
 
-                                                        <label for="option-1-@i" class="SizeSW">@size.SizeContext</label>
+                                                        <label for="option-1-@i" class="SizeSwatch">@size.SizeContext</label>
                                                     </li>
                                                     i++;
                                                 }
                                             </ul>
                                         </div>
                                     }
-                                    <div class="PF-O">
+                                    <div class="ProductForm__Option">
                                         <label>庫存量 : </label>
-                                        <span class="PF-Invt Text-s" id="Stock" name="Stock">
+                                        <span class="ProductForm__Inventory Text--subdued" id="Stock" name="Stock">
                                             @if (Model.ProductDetailViewModels.GroupBy(x => x.SizeID).Count() == 1)
                                             {
                                                 @Model.ProductDetailViewModels[0].Stock
@@ -122,32 +136,34 @@
                                         </span>
                                     </div>
                                 </div>
-                                <button type="submit" class="PF-AddToCart Btn Btn-sec Btn-full" name="ToCart">
+                                <button type="submit" class="ProductForm__AddToCart Button Button--secondary Button--full" name="ToCart">
                                     <span>Add to cart</span>
-                                    <span class="Btn-SepDot"></span>
-                                    <span>$@Model.Product.UnitPrice.ToString("##,###") TWD</span>
+                                    <span class="Button__SeparatorDot"></span>
+                                    <span name="UnitPrice">$@Model.Product.UnitPrice.ToString("##,###") TWD</span>
                                 </button>
-                                <div id="S-pay-Btn" class="S-pay-Btn">
+                                <div id="S-pay-Btn" class="shopify-payment-button">
                                     <div>
-                                        <button type="submit" class="S-pay-Btn_btn S-pay-Btn_btn-unb" name="BuyItNow">BUY IT NOW</button>
+                                        <button class="shopify-payment-button__button shopify-payment-button__button--unbranded">
+                                            BUY IT NOW
+                                        </button>
                                     </div>
                                 </div>
                             </form>
-                            <div id="P-Meta-Des" class="P-Meta-Des Rte">
+                            <div id="P-Meta-Des" class="ProductMeta__Description Rte">
                                 <p>
                                     <strong>商品描述與細節</strong>
                                 </p>
                                 @foreach (var title in Model.DesSubTitles.Where(x => x.ProductID == Model.Product.ProductID).Select(x => x.SubTitle).Distinct())
                                 {
                                     <p>
-                                        <span>@title</span>
+                                        <span name="SubTitle">@title</span>
                                     </p>
                                 }
                                 <div>
                                     <ul>
                                         @foreach (var detail in Model.DesDetails.Where(x => x.ProductID == Model.Product.ProductID).Select(x => x.Detail).Distinct())
                                         {
-                                            <li style="font-size: 10px">@detail</li>
+                                            <li name="Detail" style="font-size: 10px">@detail</li>
                                         }
                                     </ul>
                                 </div>
@@ -158,17 +174,17 @@
                         <div id="PA-item"></div>
                     </div>
                 </div>
-                <div id="P-Aside" class="P-Aside">
+                <div id="P-Aside" class="Product__Aside">
                     <span id="ProductAside" class="Anchor"></span>
                     <!--按鈕轉移位置-->
-                    <div id="P-Tabs" class="P-Tabs">
-                        <div id="tran" class="Collapsible Collapsible-lar">
-                            <button class="Collapsible-Btn font-h6 font-Heading" aria-expanded="false">
+                    <div id="P-Tabs" class="Product__Tabs">
+                        <div id="tran" class="Collapsible Collapsible--large">
+                            <button class="Collapsible__Button u-h6 Heading" aria-expanded="false">
                                 運送須知
                                 <span></span>
                             </button>
-                            <div id="CI_01" class="CI_01">
-                                <div class="CC_01">
+                            <div id="CI_01" class="Collapsible__Inner">
+                                <div class="Collapsible__Content">
                                     <div class="Rte">
                                         <h2 style="text-align: center;"><strong>台灣地區運費與運送方式</strong></h2>
                                         <ul>
@@ -183,17 +199,20 @@
                                         <h2 style="text-align: center;"><strong>國際運費與運送方式</strong></h2>
                                         <ul>
                                             <li>
-                                                中國：<ul>
+                                                中國：
+                                                <ul>
                                                     <li>SF Express(順豐快遞)：NT.200元 / 消費滿NT.4500元免運費</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                香港：<ul>
+                                                香港：
+                                                <ul>
                                                     <li>SF Express(順豐快遞)：NT.150元 / 消費滿NT.4500元免運費</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                其他地區：<ul>
+                                                其他地區：
+                                                <ul>
                                                     <li>DHL Express，費用於結帳時自動計算。消費滿NT.4500元免運費</li>
                                                 </ul>
                                             </li>
@@ -205,24 +224,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="return" class="Collapsible Collapsible-lar">
-                            <button class="Collapsible-Btn font-h6 font-Heading" aria-expanded="false">
+                        <div id="return" class="Collapsible Collapsible--large">
+                            <button class="Collapsible__Button u-h6 Heading" aria-expanded="false">
                                 退/換貨須知
                                 <!--data-action="Collapsible_Btn_TF()" onclick="Collapsible_Btn_TF()"-->
                                 <span></span>
                             </button>
-                            <div class="CI_01">
-                                <div class="CC_01">
+                            <div class="Collapsible__Inner">
+                                <div class="Collapsible__Content">
                                     <div class="Rte">
                                         <h4></h4>
                                         <h2 style="text-align: center;">台灣顧客退換貨注意事項</h2>
                                         <p>
-                                            消費者享有商品貨到後七天猶豫期(含例假日)的權益 (
-                                            收到商品後隔天起算為第一天，含：如收件地址有管理員代收，則以管理員簽收的隔日起算)，欲退購者，請於七日內以郵件方式提出申請退/換貨，逾期恕不受理。
+                                            消費者享有商品貨到後七天猶豫期(含例假日)的權益 (收到商品後隔天起算為第一天，含：如收件地址有管理員代收，則以管理員簽收的隔日起算)，欲退購者，請於七日內以郵件方式提出申請退/換貨，逾期恕不受理。
                                         </p>
                                         <p>
-                                            退回的商品必須是全新狀態、且還原完整包裝 (含商品本體及包裝(袋、盒、紙卡)的完整性)，
-                                            請勿缺漏任何配件、勿自行拆解檢查商品或損毀。包裝都屬於商品的一部分，遺失、毀損或缺件將可能影響您退貨的權益，也可能依照損毀程度扣除為回復原狀所必要的費用。&nbsp;
+                                            退回的商品必須是全新狀態、且還原完整包裝 (含商品本體及包裝(袋、盒、紙卡)的完整性)，請勿缺漏任何配件、勿自行拆解檢查商品或損毀。包裝都屬於商品的一部分，遺失、毀損或缺件將可能影響您退貨的權益，也可能依照損毀程度扣除為回復原狀所必要的費用。&nbsp;
                                         </p>
                                         <p>退換貨須自行負擔運費 ，請在收到商品7日之內與客服人員聯繫，確認後再寄出，自行寄出者恕不受理。</p>
                                         <p>‧ 客服電話：(02)2755-5779，請於週一至週五9:30m至18:30pm來電。</p>
@@ -238,19 +255,208 @@
                 </div>
             </div>
 
-            <div></div>
+            <div id="colorselect_part" class="VariantSelector" aria-hidden="true">
+                <div class="VariantSelector__Carousel Carousel"
+                     data-flickity-config='{ "prevNextButtons": true, "pageDots": true, "initialIndex": 0, "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}}'>
+                    <div class="flickity-viewport" style="height: 318px;">
+                        <div class="flickity-slider" style="left: 0px; transform: translateX(27%);">
+                            <div class="VariantSelector__Item Carousel__Cell is-selected"
+                                 data-background-color="gold"
+                                 data-background-image="//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/18k-gold.png?4455"
+                                 data-option-position="1" data-option-value="18K Gold">
+                                <div class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback"
+                                     style="max-width: 1050px; padding-bottom: 100.0%; --aspect-ratio: 1.0">
+                                    <img name="ImgName" class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback" src="~/Assets/images/Rings/R19402_900x.jpg" alt="鋯石C字戒指">
+                                    <!-- data-src="//cdn.shopify.com/s/files/1/2023/9563/products/R19402-2_{width}x.jpg?v=1556639954" -->
+                                    <span class="Image__Loader"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="flickity-page-dots">
+                            <li class="dot is-selected">
+
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="VariantSelector__Info">
+                    <div class="VariantSelector__ChoiceList">
+                        <div class="VariantSelector__Choice is-selected">
+                            <div class="VariantSelector__ChoiceColor">
+                                <span class="VariantSelector__ColorSwatch "
+                                      style="background-color: 18KGold; background-image: url(//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/18k-gold.png?4455)"></span>
+
+                                <span class="VariantSelector__ChoiceValue">18K Gold</span>
+                            </div>
+
+                            <div class="VariantSelector__ChoicePrice">
+                                <span class="Heading Text--subdued"
+                                      data-money-convertible><span>$900 TWD</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="VariantSelector__Button Button Button--primary Button--full"
+                            data-action="select-variant">
+                        Select this model
+                    </button>
+                </div>
+            </div>
+
+            <div id="modal-size-chart" class="Modal Modal--dark Modal--fullScreen Modal--pageContent"
+                 aria-hidden="true" role="dialog">
+                <header class="Modal__Header">
+                    <h2 class="Heading u-h1">尺寸對照表</h2>
+                </header>
+
+                <div class="Modal__Content Rte">
+                    <div class="Container Container--extraNarrow">
+                        <p>
+                            ANVI&nbsp;使用的是『北美標準戒圍』，在選購戒指時可透過下表確認您的指圍；若您不知道所需戒圍的大小，可自行測量指圍周長，對照下表找到您對應的『北美標準戒圍 』。
+                        </p>
+                        <div class="TableWrapper">
+                            <table class="ring-size">
+                                <tbody>
+                                    <tr>
+                                        <th style="border-right: none; width: 102px;">
+                                            <p></p>
+                                            <p></p>ANVI(北美)戒圍
+                                        </th>
+                                        <th style="border-right: none; width: 94px;">國際戒圍</th>
+                                        <th style="width: 187px;">內徑直徑 </th>
+                                        <th style="width: 224px;">內徑周長 </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">2</td>
+                                        <td style="width: 94px;">#4</td>
+                                        <td style="width: 187px;">13.3mm</td>
+                                        <td style="width: 224px;">41.60mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">3</td>
+                                        <td style="width: 94px;">#6</td>
+                                        <td style="width: 187px;">14.1mm</td>
+                                        <td style="width: 224px;">44.30mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">4</td>
+                                        <td style="width: 94px;">#7</td>
+                                        <td style="width: 187px;">14.9mm</td>
+                                        <td style="width: 224px;">
+                                            <div></div>
+                                            46.80mm
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">5</td>
+                                        <td style="width: 94px;">#9</td>
+                                        <td style="width: 187px;">15.7mm</td>
+                                        <td style="width: 224px;">
+                                            <div></div>
+                                            49.32mm
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">6</td>
+                                        <td style="width: 94px;">#10</td>
+                                        <td style="width: 187px;">16.5mm</td>
+                                        <td style="width: 224px;">
+                                            <div></div>
+                                            51.87mm
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 102px;">7</td>
+                                        <td style="width: 94px;">#12</td>
+                                        <td style="width: 187px;">17.3mm</td>
+                                        <td style="width: 224px;">
+                                            <div></div>
+                                            54.51mm
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="text-align: center;">
+                            *以上若有問題，歡迎隨時
+                            <a style="text-decoration: none;" href="#" title="service@anvistudios.com">聯繫我們</a>。
+                        </p>
+                    </div>
+                </div>
+
+                <button class="Modal__Close RoundButton RoundButton--large" data-animate-bottom
+                        data-action="close-modal">
+                    <svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+                        <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
         </section>
     </div>
 </main>
 @section endJS
 {
+    <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+
     <script>
+        browser_window();
+        window.addEventListener("resize", browser_window);
+
+        function browser_window() {
+            document.documentElement.style.setProperty("--window-height", window.innerHeight + "px");
+
+            /* document.documentElement.style.setProperty("--announcement-bar-height", document.getElementById("shopify-section-announcement").offsetHeight + "px"); */
+
+            /* document.documentElement.style.setProperty("--header-height", document.getElementById("shopify-section-header").offsetHeight + "px"); */
+
+            document.getElementsByClassName("flickity-viewport")[0].style.setProperty("height", document.getElementsByClassName("flickity-viewport")[0].clientWidth + "px");
+
+            var F_view_height = document.getElementsByClassName("flickity-viewport")[0].style.height;
+
+            console.log(F_view_height);
+        }
+
+        /*顏色選擇*/
+        var color_part = document.getElementsByClassName("ProductForm__Item")[0];
+        color_part.onclick = open_color_select;
+        function open_color_select() {
+            document.getElementById("colorselect_part").setAttribute("aria-hidden", "false");
+            document.getElementById("colorselect_part").setAttribute("tabindex", "-1");
+        }
+
+        document.getElementsByClassName("VariantSelector__Button Button Button--primary Button--full")[0].onclick = close_color_select;
+        function close_color_select() {
+            document.getElementById("colorselect_part").setAttribute("aria-hidden", "true");
+            document.getElementById("colorselect_part").tabindex = "";
+        }
+
+
+        /*Size尺寸對照表*/
+        var size_chat = document.getElementsByClassName("ProductForm__LabelLink Text--subdued Link")[0];
+        size_chat.onclick = open_modal;
+        /* console.log(size_chat);
+        console.log(document.getElementById("modal-size-chart")); */
+        function open_modal() {
+            document.getElementById("modal-size-chart").setAttribute("aria-hidden", "false");
+            document.getElementById("modal-size-chart").setAttribute("tabindex", "-1");
+        }
+
+        document.getElementsByClassName("Modal__Close RoundButton RoundButton--large")[0].onclick = close_modal;
+        function close_modal() {
+            document.getElementById("modal-size-chart").setAttribute("aria-hidden", "true");
+            document.getElementById("modal-size-chart").tabindex = "";
+        }
+
+
         /*運送、退貨*/
-        var Collapsible_Btn_OC = document.getElementsByClassName("Collapsible-Btn");
+        var Collapsible_Btn_OC = document.getElementsByClassName("Collapsible__Button");
         for (var i = 0; i < Collapsible_Btn_OC.length; i++) {
             Collapsible_Btn_OC[i].onclick = Collapsible_Btn_TF;
         }
-
         function Collapsible_Btn_TF() {
 
             //console.log(this);
@@ -291,9 +497,9 @@
         var pvm = @Html.Raw(ViewBag.JsonPVM);
         //console.log(pvm);
         //console.log(pickColor);
-        $(".HL-Item").on('click', PF_Invt_text);
-        $(".HL-Item").click();
-        if (!$(".HL-Item").exists) {
+        $(".HorizontalList__Item").on('click', PF_Invt_text);
+        $(".HorizontalList__Item").click();
+        if (!$(".HorizontalList__Item").exists) {
             PF_Invt_text();
         }
         function PF_Invt_text() {
@@ -329,13 +535,13 @@
             }
             if (@price.Length > 3) {
                 var addcartext = "<span>Add to cart</span>" +
-                    "<span class='Btn-SepDot'>.</span>" +
+                    "<span class='Button__SeparatorDot'>.</span>" +
                     "<span>$" +
                     "@price.Insert(price.Length-3,",")" +
                     " TWD</span>";
             } else {
                 var addcartext = "<span>Add to cart</span>" +
-                    "<span class='Btn-SepDot'>.</span>" +
+                    "<span class='Button__SeparatorDot'>.</span>" +
                     "<span>$" +
                     "@price" +
                     " TWD</span>";
@@ -343,16 +549,16 @@
 
 
             if (product["Stock"] == 0) {
-                $(".PF-O:last-child").attr('style', 'display:none');
-                //document.getElementsByClassName("PF-O")[2].setAttribute("style","display: none"); /*消失*/
-                console.log(document.getElementsByClassName("PF-O")[2]);
-                document.getElementsByClassName("S-pay-Btn")[0].style.display = "none";
-                document.getElementsByClassName("PF-AddToCart")[0].setAttribute("disabled", "disabled");
-                document.getElementsByClassName("PF-AddToCart")[0].innerHTML = "Sold Out";
+                $(".ProductForm__Option:last-child").attr('style', 'display:none');
+                //document.getElementsByClassName("ProductForm__Option")[2].setAttribute("style","display: none"); /*消失*/
+                console.log(document.getElementsByClassName("ProductForm__Option")[2]);
+                document.getElementsByClassName("shopify-payment-button")[0].style.display = "none";
+                document.getElementsByClassName("ProductForm__AddToCart")[0].setAttribute("disabled", "disabled");
+                document.getElementsByClassName("ProductForm__AddToCart")[0].innerHTML = "Sold Out";
             } else {
-                document.getElementsByClassName("PF-AddToCart")[0].innerHTML = addcartext;
-                document.getElementsByClassName("S-pay-Btn")[0].style = "";
-                $(".PF-O:last-child").attr('style', "");
+                document.getElementsByClassName("ProductForm__AddToCart")[0].innerHTML = addcartext;
+                document.getElementsByClassName("shopify-payment-button")[0].style = "";
+                $(".ProductForm__Option:last-child").attr('style', "");
                 //document.getElementsByClassName("PF-O")[2].style = "";
             }
             //console.log(document.getElementsByClassName("S-pay-Btn")[0]);
