@@ -56,12 +56,12 @@ namespace ANVI_Mvc.Models
                                     select new CartItemViewModel()
                                     {
                                         CategoryName = cat.CategoryName,
-                                        //ProductID = p.ProductID,
+                                        ProductID = p.ProductID,
                                         ProductName = p.ProductName,
                                         UnitPrice = p.UnitPrice,
                                         PDID = pd.PDID,
                                         //Stock = pd.Stock,
-                                        //ColorID = c.ColorID,
+                                        ColorID = c.ColorID,
                                         ColorName = c.ColorName,
                                         //SizeID = s.SizeID,
                                         //SizeTitle = s.SizeTitle,
@@ -84,11 +84,13 @@ namespace ANVI_Mvc.Models
         {
             var item = new CartItemViewModel()
             {
+                ProductID = cartItem.ProductID,
                 PDID = cartItem.PDID,
                 ProductName = cartItem.ProductName,
                 UnitPrice = cartItem.UnitPrice,
                 Quantity = 1,
                 CategoryName = cartItem.CategoryName,
+                ColorID = cartItem.ColorID,
                 ColorName = cartItem.ColorName,
                 SizeContext = cartItem.SizeContext
             };

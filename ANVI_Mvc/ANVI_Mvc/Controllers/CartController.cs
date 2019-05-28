@@ -27,52 +27,36 @@ namespace ANVI_Mvc.Controllers
         {
             var currentCart = CartService.GetCurrentCart();
             currentCart.AddCartItem(id);
-            if (currentCart.AddCartItem(id))
-            {
-                currentCart = CartService.GetCurrentCart();
-                int count = currentCart.Count;
-                var stocks = new int[count];
-                for (var i = 0; i < currentCart.Count; i++)
-                {
-                    foreach (var item in db.ProductDetails)
-                    {
-                        if (item.PDID == currentCart.cartItems[i].PDID)
-                        {
-                            stocks[i] = item.Stock;
-                        }
-                    }
-                }
-                ViewBag.Stocks = stocks;
-            }
-
-
-
-
-
-            return View("ShoppingCart");
-
+            //if (currentCart.AddCartItem(id))
+            //{
+            //    currentCart = CartService.GetCurrentCart();
+            //    int count = currentCart.Count;
+            //    var stocks = new int[count];
+            //    for (var i = 0; i < currentCart.Count; i++)
+            //    {
+            //        foreach (var item in db.ProductDetails)
+            //        {
+            //            if (item.PDID == currentCart.cartItems[i].PDID)
+            //            {
+            //                stocks[i] = item.Stock;
+            //            }
+            //        }
+            //    }
+            //    ViewBag.Stocks = stocks;
+            //}
+            //return View("ShoppingCart");  //上方可省略，使用下方導向ActionResult
+            return RedirectToAction("ShoppingCart", "Cart");  //導向ActionResult RedirectToAction("ActionName","Controller")，讓重複的程式碼給ShoppingCart()去執行
         }
         public ActionResult ShoppingCart()  //購物車頁面
         {
             if (CartService.GetCurrentCart() != null)
             {
                 var currentCart = CartService.GetCurrentCart();
-                int count = currentCart.Count;
-                var stocks = new int[count];
-                for (var i = 0; i < currentCart.Count; i++)
-                {
-                    foreach (var item in db.ProductDetails)
-                    {
-                        if (item.PDID == currentCart.cartItems[i].PDID)
-                        {
-                            stocks[i] = item.Stock;
-                            break;
-                        }
-                    }
-                }
+                var stocks = CartService.getEachProductStocks(db);
+                var images = CartService.getEachProductImages(db);
                 ViewBag.Stocks = stocks;
+                ViewBag.Images = images;
             }
-
             return View();
         }
     }

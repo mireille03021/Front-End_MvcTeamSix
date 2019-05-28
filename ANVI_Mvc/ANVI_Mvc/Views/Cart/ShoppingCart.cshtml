@@ -8,7 +8,8 @@
         something = true;
         currentCart = CartService.GetCurrentCart();
     }
-    var stocks = (int[])ViewBag.Stocks;
+    var stocks = (int[]) ViewBag.Stocks;
+    var images = (string[]) ViewBag.Images;
 }
 
 @section topCSS
@@ -60,7 +61,7 @@
                                     <div class="AspectRatio" style="--aspect-ratio: 1.0">
                                         <!----aspect-ratio: 1.0-->
                                         <img class="Cart_Image"
-                                             src="~/Assets/images/@cartItem.CategoryName/11"
+                                             src="~/Assets/images/@cartItem.CategoryName/@images[i]"
                                              alt="@cartItem.ProductName" />
                                     </div>
                                 </div>
@@ -93,7 +94,7 @@
                                             <a id="cut_@i"
                                                class="QuantitySelector__Button Link Link--primary"
                                                title="減少數量"
-                                               data-quantity="0">
+                                               data-quantity="0" aria-valuenow="@i">
                                                 <svg class="Icon Icon--minus"
                                                      role="presentation"
                                                      viewBox="0 0 16 2">
@@ -113,7 +114,7 @@
                                             <a id="add_@i"
                                                class="QuantitySelector__Button Link Link--primary"
                                                title="增加數量"
-                                               data-quantity="2">
+                                               data-quantity="2" aria-valuenow="@i">
                                                 <svg class="Icon Icon--plus"
                                                      role="presentation"
                                                      viewBox="0 0 16 16">
