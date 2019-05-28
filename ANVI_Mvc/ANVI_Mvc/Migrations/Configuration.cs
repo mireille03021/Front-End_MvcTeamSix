@@ -89,7 +89,7 @@ namespace ANVI_Mvc.Migrations
             new ProductDetail() { PDID = "8-1", ProductID = 8, Stock = 6, SizeID = 10, ColorID = 1, },
             new ProductDetail() { PDID = "8-2", ProductID = 8, Stock = 3, SizeID = 11, ColorID = 1, },
             new ProductDetail() { PDID = "9-1", ProductID = 9, Stock = 1, SizeID = 10, ColorID = 1, },
-            new ProductDetail() { PDID = "9-1", ProductID = 9, Stock = 7, SizeID = 11, ColorID = 1, },
+            new ProductDetail() { PDID = "9-2", ProductID = 9, Stock = 7, SizeID = 11, ColorID = 1, },
             new ProductDetail() { PDID = "10-1", ProductID = 10, Stock = 3, SizeID = 10, ColorID = 3, },
             new ProductDetail() { PDID = "10-2", ProductID = 10, Stock = 1, SizeID = 11, ColorID = 3, },
             new ProductDetail() { PDID = "11-1", ProductID = 11, Stock = 7, SizeID = 10, ColorID = 3, },

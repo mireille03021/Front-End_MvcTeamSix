@@ -3,7 +3,7 @@ namespace ANVI_Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialFB : DbMigration
+    public partial class initialDB : DbMigration
     {
         public override void Up()
         {
@@ -32,8 +32,11 @@ namespace ANVI_Mvc.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        CustomerID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Customers", t => t.CustomerID)
+                .Index(t => t.CustomerID);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -61,50 +64,60 @@ namespace ANVI_Mvc.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Categories",
+                "dbo.Customers",
                 c => new
                     {
-                        CategoryID = c.Int(nullable: false, identity: true),
-                        CategoryName = c.String(nullable: false, maxLength: 50),
+                        CustomerID = c.Int(nullable: false),
+                        CustomerName = c.String(nullable: false, maxLength: 20),
+                        Phone = c.String(nullable: false, maxLength: 20),
+                        Country = c.String(maxLength: 15),
+                        City = c.String(maxLength: 15),
+                        Email = c.String(nullable: false, maxLength: 50),
+                        Address = c.String(),
+                        ZipCode = c.String(maxLength: 10),
+                        BankAccount = c.String(maxLength: 20),
+                        CreditCard = c.String(maxLength: 10, fixedLength: true),
                     })
-                .PrimaryKey(t => t.CategoryID);
+                .PrimaryKey(t => t.CustomerID);
             
             CreateTable(
-                "dbo.Products",
+                "dbo.Orders",
                 c => new
                     {
-                        ProductID = c.Int(nullable: false),
-                        ProductName = c.String(nullable: false, maxLength: 50),
-                        CategoryID = c.Int(),
-                        UnitPrice = c.Decimal(storeType: "money"),
+                        OrderID = c.Int(nullable: false),
+                        CustomerID = c.Int(nullable: false),
+                        ShippingID = c.Int(),
+                        RecipientName = c.String(nullable: false, maxLength: 15),
+                        RecipientAddressee = c.String(nullable: false, maxLength: 30),
+                        RecipientZipCod = c.String(maxLength: 10),
+                        RecipientCity = c.String(nullable: false, maxLength: 10),
+                        RecipientPhone = c.String(nullable: false, maxLength: 20),
+                        Payment = c.String(nullable: false, maxLength: 15),
+                        OrderDate = c.DateTime(nullable: false),
+                        Remaeks = c.String(maxLength: 50),
+                        ShipDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductID)
-                .ForeignKey("dbo.Categories", t => t.CategoryID)
-                .Index(t => t.CategoryID);
+                .PrimaryKey(t => t.OrderID)
+                .ForeignKey("dbo.Shippers", t => t.ShippingID)
+                .ForeignKey("dbo.Customers", t => t.CustomerID)
+                .Index(t => t.CustomerID)
+                .Index(t => t.ShippingID);
             
             CreateTable(
-                "dbo.DesDetails",
+                "dbo.OrderDetails",
                 c => new
                     {
-                        DDID = c.Int(nullable: false, identity: true),
-                        ProductID = c.Int(nullable: false),
-                        Detail = c.String(nullable: false, maxLength: 50),
+                        PDID = c.String(nullable: false, maxLength: 10),
+                        OrderID = c.Int(nullable: false),
+                        Price = c.Decimal(storeType: "money"),
+                        Quantity = c.Decimal(storeType: "money"),
+                        Discount = c.Decimal(storeType: "money"),
                     })
-                .PrimaryKey(t => t.DDID)
-                .ForeignKey("dbo.Products", t => t.ProductID)
-                .Index(t => t.ProductID);
-            
-            CreateTable(
-                "dbo.DesSubTitles",
-                c => new
-                    {
-                        DSTID = c.Int(nullable: false, identity: true),
-                        ProductID = c.Int(nullable: false),
-                        SubTitle = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.DSTID)
-                .ForeignKey("dbo.Products", t => t.ProductID)
-                .Index(t => t.ProductID);
+                .PrimaryKey(t => new { t.PDID, t.OrderID })
+                .ForeignKey("dbo.ProductDetails", t => t.PDID)
+                .ForeignKey("dbo.Orders", t => t.OrderID)
+                .Index(t => t.PDID)
+                .Index(t => t.OrderID);
             
             CreateTable(
                 "dbo.ProductDetails",
@@ -118,8 +131,8 @@ namespace ANVI_Mvc.Migrations
                     })
                 .PrimaryKey(t => t.PDID)
                 .ForeignKey("dbo.Colors", t => t.ColorID)
-                .ForeignKey("dbo.Sizes", t => t.SizeID)
                 .ForeignKey("dbo.Products", t => t.ProductID)
+                .ForeignKey("dbo.Sizes", t => t.SizeID)
                 .Index(t => t.ProductID)
                 .Index(t => t.SizeID)
                 .Index(t => t.ColorID);
@@ -146,70 +159,50 @@ namespace ANVI_Mvc.Migrations
                 .Index(t => t.PDID);
             
             CreateTable(
-                "dbo.OrderDetails",
+                "dbo.Products",
                 c => new
                     {
-                        PDID = c.String(nullable: false, maxLength: 10),
-                        OrderID = c.Int(nullable: false),
-                        Price = c.Decimal(storeType: "money"),
-                        Quantity = c.Decimal(storeType: "money"),
-                        Discount = c.Decimal(storeType: "money"),
+                        ProductID = c.Int(nullable: false),
+                        ProductName = c.String(nullable: false, maxLength: 50),
+                        CategoryID = c.Int(),
+                        UnitPrice = c.Decimal(nullable: false, storeType: "money"),
                     })
-                .PrimaryKey(t => new { t.PDID, t.OrderID })
-                .ForeignKey("dbo.Orders", t => t.OrderID)
-                .ForeignKey("dbo.ProductDetails", t => t.PDID)
-                .Index(t => t.PDID)
-                .Index(t => t.OrderID);
+                .PrimaryKey(t => t.ProductID)
+                .ForeignKey("dbo.Categories", t => t.CategoryID)
+                .Index(t => t.CategoryID);
             
             CreateTable(
-                "dbo.Orders",
+                "dbo.Categories",
                 c => new
                     {
-                        OrderID = c.Int(nullable: false),
-                        CustomerID = c.Int(nullable: false),
-                        ShippingID = c.Int(),
-                        RecipientName = c.String(nullable: false, maxLength: 15),
-                        RecipientAddressee = c.String(nullable: false, maxLength: 30),
-                        RecipientZipCod = c.String(maxLength: 10),
-                        RecipientCity = c.String(nullable: false, maxLength: 10),
-                        RecipientPhone = c.String(nullable: false, maxLength: 20),
-                        Payment = c.String(nullable: false, maxLength: 15),
-                        OrderDate = c.DateTime(nullable: false),
-                        Remaeks = c.String(maxLength: 50),
-                        ShipDate = c.DateTime(nullable: false),
+                        CategoryID = c.Int(nullable: false, identity: true),
+                        CategoryName = c.String(nullable: false, maxLength: 50),
                     })
-                .PrimaryKey(t => t.OrderID)
-                .ForeignKey("dbo.Customers", t => t.CustomerID)
-                .ForeignKey("dbo.Shippers", t => t.ShippingID)
-                .Index(t => t.CustomerID)
-                .Index(t => t.ShippingID);
+                .PrimaryKey(t => t.CategoryID);
             
             CreateTable(
-                "dbo.Customers",
+                "dbo.DesDetails",
                 c => new
                     {
-                        CustomerID = c.Int(nullable: false),
-                        CustomerName = c.String(nullable: false, maxLength: 20),
-                        Phone = c.String(nullable: false, maxLength: 20),
-                        Country = c.String(maxLength: 15),
-                        City = c.String(maxLength: 15),
-                        Email = c.String(nullable: false, maxLength: 50),
-                        Address = c.String(),
-                        ZipCode = c.String(maxLength: 10),
-                        BankAccount = c.String(maxLength: 20),
-                        CreditCard = c.String(maxLength: 10, fixedLength: true),
+                        DDID = c.Int(nullable: false, identity: true),
+                        ProductID = c.Int(nullable: false),
+                        Detail = c.String(nullable: false, maxLength: 50),
                     })
-                .PrimaryKey(t => t.CustomerID);
+                .PrimaryKey(t => t.DDID)
+                .ForeignKey("dbo.Products", t => t.ProductID)
+                .Index(t => t.ProductID);
             
             CreateTable(
-                "dbo.Shippers",
+                "dbo.DesSubTitles",
                 c => new
                     {
-                        ShipperID = c.Int(nullable: false, identity: true),
-                        ShippName = c.String(nullable: false, maxLength: 15),
-                        Phone = c.String(nullable: false, maxLength: 15),
+                        DSTID = c.Int(nullable: false, identity: true),
+                        ProductID = c.Int(nullable: false),
+                        SubTitle = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.ShipperID);
+                .PrimaryKey(t => t.DSTID)
+                .ForeignKey("dbo.Products", t => t.ProductID)
+                .Index(t => t.ProductID);
             
             CreateTable(
                 "dbo.Sizes",
@@ -220,6 +213,16 @@ namespace ANVI_Mvc.Migrations
                         SizeContext = c.String(nullable: false, maxLength: 10),
                     })
                 .PrimaryKey(t => t.SizeID);
+            
+            CreateTable(
+                "dbo.Shippers",
+                c => new
+                    {
+                        ShipperID = c.Int(nullable: false, identity: true),
+                        ShippName = c.String(nullable: false, maxLength: 15),
+                        Phone = c.String(nullable: false, maxLength: 15),
+                    })
+                .PrimaryKey(t => t.ShipperID);
             
             CreateTable(
                 "dbo.AspNetUserRoles",
@@ -238,49 +241,51 @@ namespace ANVI_Mvc.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.ProductDetails", "ProductID", "dbo.Products");
-            DropForeignKey("dbo.ProductDetails", "SizeID", "dbo.Sizes");
-            DropForeignKey("dbo.OrderDetails", "PDID", "dbo.ProductDetails");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
             DropForeignKey("dbo.Orders", "ShippingID", "dbo.Shippers");
             DropForeignKey("dbo.OrderDetails", "OrderID", "dbo.Orders");
-            DropForeignKey("dbo.Orders", "CustomerID", "dbo.Customers");
-            DropForeignKey("dbo.Images", "PDID", "dbo.ProductDetails");
-            DropForeignKey("dbo.ProductDetails", "ColorID", "dbo.Colors");
+            DropForeignKey("dbo.ProductDetails", "SizeID", "dbo.Sizes");
+            DropForeignKey("dbo.ProductDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.DesSubTitles", "ProductID", "dbo.Products");
             DropForeignKey("dbo.DesDetails", "ProductID", "dbo.Products");
             DropForeignKey("dbo.Products", "CategoryID", "dbo.Categories");
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.OrderDetails", "PDID", "dbo.ProductDetails");
+            DropForeignKey("dbo.Images", "PDID", "dbo.ProductDetails");
+            DropForeignKey("dbo.ProductDetails", "ColorID", "dbo.Colors");
+            DropForeignKey("dbo.AspNetUsers", "CustomerID", "dbo.Customers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.Orders", new[] { "ShippingID" });
-            DropIndex("dbo.Orders", new[] { "CustomerID" });
-            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
-            DropIndex("dbo.OrderDetails", new[] { "PDID" });
+            DropIndex("dbo.DesSubTitles", new[] { "ProductID" });
+            DropIndex("dbo.DesDetails", new[] { "ProductID" });
+            DropIndex("dbo.Products", new[] { "CategoryID" });
             DropIndex("dbo.Images", new[] { "PDID" });
             DropIndex("dbo.ProductDetails", new[] { "ColorID" });
             DropIndex("dbo.ProductDetails", new[] { "SizeID" });
             DropIndex("dbo.ProductDetails", new[] { "ProductID" });
-            DropIndex("dbo.DesSubTitles", new[] { "ProductID" });
-            DropIndex("dbo.DesDetails", new[] { "ProductID" });
-            DropIndex("dbo.Products", new[] { "CategoryID" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderID" });
+            DropIndex("dbo.OrderDetails", new[] { "PDID" });
+            DropIndex("dbo.Orders", new[] { "ShippingID" });
+            DropIndex("dbo.Orders", new[] { "CustomerID" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "CustomerID" });
             DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.Sizes");
             DropTable("dbo.Shippers");
-            DropTable("dbo.Customers");
-            DropTable("dbo.Orders");
-            DropTable("dbo.OrderDetails");
+            DropTable("dbo.Sizes");
+            DropTable("dbo.DesSubTitles");
+            DropTable("dbo.DesDetails");
+            DropTable("dbo.Categories");
+            DropTable("dbo.Products");
             DropTable("dbo.Images");
             DropTable("dbo.Colors");
             DropTable("dbo.ProductDetails");
-            DropTable("dbo.DesSubTitles");
-            DropTable("dbo.DesDetails");
-            DropTable("dbo.Products");
-            DropTable("dbo.Categories");
+            DropTable("dbo.OrderDetails");
+            DropTable("dbo.Orders");
+            DropTable("dbo.Customers");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
