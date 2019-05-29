@@ -176,6 +176,7 @@ namespace ANVI_Mvc.Controllers
             ViewData["Address"] = OCVM.Address;
             ViewData["Phone"] = OCVM.Phone;
             ViewData["Email"] = OCVM.Email;
+            ViewData.Model = OCVM;
             return View();
         }
 
