@@ -13,10 +13,12 @@ namespace ANVI_Mvc.Controllers
     public class CartController : Controller
     {
         private AnviModel db;
+        private CartModel currentCart;
 
         public CartController()
         {
             db = new AnviModel();
+            currentCart = CartService.GetCurrentCart();
         }
         public ActionResult GetCart()
         {
@@ -25,7 +27,7 @@ namespace ANVI_Mvc.Controllers
 
         public ActionResult AddToCart(string id)
         {
-            var currentCart = CartService.GetCurrentCart();
+            //var currentCart = CartService.GetCurrentCart();
             currentCart.AddCartItem(id);
             //if (currentCart.AddCartItem(id))
             //{
@@ -51,13 +53,25 @@ namespace ANVI_Mvc.Controllers
         {
             if (CartService.GetCurrentCart() != null)
             {
-                var currentCart = CartService.GetCurrentCart();
+                //var currentCart = CartService.GetCurrentCart();
                 var stocks = CartService.getEachProductStocks(db);
                 var images = CartService.getEachProductImages(db);
                 ViewBag.Stocks = stocks; //因為只是要給JQuery用，等到Jquery寫完再考慮需不需要改用Json就好
                 ViewBag.Images = images;
             }
             return View();
+        }
+        [HttpPost]
+        public ActionResult AddQuantity(string pdid)  //PDID指定物品用
+        {
+            currentCart.AddQuantity(pdid);
+            return RedirectToAction("ShoppingCart", "Cart");
+        }
+        [HttpPost]
+        public ActionResult ReduceQuantity(string pdid)  //指定物品用
+        {
+            currentCart.ReduceQuantity(pdid);
+            return RedirectToAction("ShoppingCart", "Cart");
         }
     }
 }

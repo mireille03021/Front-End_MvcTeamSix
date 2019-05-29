@@ -1,19 +1,16 @@
 ﻿@using ANVI_Mvc.Services
 @{
-                /**/
-
-                ViewBag.Title = "Cart";
-                bool something = false;
-                var currentCart = new CartModel();
-                if (CartService.GetCurrentCart() != null)
-                {
-                    something = true;
-                    currentCart = CartService.GetCurrentCart();
-                }
-                var stocks = (int[])ViewBag.Stocks;
-                var images = (string[])ViewBag.Images;
+    ViewBag.Title = "Cart";
+    bool something = false;
+    var currentCart = new CartModel();
+    if (CartService.GetCurrentCart() != null)
+    {
+        something = true;
+        currentCart = CartService.GetCurrentCart();
+    }
+    var stocks = (int[])ViewBag.Stocks;
+    var images = (string[])ViewBag.Images;
 }
-
 @section topCSS
 {
     <link rel="stylesheet" href="~/Assets/css/ShoppingCart_CSS.css" />
@@ -58,7 +55,7 @@
                         var i = 0;
                         foreach (var cartItem in currentCart)
                         {
-                            <div class="CartItem">
+                            <div id="CartItem_@i" class="CartItem" value="@cartItem.PDID">
                                 <div class="CartItem__ImageWrapper AspectRatio">
                                     <div class="AspectRatio" style="--aspect-ratio: 1.0">
                                         <!----aspect-ratio: 1.0-->
@@ -109,10 +106,10 @@
                                             </a>
                                             <input type="text"
                                                    name=""
-                                                   id="cutValue"
+                                                   id="Quantity_@i"
                                                    class="QuantitySelector__CurrentQuantity"
                                                    pattern="[0-9]*"
-                                                   value="1" />
+                                                   value="@cartItem.Quantity" />
                                             <a id="add_@i"
                                                class="QuantitySelector__Button Link Link--primary"
                                                title="增加數量"
@@ -161,7 +158,7 @@
                         <span class="Cart__Total Heading u-h6">
                             總額:
                             <span data-money-convertible>
-                                <span id="up">$@currentCart.TotalAmount.ToString("##,###") TWD</span>
+                                <span id="Amount">$@currentCart.TotalAmount.ToString("##,###") TWD</span>
                             </span>
                         </span>
                         <span class="Cart__Taxes Text--subdued">運費將於結帳時計算</span>
@@ -243,75 +240,58 @@
 
 @section endJS
 {
+    <script type="text/javascript" src="~/Assets/js/jquery-3.3.1.js"></script>
     <script>
-        //var nb = parseInt($("#UnitPrice").attr('value'));
-        //var tnb = nb;
-        //var add = document.getElementById("add");
-        //var cut = document.getElementById("cut");
-        //var price = document.getElementById("pc");
-        //var count = parseInt(document.getElementById("count").getAttribute("value"));
-        //var pickNumber = 1;
-        //var cutValue = document.getElementById("cutValue").getAttribute("value");
-        //var cutValue = $("#cutValue");
         for (var i = 0; i < @currentCart.Count; i++) {
             $("#add_" + i).on('click', function doAdd() {
-                console.log("hi" + this.attr('aria-value'));
-                //// var cv = cutvalue++;
-                //if (count - pickNumber > 0) {
-                //    pickNumber++;
-                //    cutValue.val(parseInt(cutValue.val()) + 1);
-                //    tnb = nb * parseInt(cutValue.val());
-                //    // cutValue.innerText = cv;
-                //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-                //    cutValue.text(cutValue.val());
-                //}
+                var controlNumber = this.getAttribute('aria-valuenow');
+                var PDID = $("#CartItem_" + controlNumber).attr('value');
+                var quantity = $("#Quantity_" + controlNumber).val();
+                var stock = parseInt($("#Stock_" + controlNumber).attr('value'));
+                if (quantity < stock) {
+                    $("#Quantity_" + controlNumber).val(parseInt(quantity) + 1); //畫面的更新
+                    //資料的更新，避免下次在點進來時還是1
+                    $.ajax({
+                        //讓ajax可以去執行我的CartController的AddQuantity方法
+                        url: "/Cart/AddQuantity/", 
+                        method: "POST",
+                        data: {
+                            pdid:PDID
+                        }
+                    });
+                    ChangeAmount();
+                }
             });
             $("#cut_" + i).on('click', function doCut() {
-                console.log("ho" + this.attr('aria-value'));
-                //// var cv = cutvalue++;
-                //if (count - pickNumber < count - 1) {
-                //    pickNumber--;
-                //    cutValue.val(parseInt(cutValue.val()) - 1);
-                //    tnb = nb * parseInt(cutValue.val());
-                //    // cutValue.innerText = cv;
-                //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-                //    cutValue.text(cutValue.val());
-                //}
+                var controlNumber = this.getAttribute('aria-valuenow');
+                var PDID = $("#CartItem_" + controlNumber).attr('value');
+                var quantity = $("#Quantity_" + controlNumber).val();
+                var stock = parseInt($("#Stock_" + controlNumber).attr('value'));
+                if (quantity > 1) {
+                    $("#Quantity_" + controlNumber).val(parseInt(quantity) - 1);
+                    $.ajax({
+                        url: "/Cart/ReduceQuantity/",  
+                        method: "POST",
+                        data: {
+                            pdid:PDID
+                        }
+                    });
+                    ChangeAmount();
+                }
             });
         }
-        //function doAdd(i) {
-        //    console.log("hi" + i);
-        //    //// var cv = cutvalue++;
-        //    //if (count - pickNumber > 0) {
-        //    //    pickNumber++;
-        //    //    cutValue.val(parseInt(cutValue.val()) + 1);
-        //    //    tnb = nb * parseInt(cutValue.val());
-        //    //    // cutValue.innerText = cv;
-        //    //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-        //    //    cutValue.text(cutValue.val());
-        //    //}
-        //}
-        //function doCut(i) {
-        //    console.log("ho" + i);
-        //    //// var cv = cutvalue++;
-        //    //if (count - pickNumber < count - 1) {
-        //    //    pickNumber--;
-        //    //    cutValue.val(parseInt(cutValue.val()) - 1);
-        //    //    tnb = nb * parseInt(cutValue.val());
-        //    //    // cutValue.innerText = cv;
-        //    //    document.getElementById("up").innerText = "$" + formatMoney(tnb) + "TWD";
-        //    //    cutValue.text(cutValue.val());
-        //    //}
-        //}
-        function formatMoney(n, c, d, t) {
-            var c = isNaN(c = Math.abs(c)) ? 2 : c,
-                d = d == undefined ? "." : d,
-                t = t == undefined ? "," : t,
-                s = n < 0 ? "-" : "",
-                i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
-                j = (j = i.length) > 3 ? j % 3 : 0;
-
-            return s + (j ? i.substr(0, j) + t : "") + i.toString("##,###") + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-        };
+        //畫面上的總金額需要更新
+        function ChangeAmount() {
+            var Amount = 0;
+            for (var i = 0; i < @currentCart.Count; i++) {
+                var unitPrice = parseFloat($("#UnitPrice_" + i).attr('value'));
+                var quantity = parseInt($("#Quantity_" + i).val());
+                Amount += (unitPrice * quantity);
+            }
+            $("#Amount").val(Amount);
+            var pattern = /(-?\d+)(\d{3})/;
+            var AmountText = Amount.toString().replace(pattern,"$1,$2");
+            $("#Amount").text("$"+ AmountText + "TWD");
+        }
     </script>
 }
