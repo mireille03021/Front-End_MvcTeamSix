@@ -1,4 +1,29 @@
 
+// window.lazySizesConfig = {
+//   loadHidden: false,
+//   hFac: 0.5,
+//   expFactor: 2,
+//   ricTimeout: 150,
+//   lazyClass: 'Image--lazyLoad',
+//   loadingClass: 'Image--lazyLoading',
+//   loadedClass: 'Image--lazyLoaded'
+// };
+
+// document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+// document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+
+// // We do a quick detection of some features (we could use Modernizr but for so little...)
+// (function() {
+//   document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+//   document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+// }());
+
+// window.onpageshow = function (event) {
+//   if (event.persisted) {
+//     window.location.reload();
+//   }
+// };
+
 var nb = parseInt($("#UnitPrice").attr('value'));
 var tnb = nb;
 var add = document.getElementById("add");

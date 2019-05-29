@@ -38,17 +38,17 @@ namespace ANVI_Mvc.Models
 
             modelBuilder.Entity<AspNetUser>()
                 .HasMany(e => e.AspNetUserClaims)
-                .WithRequired(e => e.AspNetUsers)
+                .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
 
             modelBuilder.Entity<AspNetUser>()
                 .HasMany(e => e.AspNetUserLogins)
-                .WithRequired(e => e.AspNetUsers)
+                .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
 
             modelBuilder.Entity<Color>()
                 .HasMany(e => e.ProductDetails)
-                .WithRequired(e => e.Colors)
+                .WithRequired(e => e.Color)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Customer>()
@@ -56,13 +56,8 @@ namespace ANVI_Mvc.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Customer>()
-                .HasMany(e => e.AspNetUsers)
-                .WithRequired(e => e.Customers)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Customer>()
                 .HasMany(e => e.Orders)
-                .WithRequired(e => e.Customers)
+                .WithRequired(e => e.Customer)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrderDetail>()
@@ -79,17 +74,17 @@ namespace ANVI_Mvc.Models
 
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.Orders)
+                .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ProductDetail>()
                 .HasMany(e => e.Images)
-                .WithRequired(e => e.ProductDetails)
+                .WithRequired(e => e.ProductDetail)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ProductDetail>()
                 .HasMany(e => e.OrderDetails)
-                .WithRequired(e => e.ProductDetails)
+                .WithRequired(e => e.ProductDetail)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
@@ -98,27 +93,27 @@ namespace ANVI_Mvc.Models
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.DesDetails)
-                .WithRequired(e => e.Products)
+                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.DesSubTitles)
-                .WithRequired(e => e.Products)
+                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.ProductDetails)
-                .WithRequired(e => e.Products)
+                .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Shipper>()
                 .HasMany(e => e.Orders)
-                .WithOptional(e => e.Shippers)
+                .WithOptional(e => e.Shipper)
                 .HasForeignKey(e => e.ShippingID);
 
             modelBuilder.Entity<Size>()
                 .HasMany(e => e.ProductDetails)
-                .WithRequired(e => e.Sizes)
+                .WithRequired(e => e.Size)
                 .WillCascadeOnDelete(false);
         }
     }
