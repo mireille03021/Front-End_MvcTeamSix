@@ -1,9 +1,8 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+TC|Titillium+Web&display=swap');
+
 html {
   font-family: sans-serif;
-  /* -webkit-text-size-adjust: 100%; */
-  /* -moz-text-size-adjust: 100%; */
-  /* -ms-text-size-adjust: 100%; */
   -webkit-text-size-adjust: 100%;
      -moz-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
@@ -15,20 +14,13 @@ html {
   font-size: 14px;
 }
 
-html {
-  --window-height: 975px;
-  --announcement-bar-height: 43px;
-  --header-height: 79px;
-  --header-is-not-transparent: 1;
-}
-
 body {
-  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #1c1b1b;
-  background: #fff;
-  line-height: 1.65;
+    font-family: 'Titillium Web', sans-serif, 'Noto Serif TC', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1c1b1b;
+    background: #fff;
+    line-height: 1.65;
 }
 
 body:not(.is-tabbing) button:focus, body:not(.is-tabbing) input:focus, body:not(.is-tabbing) select:focus, body:not(.is-tabbing) textarea:focus {
@@ -128,25 +120,25 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 .Btn, .shopify-payment-button__button--unbranded {
-  /*.Button, .shopify-payment-button__button--unbranded, #shopify-product-reviews .spr-summary-actions-newreview, #shopify-product-reviews .spr-button-primary:not(input), #shopify-product-reviews input.spr-button-primary, #shopify-product-reviews .spr-pagination-prev>a, #shopify-product-reviews .spr-pagination-next>a*/
-  position: relative;
-  display: inline-block;
-  padding: 14px 28px;
-  line-height: normal;
-  border: 1px solid transparent;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0.2em;
-  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background-color: transparent;
-  -webkit-transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  z-index: 1;
-  -webkit-tap-highlight-color: initial;
+    /*.Button, .shopify-payment-button__button--unbranded, #shopify-product-reviews .spr-summary-actions-newreview, #shopify-product-reviews .spr-button-primary:not(input), #shopify-product-reviews input.spr-button-primary, #shopify-product-reviews .spr-pagination-prev>a, #shopify-product-reviews .spr-pagination-next>a*/
+    position: relative;
+    display: inline-block;
+    padding: 14px 28px;
+    line-height: normal;
+    border: 1px solid transparent;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: 'Titillium Web', sans-serif, 'Noto Serif TC', serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: transparent;
+    -webkit-transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: 1;
+    -webkit-tap-highlight-color: initial;
 }
 
 .Btn-pmy, .shopify-payment-button__button--unbranded {
@@ -166,10 +158,8 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   bottom: 0;
   width: 100%;
   height: 100%;
-  /* -webkit-transform: scale(1, 1); */
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
-  /* -webkit-transform-origin: left center; */
   -webkit-transform-origin: left center;
           transform-origin: left center;
   z-index: -1;
@@ -193,14 +183,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 
 .P-Content-fitS {
   /*PageContent--fitScreen*/
-  /* display: -webkit-box; */
-  /* display: -ms-flexbox; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   min-height: calc(100vh - 120px);
-  /* -webkit-box-align: center; */
-  /* -ms-flex-align: center; */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -225,15 +211,14 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 .Heading {
-  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #1c1b1b;
-  /* -webkit-transition: color 0.2s ease-in-out; */
-  -webkit-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+    font-family: 'Titillium Web', sans-serif, 'Noto Serif TC', serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1c1b1b;
+    -webkit-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .u-h1, .Rte h1 {
@@ -349,18 +334,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   }
   .Btn:not([disabled]):hover::before, .shopify-payment-button__button--unbranded:not([disabled]):hover::before {
     /*.Button:not([disabled]):hover::before, .shopify-payment-button__button--unbranded:not([disabled]):hover::before, #shopify-product-reviews .spr-summary-actions-newreview:not([disabled]):hover::before, #shopify-product-reviews .spr-button-primary:not(input):not([disabled]):hover::before, #shopify-product-reviews input.spr-button-primary:not([disabled]):hover::before, #shopify-product-reviews .spr-pagination-prev>a:not([disabled]):hover::before, #shopify-product-reviews .spr-pagination-next>a:not([disabled]):hover::before*/
-    /* -webkit-transform-origin: right center; */
     -webkit-transform-origin: right center;
             transform-origin: right center;
-    /* -webkit-transform: scale(0, 1); */
     -webkit-transform: scale(0, 1);
             transform: scale(0, 1);
-  }
-}
-
-@media screen and (min-width: 1240px) {
-  .Container {
-    padding: 0 80px;
   }
 }
 
@@ -390,4 +367,11 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     /*或許可以拿掉*/
   }
 }
+
+@media screen and (min-width: 1240px) {
+    .Container {
+        padding: 0 80px;
+    }
+}
+
 /*# sourceMappingURL=style_creata.css.map */

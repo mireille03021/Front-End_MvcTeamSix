@@ -31,13 +31,13 @@
 
                         @foreach (var image in Model.Images)
                         {
-                        <div class="Product__SlideItem Product__SlideItem--image Carousel__Cell">
-                            <div class="AspectRatio AspectRatio--withFallback"
-                                 style="padding-bottom: 100.0%; --aspect-ratio: 1.0;">
-                                <img name="ImgName" src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName" class="Image--fadeIn lazyautosizes Image--lazyLoaded" />
-                                <span class="Image__Loader"></span>
+                            <div class="Product__SlideItem Product__SlideItem--image Carousel__Cell">
+                                <div class="AspectRatio AspectRatio--withFallback"
+                                     style="padding-bottom: 100.0%; --aspect-ratio: 1.0;">
+                                    <img name="ImgName" src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName" class="Image--fadeIn lazyautosizes Image--lazyLoaded" />
+                                    <span class="Image__Loader"></span>
+                                </div>
                             </div>
-                        </div>
                         }
 
 
@@ -237,32 +237,40 @@
             </div>
 
             <div id="colorselect_part" class="VariantSelector" aria-hidden="true">
-                <div class="VariantSelector__Carousel Carousel"
-                     data-flickity-config='{ "prevNextButtons": true, "pageDots": true, "initialIndex": 0, "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}}'>
-                    <div class="flickity-viewport" style="height: 318px;">
-                        <div class="flickity-slider" style="left: 0px; transform: translateX(27%);">
-                            <div class="VariantSelector__Item Carousel__Cell is-selected"
-                                 data-background-color="gold"
-                                 data-background-image="//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/18k-gold.png?4455"
-                                 data-option-position="1" data-option-value="18K Gold">
-                                <div class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback"
-                                     style="max-width: 1050px; padding-bottom: 100.0%; --aspect-ratio: 1.0">
-                                    <img name="ImgName" class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback" src="~/Assets/images/Rings/R19402_900x.jpg" alt="鋯石C字戒指">
-                                    <!-- data-src="//cdn.shopify.com/s/files/1/2023/9563/products/R19402-2_{width}x.jpg?v=1556639954" -->
-                                    <span class="Image__Loader"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <ol class="flickity-page-dots">
-                            <li class="dot is-selected">
+                <div class="VariantSelector__Carousel Carousel" data-flickity='{ "prevNextButtons": true,
+                        "pageDots": true,
+                        "initialIndex": 0,
+                        "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25} }'>
 
-                            </li>
-                        </ol>
+                    <div class="VariantSelector__Item Carousel__Cell">
+                        <!-- data-background-color="gold"
+                        data-background-image="//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/18k-gold.png?4455"
+                        data-option-position="1" data-option-value="18K Gold"-->
+                        <div class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback"
+                             style="max-width: 1050px; padding-bottom: 100.0%; --aspect-ratio: 1.0">
+                            <img class="VariantSelector__Image Image--fadeIn lazyautosizes Image--lazyLoaded"
+                                 name="ImgName" src="~/Assets/images/Rings/R19301-2_900x.jpg" alt="@Model.Product.ProductName">
+                            <!-- data-src="//cdn.shopify.com/s/files/1/2023/9563/products/R19402-2_{width}x.jpg?v=1556639954" -->
+                            <span class="Image__Loader"></span>
+                        </div>
+                    </div>
+                    <div class="VariantSelector__Item Carousel__Cell">
+                        <!-- data-background-color="gold"
+                        data-background-image="//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/18k-gold.png?4455"
+                        data-option-position="1" data-option-value="18K Gold"-->
+                        <div class="VariantSelector__ImageWrapper AspectRatio AspectRatio--withFallback"
+                             style="max-width: 1050px; padding-bottom: 100.0%; --aspect-ratio: 1.0">
+                            <img class="VariantSelector__Image Image--fadeIn lazyautosizes Image--lazyLoaded"
+                                 name="ImgName" src="~/Assets/images/Rings/R19301-2_900x.jpg" alt="@Model.Product.ProductName">
+                            <!-- data-src="//cdn.shopify.com/s/files/1/2023/9563/products/R19402-2_{width}x.jpg?v=1556639954" -->
+                            <span class="Image__Loader"></span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="VariantSelector__Info">
                     <div class="VariantSelector__ChoiceList">
+
                         <div class="VariantSelector__Choice is-selected">
                             <div class="VariantSelector__ChoiceColor">
                                 <span class="VariantSelector__ColorSwatch "
@@ -274,6 +282,19 @@
                             <div class="VariantSelector__ChoicePrice">
                                 <span class="Heading Text--subdued"
                                       data-money-convertible><span>$900 TWD</span></span>
+                            </div>
+                        </div>
+
+                        <div class="VariantSelector__Choice">
+                            <div class="VariantSelector__ChoiceColor">
+                                <span class="VariantSelector__ColorSwatch VariantSelector__ColorSwatch--white"
+                                      style="background-color: WHITE; background-image: url(//cdn.shopify.com/s/files/1/2023/9563/t/21/assets/white.png?4461)">
+                                </span>
+                                <span class="VariantSelector__ChoiceValue">WHITE</span>
+                            </div>
+                            <div class="VariantSelector__ChoicePrice">
+                                <span class="Heading Text--subdued"
+                                      data-money-convertible=""><span>$2,880 TWD</span></span>
                             </div>
                         </div>
                     </div>
@@ -400,8 +421,34 @@
 
             console.log(F_view_height);
         }
+    </script>
 
-        /*顏色選擇*/
+    < !--隨螢幕寬調整圖片高 -->
+    <script>
+        /* 隨螢幕寬調整圖片高 */
+        browser_window();
+        window.addEventListener("resize", browser_window);
+
+        function browser_window() {
+            document.documentElement.style.setProperty("--window-height", window.innerHeight + "px");
+
+            document.documentElement.style.setProperty("--announcement-bar-height", document.getElementsByClassName("topnews")[0].offsetHeight + "px");
+
+            document.documentElement.style.setProperty("--header-height", document.getElementById("header").offsetHeight + "px");
+
+            document.getElementsByClassName("flickity-viewport")[0].style.setProperty("height", document.getElementsByClassName("flickity-viewport")[0].clientWidth + "px");
+
+            var F_view_height = document.getElementsByClassName("flickity-viewport")[0].style.height;
+
+            console.log(F_view_height);
+        }
+
+    </script>
+
+    <!-- 顏色選擇區塊顯示 -->
+    <script>
+
+        /*顏色選擇區塊顯示*/
         var color_part = document.getElementsByClassName("ProductForm__Item")[0];
         color_part.onclick = open_color_select;
         function open_color_select() {
@@ -414,8 +461,10 @@
             document.getElementById("colorselect_part").setAttribute("aria-hidden", "true");
             document.getElementById("colorselect_part").tabindex = "";
         }
+    </script>
 
-
+    <!-- Size尺寸對照表 -->
+    <script>
         /*Size尺寸對照表*/
         var size_chat = document.getElementsByClassName("ProductForm__LabelLink Text--subdued Link")[0];
         size_chat.onclick = open_modal;
@@ -431,7 +480,10 @@
             document.getElementById("modal-size-chart").setAttribute("aria-hidden", "true");
             document.getElementById("modal-size-chart").tabindex = "";
         }
+    </script>
 
+    <!-- 運送、退貨 -->
+    <script>
 
         /*運送、退貨*/
         var Collapsible_Btn_OC = document.getElementsByClassName("Collapsible__Button");
@@ -458,21 +510,31 @@
             this.setAttribute("aria-expanded", x);
         }
 
-/*跳轉位置*/
-/* function is_flipped() {
-    console.log("B");
-    var x = document.getElementById("jump").getAttribute("class");
-    if (x == "P-QuickNav hid-pock") {
-        x = "P-QuickNav hid-pock is-flipped";
-        console.log("c");
-    } else {
-        x = "P-QuickNav hid-pock";
-        console.log("d");
-    }
-    document.getElementById("jump").setAttribute("class", x);
+    </script>
+
+    <!-- 跳轉位置 -->
+    <script>
+
+        /*跳轉位置*/
+        /* function is_flipped() {
+                console.log("B");
+            var x = document.getElementById("jump").getAttribute("class");
+            if (x == "P-QuickNav hid-pock") {
+                x = "P-QuickNav hid-pock is-flipped";
+            console.log("c");
+            } else {
+                x = "P-QuickNav hid-pock";
+            console.log("d");
+        }
+        document.getElementById("jump").setAttribute("class", x);
 } */
 
-/*價錢、規格  尺寸選擇*/
+    </script>
+
+    <!-- 價錢、規格  尺寸選擇 -->
+    <script>
+
+        /*價錢、規格  尺寸選擇*/
         var pickColor = $("#PFON").text();
 
         var pvm = @Html.Raw(ViewBag.JsonPVM);
@@ -540,9 +602,9 @@
                 document.getElementsByClassName("ProductForm__AddToCart")[0].innerHTML = addcartext;
                 document.getElementsByClassName("shopify-payment-button")[0].style = "";
                 $(".ProductForm__Option:last-child").attr('style', "");
-                //document.getElementsByClassName("PF-O")[2].style = "";
+                //document.getElementsByClassName("ProductForm__Option")[2].style = "";
             }
-            //console.log(document.getElementsByClassName("S-pay-Btn")[0]);
+            //console.log(document.getElementsByClassName("shopify-payment-button")[0]);
             document.getElementById("Stock").innerHTML = product["Stock"];
         }
     </script>
