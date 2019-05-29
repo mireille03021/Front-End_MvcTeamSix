@@ -1,15 +1,17 @@
 ﻿@using ANVI_Mvc.Services
 @{
-    ViewBag.Title = "Cart";
-    bool something = false;
-    var currentCart = new CartModel();
-    if (CartService.GetCurrentCart() != null)
-    {
-        something = true;
-        currentCart = CartService.GetCurrentCart();
-    }
-    var stocks = (int[]) ViewBag.Stocks;
-    var images = (string[]) ViewBag.Images;
+                /**/
+
+                ViewBag.Title = "Cart";
+                bool something = false;
+                var currentCart = new CartModel();
+                if (CartService.GetCurrentCart() != null)
+                {
+                    something = true;
+                    currentCart = CartService.GetCurrentCart();
+                }
+                var stocks = (int[])ViewBag.Stocks;
+                var images = (string[])ViewBag.Images;
 }
 
 @section topCSS
@@ -253,7 +255,7 @@
         //var cutValue = $("#cutValue");
         for (var i = 0; i < @currentCart.Count; i++) {
             $("#add_" + i).on('click', function doAdd() {
-                console.log("hi" + i);
+                console.log("hi" + this.attr('aria-value'));
                 //// var cv = cutvalue++;
                 //if (count - pickNumber > 0) {
                 //    pickNumber++;
@@ -265,7 +267,7 @@
                 //}
             });
             $("#cut_" + i).on('click', function doCut() {
-                console.log("ho" + i);
+                console.log("ho" + this.attr('aria-value'));
                 //// var cv = cutvalue++;
                 //if (count - pickNumber < count - 1) {
                 //    pickNumber--;

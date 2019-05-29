@@ -79,32 +79,6 @@ namespace ANVI_Mvc.Controllers
             return View("Order_Customer");
         }
         //-----------------------------------------------------------------
-        //-----------------------------購物車------------------------------
-        //取得目前購物車頁面
-        public ActionResult GetCart(/*CartItemViewModel cartItem*/)
-        {
-            var cart = CartService.GetCurrentCart();
-            //if (cart.CartItems.Count == 0) //如果沒有在Session裡暫存數量
-            //{
-            //    cart.CartItems.Add(new CartItemViewModel()
-            //    {
-            //        PDID = cartItem.PDID,
-            //        ProductName = cartItem.ProductName,
-            //        UnitPrice = cartItem.UnitPrice,
-            //        CategoryName = cartItem.CategoryName,
-            //        ColorName = cartItem.ColorName,
-            //        SizeContext = cartItem.SizeContext,
-            //        ImageName = cartItem.ImageName
-            //    });
-            //}
-            //else
-            //{
-            //    cart.CartItems.First().Quantity += 1;
-            //}
-            cart.AddCartItem("1-1");
-            return Content(string.Format("目前總共 : {0} 元", cart.TotalAmount));
-        }
-        //-------------------------------------------------------------
         //----------------------------下單-----------------------------
         [HttpGet]
         public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
