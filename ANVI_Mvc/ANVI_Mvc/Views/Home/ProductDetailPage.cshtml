@@ -13,53 +13,34 @@
 {
     <script type="text/javascript" src="~/Assets/js/jquery-3.3.1.js"></script>
 }
-<main id="main">
-    <div id="SS-border" class="shopify-section--bordered">
-        <section class="product Product--medium">
+<main id="main" role="main">
+    <div id="shopify-section-product-template" class="shopify-section shopify-section--bordered">
+        <section class="Product Product--medium">
             <div id="Product-main(W)" class="Product__Wrapper">
-                <div id="PG" class="Product__Gallery">
+                <div id="PG" class="Product__Gallery Product__Gallery--stack Product__Gallery--withDots">
                     <span id="ProductGallery" class="Anchor"></span>
                     <!--按鈕轉移位置-->
-                    @*<div id="PS">
-                            @foreach (var image in Model.Images)
-                            {
-                                <div>
-                                    <img src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName">
-                                </div>
-                            }
-                        </div>
-                        <div id="PSF">*@
-                    <!-- 縮小的RWD -->
-                    <div id="PSF" class="Product__Slideshow Carousel flickity-enabled is-draggable"
-                         data-flickity-config='{
-                            "prevNextButtons": false,
-                            "pageDots": true,
-                            "adaptiveHeight": true,
-                            "watchCSS": true,
-                            "dragThreshold": 8,
-                            "initialIndex": 0,
-                            "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-                          }'>
-                        <div id="FV" class="flickity-viewport" style="touch-action: pan-y;">
-                            <div id="FS" class="flickity-slider" style="left: 0px; transform: translateX(0%);">
-                                @foreach (var image in Model.Images)
-                                {
-                                    <div class="Product__SlideItem Carousel__Cell is-selected" style="position: absolute; left: 0%;">
-                                        <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: 100.0%; --aspect-ratio: 1.0;">
-                                            <img name="ImgName" src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName" class="Image--fadeIn Image--lazyLoaded" />
-                                            <span class="Image__Loader"></span>
-                                        </div>
-                                    </div>
-                                }
+                    <div id="PSF" class="Product__Slideshow Carousel" data-flickity='{
+                                    "prevNextButtons": false,
+                                    "pageDots": true,
+                                    "adaptiveHeight": true,
+                                    "dragThreshold": 8,
+                                    "initialIndex": 0,
+                                    "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+                                }'>
+
+                        @foreach (var image in Model.Images)
+                        {
+                        <div class="Product__SlideItem Product__SlideItem--image Carousel__Cell">
+                            <div class="AspectRatio AspectRatio--withFallback"
+                                 style="padding-bottom: 100.0%; --aspect-ratio: 1.0;">
+                                <img name="ImgName" src="~/Assets/images/@Model.CategoryName/@image.ImgName" alt="@Model.Product.ProductName" class="Image--fadeIn lazyautosizes Image--lazyLoaded" />
+                                <span class="Image__Loader"></span>
                             </div>
                         </div>
-                        <ol id="FPD" class="flickity-page-dots">
-                            <li class="dot is-selected"></li>
-                            <li class="dot"></li>
-                            <li class="dot"></li>
-                            <li class="dot"></li>
-                            <li class="dot"></li>
-                        </ol>
+                        }
+
+
                     </div>
                 </div>
                 <div id="PI" class="Product__InfoWrapper">
