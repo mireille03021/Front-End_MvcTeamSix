@@ -33,8 +33,8 @@
                     </ul>
                 </div>
                 <div class="main__content">
-                    <div class="step">
                         <form action="/Home/Order_Customer" class="edit_checkout" method="post">
+                    <div class="step">
                             <div class="step__sections">
                                 <div class="section">
                                     <div class="section__header">
@@ -68,7 +68,7 @@
                                     <div class="fieldset">
                                         <div class="field">
                                             <!-- <div class="field__input"><label for="" class="field__label">電子郵件</label> -->
-                                            <input id="checkout_email" class="field__input" type="email" size="30" name="checkout[email]" placeholder="電子郵件">
+                                            <input id="checkout_email" class="field__input" type="email" size="30" name="Email" value="@ViewData["Email"]" placeholder="電子郵件">
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                             <div class="field ">
                                                 <div class="field__input-wrapper">
                                                     <!-- <label class="field__label" for="checkout_shipping_address_last_name">姓氏</label> -->
-                                                    <input type="text" class="field__input" placeholder="姓名" size="30" name="checkout[shipping_address][name]" id="checkout_shipping_address_name">
+                                                    <input type="text" class="field__input" placeholder="姓名" size="30" name="CustomerName" value="@ViewData["CustomerName"]" id="checkout_shipping_address_name">
                                                 </div>
                                             </div>
                             
@@ -103,7 +103,7 @@
 
                                                 <div class="field__input-wrapper field__input-wrapper--select">
                                                     <!-- <label class="field__label field__label--visible" for="checkout_shipping_address_city">城市</label> -->
-                                                    <select size="1" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
+                                                    <select size="1" class="field__input field__input--select" aria-required="true" name="City" value="@ViewData["City"]" id="checkout_shipping_address_city">
                                                         <option disabled="disabled" value="---">請選擇</option>
                                                         <option value="台北市"> 台北市 </option>
                                                         <option value="基隆市"> 基隆市 </option>
@@ -143,20 +143,20 @@
                                             <div class="field field--half-zip">
                                                 <div class="field__input-wrapper">
                                                     <!-- <label class="field__label">郵遞區號</label> -->
-                                                    <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="checkout[shipping_address][zipcode]">
+                                                    <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="ZipCOde" value="@ViewData["ZipCode"]">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="field">
                                             <div class="field__input-wrapper">
                                                 <!-- <label class="field__label">地址</label> -->
-                                                <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="checkout[shipping_address][address]">
+                                                <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="Address" value="@ViewData["Address"]">
                                             </div>
                                         </div>
                                         <div class="field">
                                             <div class="field__input-wrapper">
                                                 <!-- <label class="field__label">電話</label> -->
-                                                <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="checkout[shipping_address][phone]">
+                                                <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="Phone" value="@ViewData["Phone"]">
                                                 <div id="phone_tooltip" class="field__icon">
                                                     <!-- <span id="tooltip-for-phone" class="tooltip">
                                             In case we need to contact you about your order.
@@ -192,17 +192,17 @@
                                 </div>
 
                             </div>
-                        </form>
                     </div>
                     <div class="step__footer">
                         <button id="continue_button" class="step__footer__continue-btn btn" type="submit" name="button">
                             <!-- loading ICON -->
                             <span class="btn__content">前往運送資訊</span>
                         </button>
-                        <a href="/cart" class="step__footer__previous-link">
+                        <a href="/Home/GetCart" class="step__footer__previous-link">
                             <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">回到購物車</span>
                         </a>
                     </div>
+                        </form>
                 </div>
 
                 <!-- 一堆SPAN -->
@@ -259,7 +259,7 @@
                                                     <td class="product__image">
                                                         <div class="product-thumbnail">
                                                             <div class="product-thumbnail__wrapper">
-                                                                <img src="../ANVI/images/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image"></img>
+                                                                <img src="../ANVI/images/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image" />
 
 
                                                             </div>
@@ -286,7 +286,7 @@
                                                     <td class="product__image">
                                                         <div class="product-thumbnail">
                                                             <div class="product-thumbnail__wrapper">
-                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image"></img>
+                                                                <img src="~/Assets/images/otherphoto/2_c6e0228b-9fef-409e-a0a0-1f791a63bb48_400x.jpg" class="product-thumbnail_image"/>
 
 
                                                             </div>

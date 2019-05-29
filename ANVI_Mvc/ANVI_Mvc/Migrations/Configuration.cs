@@ -69,7 +69,7 @@ namespace ANVI_Mvc.Migrations
             );
             context.ProductDetails.AddOrUpdate(
             x => x.PDID,
-            new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 13, ColorID = 1 },
+            new ProductDetail() { PDID = "1-1", ProductID = 1, Stock = 10, SizeID = 14, ColorID = 1 },
             new ProductDetail() { PDID = "2-1", ProductID = 2, Stock = 10, SizeID = 4, ColorID = 1 },
             new ProductDetail() { PDID = "3-1", ProductID = 3, Stock = 5, SizeID = 13, ColorID = 1 },
             new ProductDetail() { PDID = "4-1", ProductID = 4, Stock = 3, SizeID = 7, ColorID = 1 },
@@ -89,7 +89,7 @@ namespace ANVI_Mvc.Migrations
             new ProductDetail() { PDID = "8-1", ProductID = 8, Stock = 6, SizeID = 10, ColorID = 1, },
             new ProductDetail() { PDID = "8-2", ProductID = 8, Stock = 3, SizeID = 11, ColorID = 1, },
             new ProductDetail() { PDID = "9-1", ProductID = 9, Stock = 1, SizeID = 10, ColorID = 1, },
-            new ProductDetail() { PDID = "9-1", ProductID = 9, Stock = 7, SizeID = 11, ColorID = 1, },
+            new ProductDetail() { PDID = "9-2", ProductID = 9, Stock = 7, SizeID = 11, ColorID = 1, },
             new ProductDetail() { PDID = "10-1", ProductID = 10, Stock = 3, SizeID = 10, ColorID = 3, },
             new ProductDetail() { PDID = "10-2", ProductID = 10, Stock = 1, SizeID = 11, ColorID = 3, },
             new ProductDetail() { PDID = "11-1", ProductID = 11, Stock = 7, SizeID = 10, ColorID = 3, },
@@ -220,8 +220,8 @@ namespace ANVI_Mvc.Migrations
                 new Image() { ImgID = 28, PDID = "6-1", ImgName = "R19301-1_900x.jpg" },
                 new Image() { ImgID = 29, PDID = "6-1", ImgName = "R19301-2_900x.jpg" },
                 new Image() { ImgID = 30, PDID = "7-1", ImgName = "Gold_900x.jpg" },
-                new Image() { ImgID = 31, PDID = "7-1", ImgName = "RG_900x.jpg" },
-                new Image() { ImgID = 32, PDID = "7-4", ImgName = "3-2_900x.jpg" },
+                new Image() { ImgID = 31, PDID = "7-1", ImgName = "3-2_900x.jpg" },
+                new Image() { ImgID = 32, PDID = "7-4", ImgName = "RG_900x.jpg" },
                 new Image() { ImgID = 33, PDID = "7-4", ImgName = "IG1212_900x.jpg" },
                 new Image() { ImgID = 34, PDID = "8-1", ImgName = "R19304G_900x.jpg" },
                 new Image() { ImgID = 35, PDID = "8-1", ImgName = "R_LOVE_G_1_900x.jpg" },

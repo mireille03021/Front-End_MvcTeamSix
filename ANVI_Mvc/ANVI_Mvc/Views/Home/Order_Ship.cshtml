@@ -14,6 +14,7 @@
 {
     <script src="~/Assets/js/Order_Pay.js"></script>
 }
+<<<<<<< HEAD
 <div class="content">
     <div class="wrap">
         <div class="leftview">
@@ -45,6 +46,40 @@
                                                     <div class="review-block__label">Contact</div>
                                                     <div class="review-block__content">
                                                         <bdo dir="ltr">bebe1996715548@gmail.com</bdo>
+=======
+ <div class="content">
+        <div class="wrap">
+            <div class="leftview">
+                <div class="main">
+                    <div class="main__header">
+                        <a href="#" class="logo">
+                            <img src="~/Assets/images/otherphoto/ANVI_LOGO120.png" alt="ANVI" class="logo_image">
+                        </a>
+                        <!-- <h1 class="">客戶資訊</h1> -->
+                        <ul class="bread-crumb">
+                            <li class="breadcrumb__item">
+                                <a href="/cart" class="breadcrumb__link">購物車</a><i class="fas fa-chevron-right"></i>
+                            </li>
+                            <li class="breadcrumb__item"><span class="breadcrumb__text">客戶資訊</span><i class="fas fa-chevron-right"></i></li>
+                            <li class="breadcrumb__item"><span class="breadcrumb__text">運送方式</span><i class="fas fa-chevron-right"></i></li>
+                            <li class="breadcrumb__item"><span class="breadcrumb__text">付款方式</span></li>
+                        </ul>
+                    </div>
+                    <div class="main__content">
+                        <div class="step">
+                            <form action="/Home/Order_ship" class="edit_checkout" method="post">
+                                <!-- 有用input hidden去記表單 -->
+                                <div class="step__sections">
+                                    <div class="section">
+                                        <div class="content-box">
+                                            <div class="content-box__row content-box__row--tight-spacing-vertical">
+                                                <div class="review-block">
+                                                    <div class="review-block__inner">
+                                                        <div class="review-block__label">Contact</div>
+                                                        <div class="review-block__content">
+                                                            <bdo dir="ltr">@ViewData["Email"]</bdo>
+                                                        </div>
+>>>>>>> bc3232e3033c3353ac92011295c0773fca5d1f63
                                                     </div>
                                                 </div>
 
@@ -56,6 +91,7 @@
                                                 </div>
                                             </div>
 
+<<<<<<< HEAD
                                             <div class="review-block">
                                                 <div class="review-block__inner">
                                                     <div class="review-block__label">Ship&nbspto</div>
@@ -63,6 +99,22 @@
                                                         <address class="address address--tight">
                                                             新竹市香山區五福路二段,30012 新竹</ddress>
                                                             <!-- 不知道原本這邊為啥會有一個地址元素?不懂 -->
+=======
+                                                <div class="review-block">
+                                                    <div class="review-block__inner">
+                                                        <div class="review-block__label">Ship&nbspto</div>
+                                                        <div class="review-block__content">
+                                                            <address class="address address--tight"> @ViewData["Address"]
+                                                                </address>
+                                                                <!-- 不知道原本這邊為啥會有一個地址元素?不懂 -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-block__link">
+                                                        <a href="" class="link--small">
+                                                            <span aria-hidden="true">Cange</span>
+                                                            <span class="visually-hidden">Change contact information</span>
+                                                        </a>
+>>>>>>> bc3232e3033c3353ac92011295c0773fca5d1f63
                                                     </div>
                                                 </div>
                                                 <div class="review-block__link">
@@ -109,6 +161,29 @@
 
                             </div>
 
+<<<<<<< HEAD
+=======
+                        </div>
+                        <div class="step__footer">
+                            <button id="continue_button" class="step__footer__continue-btn btn" type="submit" name="button">
+                                <!-- loading ICON -->
+                                <span class="btn__content">前往付款方式</span>
+                            </button>
+                            <a href="/Home/Order_Customer" class="step__footer__previous-link">
+                                <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">返回客戶資訊</span>
+                            </a>
+                        </div>
+                        </form>
+                    </div>
+                    <!-- 一堆SPAN -->
+                    <div class="main__footer">
+                        <div>
+                            <ul class="policy-list">
+                                <!-- 做跳出頁面找時間用BOOTSTRAP MODAL套一套 -->
+                                <li class="policy-list__item">
+                                    <a data-toggle="modal" data-target="#exampleModal" aria-haspopup="dialog" href="/Refund__policy.html">Refund policy</a>
+                                </li>
+>>>>>>> bc3232e3033c3353ac92011295c0773fca5d1f63
 
 
                     </div>

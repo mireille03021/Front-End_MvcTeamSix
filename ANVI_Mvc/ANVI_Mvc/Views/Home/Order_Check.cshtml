@@ -51,7 +51,7 @@
 
                             <div class="os-header__heading ">
                                 <span class="os-order-number">訂單 #2635</span>
-                                <h2 id="main-header" class="os-header__title">感謝 "帳單姓名"!</h2>
+                                <h2 id="main-header" class="os-header__title">感謝 "@ViewData["CustomerName"]"!</h2>
                             </div>
                         </div>
                     </div>
@@ -104,12 +104,12 @@
                                     <div class="section__content__colum section__content__colum--half">
                                         <div class="text-container">
                                             <h3 class="heading-3">聯絡資訊</h3>
-                                            <p>shipping@gmail.com</p>
+                                            <p>@ViewData["Email"]</p>
                                             <h3 class="heading-3">運送地址</h3>
-                                            <p>
-                                                哭 碼
-                                                <br> 哭碼的家
-                                                <br> 郵遞區號 新竹市
+                                            <p> 
+                                                @ViewData["CustomerName"]
+                                                <br> @ViewData["Address"]
+                                                <br> @ViewData["Zipcode"] @ViewData["City"]
 
                                             </p>
                                             <h3 class="heading-3">運送方式</h3>
@@ -129,9 +129,9 @@
                                             </Ul>
                                             <h3 class="heading-3">帳單地址</h3>
                                             <p>
-                                                哭 碼
-                                                <br> 哭碼的家
-                                                <br> 郵遞區號 新竹市
+                                                @ViewData["CustomerName"]
+                                                <br> @ViewData["Address"]
+                                                <br> @ViewData["Zipcode"] @ViewData["City"]
 
                                             </p>
                                         </div>

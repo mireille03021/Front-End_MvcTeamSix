@@ -34,7 +34,7 @@
                 </div>
                 <div class="main__content">
                     <div class="step">
-                        <form action="" class="edit_checkout">
+                        <form action="/Home/Order_Pay" class="edit_checkout" method="post">
                             <!-- 有用input hidden去記表單 -->
                             <div class="step__sections">
                                 <div class="section">
@@ -44,7 +44,7 @@
                                                 <div class="review-block__inner">
                                                     <div class="review-block__label">Contact</div>
                                                     <div class="review-block__content">
-                                                        <bdo dir="ltr">bebe1996715548@gmail.com</bdo>
+                                                        <bdo dir="ltr">@ViewData["Email"]</bdo>
                                                     </div>
                                                 </div>
 
@@ -61,7 +61,7 @@
                                                     <div class="review-block__label">Ship&nbspto</div>
                                                     <div class="review-block__content">
                                                         <address class="address address--tight">
-                                                            新竹市香山區五福路二段,30012 新竹</ddress>
+                                                           @ViewData["Address"]</address>
                                                             <!-- 不知道原本這邊為啥會有一個地址元素?不懂 -->
                                                     </div>
                                                 </div>
@@ -160,88 +160,87 @@
 
                                             </div>
                                             <div id="section--billing-address__different" class="radio-group__row content-box__row content-box__row--secondary">
-                                                <div class="fiedset">
-                                                    <div class="fieldset">
+                          <div class="fieldset">
 
-                                                        <div class="field ">
-                                                            <div class="field__input-wrapper">
-                                                                <!-- <label class="field__label" for="checkout_shipping_address_last_name">姓氏</label> -->
-                                                                <input type="text" class="field__input" placeholder="姓名" size="30" name="checkout[shipping_address][name]" id="checkout_shipping_address_name">
-                                                            </div>
+                                                    <div class="field ">
+                                                        <div class="field__input-wrapper">
+                                                            <!-- <label class="field__label" for="checkout_shipping_address_last_name">姓氏</label> -->
+                                                            <input type="text" class="field__input" placeholder="姓名" size="30" name="CustomerName" value="@ViewData["CustomerName"]" id="checkout_shipping_address_name">
                                                         </div>
-                                                        <div class="half-to">
-                                                            <div class="field field--required field--half-city field--show-floating-label" data-address-field="city" data-autocomplete-field-container="true">
+                                                    </div>
 
-                                                                <div class="field__input-wrapper field__input-wrapper--select">
-                                                                    <!-- <label class="field__label field__label--visible" for="checkout_shipping_address_city">城市</label> -->
-                                                                    <select size="1" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">
-                                                                        <option disabled="disabled" value="---">請選擇</option>
-                                                                        <option value="台北市"> 台北市 </option>
-                                                                        <option value="基隆市"> 基隆市 </option>
-                                                                        <option value="新北市"> 新北市 </option>
-                                                                        <option value="宜蘭縣"> 宜蘭縣 </option>
-                                                                        <option value="新竹市"> 新竹市 </option>
-                                                                        <option value="新竹縣"> 新竹縣 </option>
-                                                                        <option value="桃園縣"> 桃園縣 </option>
-                                                                        <option value="苗栗縣"> 苗栗縣 </option>
-                                                                        <option value="台中市"> 台中市 </option>
-                                                                        <option value="彰化縣"> 彰化縣 </option>
-                                                                        <option value="南投縣"> 南投縣 </option>
-                                                                        <option value="嘉義市"> 嘉義市 </option>
-                                                                        <option value="嘉義縣"> 嘉義縣 </option>
-                                                                        <option value="雲林縣"> 雲林縣 </option>
-                                                                        <option value="台南市"> 台南市 </option>
-                                                                        <option value="高雄市"> 高雄市 </option>
-                                                                        <option value="澎湖縣"> 澎湖縣 </option>
-                                                                        <option value="屏東縣"> 屏東縣 </option>
-                                                                        <option value="台東縣"> 台東縣 </option>
-                                                                        <option value="花蓮縣"> 花蓮縣 </option>
-                                                                        <option value="金門縣"> 金門縣 </option>
-                                                                        <option value="連江縣"> 連江縣 </option>
-                                                                    </select>
 
-                                                                    <div class="field__caret">
-                                                                        <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false"> <use xlink:href="#caret-down"></use> </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="field field--half-city">
-            <div class="field__input-wrapper">
-                <label class="field__label">城市</label>
-                <input type="text" class="field__input" id="checkout_shipping_address_city" placeholder="城市" size="30" name="checkout[shipping_address][city]">
-            </div>
-        </div> -->
-                                                            <div class="field field--half-zip">
-                                                                <div class="field__input-wrapper">
-                                                                    <!-- <label class="field__label">郵遞區號</label> -->
-                                                                    <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="checkout[shipping_address][zip]">
+                                                    <div class="half-to">
+                                                        <div class="field field--required field--half-city field--show-floating-label" data-address-field="city" data-autocomplete-field-container="true">
+
+                                                            <div class="field__input-wrapper field__input-wrapper--select">
+                                                                <!-- <label class="field__label field__label--visible" for="checkout_shipping_address_city">城市</label> -->
+                                                                <select size="1" class="field__input field__input--select" aria-required="true" name="City" value="@ViewData["City"]" id="checkout_shipping_address_city">
+                                                                    <option disabled="disabled" value="---">請選擇</option>
+                                                                    <option value="台北市"> 台北市 </option>
+                                                                    <option value="基隆市"> 基隆市 </option>
+                                                                    <option value="新北市"> 新北市 </option>
+                                                                    <option value="宜蘭縣"> 宜蘭縣 </option>
+                                                                    <option value="新竹市"> 新竹市 </option>
+                                                                    <option value="新竹縣"> 新竹縣 </option>
+                                                                    <option value="桃園縣"> 桃園縣 </option>
+                                                                    <option value="苗栗縣"> 苗栗縣 </option>
+                                                                    <option value="台中市"> 台中市 </option>
+                                                                    <option value="彰化縣"> 彰化縣 </option>
+                                                                    <option value="南投縣"> 南投縣 </option>
+                                                                    <option value="嘉義市"> 嘉義市 </option>
+                                                                    <option value="嘉義縣"> 嘉義縣 </option>
+                                                                    <option value="雲林縣"> 雲林縣 </option>
+                                                                    <option value="台南市"> 台南市 </option>
+                                                                    <option value="高雄市"> 高雄市 </option>
+                                                                    <option value="澎湖縣"> 澎湖縣 </option>
+                                                                    <option value="屏東縣"> 屏東縣 </option>
+                                                                    <option value="台東縣"> 台東縣 </option>
+                                                                    <option value="花蓮縣"> 花蓮縣 </option>
+                                                                    <option value="金門縣"> 金門縣 </option>
+                                                                    <option value="連江縣"> 連江縣 </option>
+                                                                </select>
+
+                                                                <div class="field__caret">
+                                                                    <svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false"> <use xlink:href="#caret-down"></use> </svg>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="field">
+                                                        <!-- <div class="field field--half-city">
+                <div class="field__input-wrapper">
+                    <label class="field__label">城市</label>
+                    <input type="text" class="field__input" id="checkout_shipping_address_city" placeholder="城市" size="30" name="checkout[shipping_address][city]">
+                </div>
+            </div> -->
+                                                        <div class="field field--half-zip">
                                                             <div class="field__input-wrapper">
-                                                                <!-- <label class="field__label">地址</label> -->
-                                                                <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="checkout[shipping_address][address]">
+                                                                <!-- <label class="field__label">郵遞區號</label> -->
+                                                                <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="ZipCOde" value="@ViewData["ZipCode"]">
                                                             </div>
                                                         </div>
-                                                        <div class="field">
-                                                            <div class="field__input-wrapper">
-                                                                <!-- <label class="field__label">電話</label> -->
-                                                                <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="checkout[shipping_address][phone]">
-                                                                <div id="phone_tooltip" class="field__icon">
-                                                                    <!-- <span id="tooltip-for-phone" class="tooltip">
-                    In case we need to contact you about your order.
-                </span>
-                <i class="fas fa-question-circle"></i> -->
+                                                    </div>
+                                                    <div class="field">
+                                                        <div class="field__input-wrapper">
+                                                            <!-- <label class="field__label">地址</label> -->
+                                                            <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="Address" value="@ViewData["Address"]">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <div class="field__input-wrapper">
+                                                            <!-- <label class="field__label">電話</label> -->
+                                                            <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="Phone" value="@ViewData["Phone"]">
+                                                            <div id="phone_tooltip" class="field__icon">
+                                                                <!-- <span id="tooltip-for-phone" class="tooltip">
+                        In case we need to contact you about your order.
+                    </span>
+                    <i class="fas fa-question-circle"></i> -->
 
-                                                                    <div class="field__icon-svg" data-toggle="tooltip" data-placement="top" title=' In case we need to contact you about your order.'>
+                                                                <div class="field__icon-svg" data-toggle="tooltip" data-placement="top" title=' In case we need to contact you about your order.'>
 
-                                                                        <i class="fas fa-question-circle"></i>
-                                                                    </div>
+                                                                    <i class="fas fa-question-circle"></i>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
 
                                                 </div>
@@ -264,7 +263,7 @@
                             <!-- loading ICON -->
                             <span class="btn__content">完成訂單</span>
                         </button>
-                        <a href="" class="step__footer__previous-link">
+                        <a href="/Home/Order_Ship" class="step__footer__previous-link">
                             <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">返回運送資訊</span>
                         </a>
                     </div>

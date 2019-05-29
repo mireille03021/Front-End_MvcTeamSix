@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -18,7 +16,6 @@ namespace ANVI_Mvc.Models
         [Required]
         public string SubTitle { get; set; }
 
-        [JsonIgnore]
-        public virtual Product Product { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

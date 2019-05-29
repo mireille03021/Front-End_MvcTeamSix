@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using ANVI_Mvc.Services
+@{
+    var currentCart = CartService.GetCurrentCart();
+}
+<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="utf-8" />
@@ -44,7 +48,7 @@
                         <ul class="lineonelist">
                             <li class="account"> <a href="#">帳號</a></li>
                             <li class="search"><a href="#">搜尋</a></li>
-                            <li class="cart"> <a href="#">購物車(<snap class="header_cartcount">0</snap>)</a></li>
+                            <li class="cart"> <a href="/Cart/ShoppingCart">購物車(<snap class="header_cartcount">@currentCart.Count</snap>)</a></li>
                         </ul>
                     </nav>
                 </div>
