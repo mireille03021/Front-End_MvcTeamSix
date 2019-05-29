@@ -18,6 +18,6 @@ namespace ANVI_Mvc.Models
 
         public string ClaimValue { get; set; }
 
-        public virtual AspNetUser AspNetUsers { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

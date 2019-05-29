@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -14,13 +16,13 @@ namespace ANVI_Mvc.Models
             ProductDetails = new HashSet<ProductDetail>();
         }
 
-        [Key]
         public int ColorID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string ColorName { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }

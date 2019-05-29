@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -27,16 +29,20 @@ namespace ANVI_Mvc.Models
 
         public int ColorID { get; set; }
 
-        public virtual Color Colors { get; set; }
+        public virtual Color Color { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual Product Products { get; set; }
+        [JsonIgnore]
+        public virtual Product Product { get; set; }
 
-        public virtual Size Sizes { get; set; }
+        [JsonIgnore]
+        public virtual Size Size { get; set; }
     }
 }

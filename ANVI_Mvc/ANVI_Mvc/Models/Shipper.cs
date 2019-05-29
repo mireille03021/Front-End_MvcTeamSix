@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -14,7 +16,6 @@ namespace ANVI_Mvc.Models
             Orders = new HashSet<Order>();
         }
 
-        [Key]
         public int ShipperID { get; set; }
 
         [Required]
@@ -25,6 +26,7 @@ namespace ANVI_Mvc.Models
         [StringLength(15)]
         public string Phone { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

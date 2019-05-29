@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -16,7 +18,6 @@ namespace ANVI_Mvc.Models
             ProductDetails = new HashSet<ProductDetail>();
         }
 
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProductID { get; set; }
 
@@ -29,14 +30,18 @@ namespace ANVI_Mvc.Models
         [Column(TypeName = "money")]
         public decimal UnitPrice { get; set; }
 
-        public virtual Category Categories { get; set; }
+        [JsonIgnore]
+        public virtual Category Category { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesDetail> DesDetails { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DesSubTitle> DesSubTitles { get; set; }
 
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductDetail> ProductDetails { get; set; }
     }
