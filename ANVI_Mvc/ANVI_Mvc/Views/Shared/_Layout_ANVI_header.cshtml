@@ -120,7 +120,7 @@
             </div>
         </div>
     </div>
-    <div style="height:34px;"></div>  <!--填充物：之後有好一點的做法再調整-->
+  
     @RenderBody()
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -153,11 +153,42 @@ $(function () {
 });
         $(function () {
             $(".topnemu").hover(function () {
-                //$(".MenuList").css("visibility", "visible");
+    
             }, function () {
                 $(".MenuList").css("visibility", "hidden");
             });
         });
+        //應該要寫一個語法合併上面
+        
+        //這邊下面寫滾動卷軸動作
+        $(function () {
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+
+                if (scroll >= 5) {
+                    $('#header').addClass('fixed');
+
+                    $('.topnemulinetwo ul').css({
+                        "background- color": "rgba(255, 255, 255, 0)",
+                        "color": "#ffffff"
+                       
+                    });
+                    $('.topnemu').css({
+                        "background- color": "rgba(255, 255, 255, 0)"
+                        ,"color": "#ffffff"
+                    });
+
+                } else {
+                    $('#header').removeClass('fixed');
+                    $('.topnemu').css({
+                        "background- color": "#ffffff"
+                        , "color": "#1C1B1B"
+                    });
+                   
+                }
+            });
+        });
+
     </script>
     @RenderSection("endJS", false)
 </body>

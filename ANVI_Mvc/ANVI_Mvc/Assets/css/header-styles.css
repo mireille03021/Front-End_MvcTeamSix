@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+TC|Titillium+Web&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +14,8 @@ body {
     height: 100%;
     padding: 0px;
     margin: 0px;
+   
+    
 }
 
 a:hover {
@@ -48,8 +51,13 @@ body {
     position: sticky;
     line-height: 23.1px;
     color: #1C1B1B;
-    padding: 18px 50px 0px 50px;
     display: block;
+    /*0529*/
+    /* padding: 18px 50px 0px 50px; */
+    /*overflow: auto;*/
+    position: relative;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 .LogoImage {
@@ -63,28 +71,33 @@ body {
 }
 
 .topnemulineone {
-    margin-top: 4px;
     display: flex;
     justify-content: space-between;
+    /* 0529 */
+    /* margin-top: 4px; */
+    /*padding: 18px 50px 0px 50px;*/
+    padding: 18px 20px 0px 20px;
 }
 
 .topnemulinetwo {
-    padding-bottom: 18px;
-    position: absolute;
     width: 100%;
     text-align: center;
     left: 0;
     display: block;
+    /* 0529 */
+    /* position: absolute; */
+    /* padding-bottom: 18px; */
 }
 
-.topnemulinetwo ul {
-    background-color: #ffffff;
-    margin: -6px 0px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: #dddddd 1px solid;
-}
+    .topnemulinetwo ul {
+        background-color: #ffffff;
+        margin: -6px 0px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: #dddddd 1px solid;
+        /* position: relative; */
+    }
 
 
 /* 
@@ -120,20 +133,20 @@ body {
     /* border-bottom: transparent 2px solid; */
 }
 
-.linetwolist li:after {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    width: 0%;
-    border-bottom: 2px solid #000000;
-    transition: 0.3s;
-    /*記得取一個好的class*/
-}
+    .linetwolist li:after {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 0%;
+        border-bottom: 2px solid #000000;
+        transition: 0.3s;
+        /*記得取一個好的class*/
+    }
 
-.linetwolist li:hover:after {
-    width: 100%;
-}
+    .linetwolist li:hover:after {
+        width: 100%;
+    }
 
 .listspan {
     display: block;
@@ -174,10 +187,13 @@ a {
 
 .MenuList {
     background-color: white;
-    margin: 13px 0;
-    padding: 30px 40px;
+    margin: 6px 0 0 0;
+   
     border-bottom: #dddddd 1px solid;
     visibility: hidden;
+    /*0529*/
+    width: 100%;
+    position: absolute;
 }
 
 .topnemu a :hover .MenuList {
@@ -186,11 +202,13 @@ a {
 }
 
 .MegaMenu__ {
+    padding: 30px 40px;
     margin: 0 20px;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    width: 100%;
+    /*0529*/
+    /*width: 100%;*/
 }
 
 .class {
@@ -228,9 +246,18 @@ a {
 }
 
 .MegaMenu__Item a:hover {
-    color: #6a6a6a;
-}
+        color: #6a6a6a;
+    }
 
 .MegaMenu__PushHeading {
     margin: 10px 0;
+}
+/*0529*/
+.fixed {
+  
+    position: fixed;
+    top: 0;
+  
+    z-index: 999;
+    width: 100%;
 }

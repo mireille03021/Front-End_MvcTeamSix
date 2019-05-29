@@ -5,7 +5,8 @@
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+@using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
     @Html.AntiForgeryToken()
     @Html.Hidden("rememberMe", @Model.RememberMe)
     <h4>傳送驗證碼</h4>
@@ -19,6 +20,6 @@
     </div>
 }
 
-@section Scripts {
+@section endJS {
     @Scripts.Render("~/bundles/jqueryval")
 }

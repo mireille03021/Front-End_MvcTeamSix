@@ -1,0 +1,393 @@
+@charset "UTF-8";
+html {
+  font-family: sans-serif;
+  /* -webkit-text-size-adjust: 100%; */
+  /* -moz-text-size-adjust: 100%; */
+  /* -ms-text-size-adjust: 100%; */
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+html {
+  font-size: 14px;
+}
+
+html {
+  --window-height: 975px;
+  --announcement-bar-height: 43px;
+  --header-height: 79px;
+  --header-is-not-transparent: 1;
+}
+
+body {
+  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #1c1b1b;
+  background: #fff;
+  line-height: 1.65;
+}
+
+body:not(.is-tabbing) button:focus, body:not(.is-tabbing) input:focus, body:not(.is-tabbing) select:focus, body:not(.is-tabbing) textarea:focus {
+  outline: none;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  display: block;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p:last-child, h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+input {
+  line-height: normal;
+  border-radius: 0;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button, input[type="submit"] {
+  padding: 0;
+  overflow: visible;
+  background: none;
+  border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+:active {
+  outline: none;
+}
+
+.Btn-full {
+  /*Button--full*/
+  width: 100%;
+}
+
+.Link {
+  -webkit-transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.Link, .shopify-payment-button__more-options {
+  /* -webkit-transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out; */
+  -webkit-transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.Link-sec:hover, .Link-sec.is-active {
+  /*.Link--secondary:hover,.Link--secondary.is-active*/
+  color: #6a6a6a;
+}
+
+.Header .Heading, .Header .Link-sec, .Header .Link--primary:hover {
+  /*Link--secondary*/
+  color: #1c1b1b;
+}
+
+.Btn-pmy, .shopify-payment-button__button--unbranded {
+  /*.Button--primary, .shopify-payment-button__button--unbranded, #shopify-product-reviews .spr-summary-actions-newreview, #shopify-product-reviews .spr-button-primary:not(input)*/
+  color: #fff;
+  border-color: #1c1b1b;
+}
+
+.Btn, .shopify-payment-button__button--unbranded {
+  /*.Button, .shopify-payment-button__button--unbranded, #shopify-product-reviews .spr-summary-actions-newreview, #shopify-product-reviews .spr-button-primary:not(input), #shopify-product-reviews input.spr-button-primary, #shopify-product-reviews .spr-pagination-prev>a, #shopify-product-reviews .spr-pagination-next>a*/
+  position: relative;
+  display: inline-block;
+  padding: 14px 28px;
+  line-height: normal;
+  border: 1px solid transparent;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: transparent;
+  -webkit-transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  z-index: 1;
+  -webkit-tap-highlight-color: initial;
+}
+
+.Btn-pmy, .shopify-payment-button__button--unbranded {
+  /*.Button--primary, .shopify-payment-button__button--unbranded, #shopify-product-reviews .spr-summary-actions-newreview, #shopify-product-reviews .spr-button-primary:not(input)*/
+  color: #fff;
+  border-color: #1c1b1b;
+}
+
+.Btn::before, .shopify-payment-button__button--unbranded::before {
+  /*.Button::before, .shopify-payment-button__button--unbranded::before, #shopify-product-reviews .spr-summary-actions-newreview::before, #shopify-product-reviews .spr-button-primary:not(input)::before, #shopify-product-reviews input.spr-button-primary::before, #shopify-product-reviews .spr-pagination-prev>a::before, #shopify-product-reviews .spr-pagination-next>a::before*/
+  position: absolute;
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /* -webkit-transform: scale(1, 1); */
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  /* -webkit-transform-origin: left center; */
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  z-index: -1;
+}
+
+.Btn-pmy::before, .shopify-payment-button__button--unbranded::before {
+  /*.Button--primary::before, .shopify-payment-button__button--unbranded::before, #shopify-product-reviews .spr-summary-actions-newreview::before, #shopify-product-reviews .spr-button-primary:not(input)::before*/
+  background-color: #1c1b1b;
+}
+
+.Container {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.P-Content {
+  /*PageContent*/
+  max-width: 1000px;
+  margin: 35px auto;
+}
+
+.P-Content-fitS {
+  /*PageContent--fitScreen*/
+  /* display: -webkit-box; */
+  /* display: -ms-flexbox; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: calc(100vh - 120px);
+  /* -webkit-box-align: center; */
+  /* -ms-flex-align: center; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.P-Content-fitS {
+  min-height: calc(var(--window-height) - var(--header-height) - var(--announcement-bar-height, 0px) - 120px);
+}
+
+.P-Content-exN {
+  /*PageContent--extraNarrow*/
+  max-width: 400px;
+}
+
+.Form {
+  width: 100%;
+}
+
+.Form-Header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.Heading {
+  font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #1c1b1b;
+  /* -webkit-transition: color 0.2s ease-in-out; */
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.u-h1, .Rte h1 {
+  font-size: 22px;
+}
+
+.F-Item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.F-spaT .F-Item {
+  /*.Form--spacingTight .Form__Item*/
+  margin-bottom: 15px;
+  /*或許可以拿掉  也不用F-spaT*/
+}
+
+.F-Input {
+  /*.Form__Input, #shopify-product-reviews .spr-form-input-text, #shopify-product-reviews .spr-form-input-email, #shopify-product-reviews .spr-form-input-textarea, .Form__Textarea*/
+  -webkit-appearance: none;
+  display: block;
+  padding: 12px 14px;
+  border-radius: 0;
+  border: 1px solid #ddd;
+  width: 100%;
+  line-height: normal;
+  resize: none;
+  -webkit-transition: border-color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out;
+  background: transparent;
+}
+
+.F-Input:focus {
+  /*.Form__Input:focus, #shopify-product-reviews .spr-form-input-text:focus, #shopify-product-reviews .spr-form-input-email:focus, #shopify-product-reviews .spr-form-input-textarea:focus, .Form__Textarea:focus*/
+  border-color: #5d5a5a;
+  outline: none;
+}
+
+.F-FLabel {
+  /*Form__FloatingLabel*/
+  position: absolute;
+  bottom: calc(100% - 8px);
+  left: 10px;
+  padding: 0 5px;
+  line-height: normal;
+  color: #6a6a6a;
+  font-size: 12px;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0);
+  pointer-events: none;
+  /* -webkit-transform: translateY(3px); */
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+  /* -webkit-transition: all 0.3s ease-in-out; */
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.F-ItemSOS {
+  /*Form__ItemHelp*/
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  font-size: 12px;
+  color: #6a6a6a;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.Link-pmy:hover, .Link-pmy.is-active {
+  /*.supports-hover .Link--primary:hover, .Link--primary.is-active*/
+  color: #1c1b1b;
+}
+
+.F-Sub {
+  /*Form__Submit*/
+  display: block;
+  margin-top: 20px;
+}
+
+.Link-sec:hover {
+  /*.Link--secondary*/
+  color: #6a6a6a;
+}
+
+.F-Hint {
+  margin: 24px 0 0 0;
+}
+
+.F-Hint-ct {
+  /*Form__Hint--center*/
+  text-align: center;
+}
+
+.Text-sub {
+  /*Text--subdued*/
+  color: #6a6a6a;
+}
+
+@media not all, (hover: hover) {
+  .Btn:not([disabled])::before, .shopify-payment-button__button--unbranded:not([disabled])::before {
+    /*.Button:not([disabled])::before, .shopify-payment-button__button--unbranded:not([disabled])::before, #shopify-product-reviews .spr-summary-actions-newreview:not([disabled])::before, #shopify-product-reviews .spr-button-primary:not(input):not([disabled])::before, #shopify-product-reviews input.spr-button-primary:not([disabled])::before, #shopify-product-reviews .spr-pagination-prev>a:not([disabled])::before, #shopify-product-reviews .spr-pagination-next>a:not([disabled])::before*/
+    /* -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+    transition: -webkit-transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), -webkit-transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  .Btn-pmy:not([disabled]):hover, .shopify-payment-button__button--unbranded:not([disabled]):hover {
+    /*.Button--primary:not([disabled]):hover, .shopify-payment-button__button--unbranded:not([disabled]):hover, #shopify-product-reviews .spr-summary-actions-newreview:not([disabled]):hover, #shopify-product-reviews .spr-button-primary:not([disabled]):hover:not(input)*/
+    color: #1c1b1b;
+    background-color: transparent;
+  }
+  .Btn:not([disabled]):hover::before, .shopify-payment-button__button--unbranded:not([disabled]):hover::before {
+    /*.Button:not([disabled]):hover::before, .shopify-payment-button__button--unbranded:not([disabled]):hover::before, #shopify-product-reviews .spr-summary-actions-newreview:not([disabled]):hover::before, #shopify-product-reviews .spr-button-primary:not(input):not([disabled]):hover::before, #shopify-product-reviews input.spr-button-primary:not([disabled]):hover::before, #shopify-product-reviews .spr-pagination-prev>a:not([disabled]):hover::before, #shopify-product-reviews .spr-pagination-next>a:not([disabled]):hover::before*/
+    /* -webkit-transform-origin: right center; */
+    -webkit-transform-origin: right center;
+            transform-origin: right center;
+    /* -webkit-transform: scale(0, 1); */
+    -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .Container {
+    padding: 0 80px;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .Container {
+    padding: 0 50px;
+  }
+  .P-Content {
+    /*PageContent*/
+    margin-bottom: 80px;
+    margin-top: 80px;
+  }
+  .P-Content-fitS {
+    /*PageContent--fitScreen*/
+    min-height: calc(100vh - 160px);
+  }
+  .P-Content-fitS {
+    /*PageContent--fitScreen*/
+    min-height: calc(var(--window-height) - var(--header-height) - var(--announcement-bar-height, 0px) - 160px);
+  }
+  .u-h1, .Rte h1 {
+    font-size: 22px;
+  }
+  .F-Item, .Form__Alert, #shopify-product-reviews .spr-form-message {
+    /*.Form__Item, .Form__Alert, #shopify-product-reviews .spr-form-message*/
+    margin-bottom: 30px;
+    /*或許可以拿掉*/
+  }
+}
+/*# sourceMappingURL=style_creata.css.map */

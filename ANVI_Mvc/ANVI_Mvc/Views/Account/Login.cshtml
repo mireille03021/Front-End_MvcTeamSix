@@ -3,61 +3,82 @@
 @{
     ViewBag.Title = "登入";
 }
+@section topCSS
+{
+    <link href="~/Assets/css/Login.css" rel="stylesheet" />
+}
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>使用本機帳戶進行登入。</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<main id="main" role="main" style="">
+    <section>
+        <div class="container">
+            <div class="P-Content P-Content-fitS P-Content-exN">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "customer_login", @name = "login", @class = "Form F-spaT", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <header class="Form-Header">
+                        <h1 class="Heading u-h1">Login</h1>
+                        <p class="">Please enter your e-mail and password:</p>
+                    </header>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="F-Item">
+                        @Html.LabelFor(m => m.Email, new { @class = "F-FLabel" })
+                        @*<input type="email" name="customer[email]" id="" placeholder="Email" class="F-Input">*@
+                        @Html.TextBoxFor(m => m.Email, new { @name = "customer[email]", @placeholder = "Email", @class = "F-Input" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @*<label for="" class="F-FLabel">Email</label>*@
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+                    <div class="F-Item">
+                        @Html.LabelFor(m => m.Password, new { @class = "F-FLabel" })
+                        @*<input type="password" name="customer[password]" id="" placeholder="Password" class="F-Input">*@
+                        @Html.PasswordFor(m => m.Password, new { @name = "customer[password]", @placeholder = "Password", @class = "F-Input" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @*<label class="F-FLabel">Password</label>*@
+                        <button class="F-ItemSOS Link Link-pmy">Forgot password?</button>
+                        @* 只要您的密碼重設功能能夠進行帳戶確認，就啟用此項
+                            <p>
+                                @Html.ActionLink("忘記密碼?", "ForgotPassword")
+                            </p>*@
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
                         </div>
+
+                    @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>*@
+
+                    <button type="submit" class="F-Sub Btn-full Btn Btn-pmy">Login</button>
+
+                    <div class="F-Hint F-Hint-ct">
+                        <span class="Text-sub">Don&#39;t have an account?</span>
+                        <a href="#" class="Link Link-sec">@Html.ActionLink("Create one", "Register")</a>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="登入" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("以新使用者身分註冊", "Register")
-                </p>
-                @* 只要您的密碼重設功能能夠進行帳戶確認，就啟用此項
-                    <p>
-                        @Html.ActionLink("忘記密碼?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
+
+                    @* 只要您的密碼重設功能能夠進行帳戶確認，就啟用此項
+                        <p>
+                            @Html.ActionLink("忘記密碼?", "ForgotPassword")
+                        </p>*@
+                }
+            </div>
+        </div>
+    </section>
+</main>
+
+@*<div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
-    </div>
-</div>
+    </div>*@
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

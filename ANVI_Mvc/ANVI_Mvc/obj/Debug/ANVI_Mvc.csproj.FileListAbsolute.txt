@@ -598,7 +598,6 @@ D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 D:\Git\MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.dll
 C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\Dapper.xml
-C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialFB.resources
 C:\BuildSchool\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.dll.config
 C:\BuildSchool\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.dll
 C:\BuildSchool\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\bin\ANVI_Mvc.pdb
@@ -845,3 +844,4 @@ C:\Users\USER\Desktop\Git\mireille03021\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\o
 C:\Users\USER\Desktop\Git\mireille03021\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.csproj.CopyComplete
 C:\Users\USER\Desktop\Git\mireille03021\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.dll
 C:\Users\USER\Desktop\Git\mireille03021\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.pdb
+C:\Users\bebe1\Desktop\BSHTML\HTMLCLSS\Front-End_MvcTeamSix\ANVI_Mvc\ANVI_Mvc\obj\Debug\ANVI_Mvc.Migrations.initialDB.resources
