@@ -136,7 +136,7 @@
 
 
                                                 <div class="radio__input">
-                                                    <input value="false" type="radio" id="checkout_different_billing_address__false" class="input-radio" aria-label="FREE SHIPPING" name="checkout[different_billing_address]" checked="checked">
+                                                    <input value="false" type="radio" id="checkout_different_billing_address__false" class="input-radio" aria-label="FREE SHIPPING" name="Order_Pay_Radio" checked="checked">
                                                 </div>
 
                                                 <label for="checkout_different_billing_address__false" class="radio__label content-box__emphasis">
@@ -150,8 +150,8 @@
                                             <div class="radio-wrapper content-box__row">
 
 
-                                                <div class="radio__input">
-                                                    <input value="true" type="radio" id="checkout_different_billing_address__true" class="input-radio" aria-label="FREE SHIPPING" name="checkout[different_billing_address]">
+                                                <div class="radio__input" >
+                                                    <input value="true" type="radio" id="checkout_different_billing_address__true" class="input-radio" aria-label="FREE SHIPPING" name="Order_Pay_Radio">
                                                 </div>
 
                                                 <label for="checkout_different_billing_address__true" class="radio__label content-box__emphasis">
@@ -165,7 +165,7 @@
                                                     <div class="field ">
                                                         <div class="field__input-wrapper">
                                                             <!-- <label class="field__label" for="checkout_shipping_address_last_name">姓氏</label> -->
-                                                            <input type="text" class="field__input" placeholder="姓名" size="30" name="CustomerName" value="@ViewData["CustomerName"]" id="checkout_shipping_address_name">
+                                                            <input type="text" class="field__input" placeholder="姓名" size="30" name="Bill_CustomerName" value="@ViewData["Bill_CustomerName"]" id="checkout_shipping_address_name">
                                                         </div>
                                                     </div>
 
@@ -175,7 +175,7 @@
 
                                                             <div class="field__input-wrapper field__input-wrapper--select">
                                                                 <!-- <label class="field__label field__label--visible" for="checkout_shipping_address_city">城市</label> -->
-                                                                <select size="1" class="field__input field__input--select" aria-required="true" name="City" value="@ViewData["City"]" id="checkout_shipping_address_city">
+                                                                <select size="1" class="field__input field__input--select" aria-required="true" name="Bill_City" value="@ViewData["Bill_City"]" id="checkout_shipping_address_city">
                                                                     <option disabled="disabled" value="---">請選擇</option>
                                                                     <option value="台北市"> 台北市 </option>
                                                                     <option value="基隆市"> 基隆市 </option>
@@ -215,20 +215,20 @@
                                                         <div class="field field--half-zip">
                                                             <div class="field__input-wrapper">
                                                                 <!-- <label class="field__label">郵遞區號</label> -->
-                                                                <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="ZipCOde" value="@ViewData["ZipCode"]">
+                                                                <input type="text" class="field__input" id="checkout_shipping_address_zip" placeholder="郵遞區號" size="30" name="Bill_ZipCOde" value="@ViewData["Bill_ZipCode"]">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <div class="field__input-wrapper">
                                                             <!-- <label class="field__label">地址</label> -->
-                                                            <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="Address" value="@ViewData["Address"]">
+                                                            <input type="text" class="field__input" id="checkout_shipping_address_address" placeholder="地址" size="30" name="Bill_Address" value="@ViewData["Bill_Address"]">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <div class="field__input-wrapper">
                                                             <!-- <label class="field__label">電話</label> -->
-                                                            <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="Phone" value="@ViewData["Phone"]">
+                                                            <input type="text" class="field__input" id="checkout_shipping_address_phone" placeholder="電話" size="30" name="Bill_Phone" value="@ViewData["Bill_Phone"]">
                                                             <div id="phone_tooltip" class="field__icon">
                                                                 <!-- <span id="tooltip-for-phone" class="tooltip">
                         In case we need to contact you about your order.

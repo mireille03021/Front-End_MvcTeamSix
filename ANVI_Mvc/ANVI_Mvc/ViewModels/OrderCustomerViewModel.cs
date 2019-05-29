@@ -18,5 +18,12 @@ namespace ANVI_Mvc.ViewModels
         public string ZipCode { get; set; }
         public string BankAccount { get; set; }
         public string CreditCard { get; set; }
+
+        //以下是資料庫沒有的欄位
+        public string Bill_CustomerName { get; set; }
+        public string Bill_Address { get; set; }
+        public string Bill_City { get; set; }
+        public string Bill_ZipCode { get; set; }
+        public string Bill_Phone { get; set; }
     }
 }

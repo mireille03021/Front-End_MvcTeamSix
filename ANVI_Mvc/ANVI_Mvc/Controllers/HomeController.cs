@@ -136,15 +136,16 @@ namespace ANVI_Mvc.Controllers
         [HttpGet]
         public ActionResult Order_Pay()  //下單-付費頁面!沒有HEADER跟FOOTER
         {
-            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
-            ViewData["Email"] = OCVM.Email;
-            ViewData["Address"] = OCVM.Address;
-            ViewData.Model = OCVM;
+            //var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            //ViewData["Email"] = OCVM.Email;
+            //ViewData["Address"] = OCVM.Address;
+            //ViewData.Model = OCVM;
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult Order_Pay(string Nothing)  //下單-付費頁面!沒有HEADER跟FOOTER
+        public ActionResult Order_Pay(OrderCustomerViewModel Bill_OCVM, bool Order_Pay_Radio)  //下單-付費頁面!沒有HEADER跟FOOTER
         {
             var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
             ViewData["CustomerName"] = OCVM.CustomerName;
@@ -153,21 +154,25 @@ namespace ANVI_Mvc.Controllers
             ViewData["Address"] = OCVM.Address;
             ViewData["Phone"] = OCVM.Phone;
             ViewData["Email"] = OCVM.Email;
+
+            if(Order_Pay_Radio)
+            {
+                Session["Bill_Order_Seccion"] = Bill_OCVM;
+                ViewData["Bill_CustomerName"] = Bill_OCVM.Bill_CustomerName;
+                ViewData["Bill_City"] = Bill_OCVM.Bill_City;
+                ViewData["Bill_ZipCode"] = Bill_OCVM.Bill_ZipCode;
+                ViewData["Bill_Address"] = Bill_OCVM.Bill_Address;
+                ViewData["Bill_Phone"] = Bill_OCVM.Bill_Phone;
+            }
             return View("Order_Check");
         }
         [HttpGet]
         public ActionResult Order_Check()  //下單-確認頁面!沒有HEADER跟FOOTER
-        {
-            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
-            ViewData["CustomerName"] = OCVM.CustomerName;
-            ViewData["City"] = OCVM.City;
-            ViewData["ZipCode"] = OCVM.ZipCode;
-            ViewData["Address"] = OCVM.Address;
-            ViewData["Email"] = OCVM.Email;
+        { 
             return View();
         }
         [HttpPost]
-        public ActionResult Order_Check(string Nothing)  //下單-確認頁面!沒有HEADER跟FOOTER
+        public ActionResult Order_Check(bool Order_Pay_Radio)  //下單-確認頁面!沒有HEADER跟FOOTER
         {
             var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
             ViewData["CustomerName"] = OCVM.CustomerName;
@@ -176,7 +181,18 @@ namespace ANVI_Mvc.Controllers
             ViewData["Address"] = OCVM.Address;
             ViewData["Phone"] = OCVM.Phone;
             ViewData["Email"] = OCVM.Email;
-            ViewData.Model = OCVM;
+
+            if(Order_Pay_Radio)
+            {
+
+                var Bill_OCVM = (OrderCustomerViewModel)Session["Bill_Order_Seccion"];
+                ViewData["Bill_CustomerName"] = Bill_OCVM.Bill_CustomerName;
+                ViewData["Bill_City"] = Bill_OCVM.Bill_City;
+                ViewData["Bill_ZipCode"] = Bill_OCVM.Bill_ZipCode;
+                ViewData["Bill_Address"] = Bill_OCVM.Bill_Address;
+                ViewData["Bill_Phone"] = Bill_OCVM.Bill_Phone;
+
+            }
             return View();
         }
 
