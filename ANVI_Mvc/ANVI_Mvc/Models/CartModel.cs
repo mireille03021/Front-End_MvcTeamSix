@@ -9,9 +9,8 @@ namespace ANVI_Mvc.Models
 {
     public class CartModel : IEnumerable<CartItemViewModel>
     {
-
         //建構值，初始化
-        public List<CartItemViewModel> cartItems;
+        public List<CartItemViewModel> cartItems { get; set; }
 
         public CartModel()
         {
@@ -43,10 +42,11 @@ namespace ANVI_Mvc.Models
                                 .Select(item => item).FirstOrDefault();
 
             //判斷是否有相同產品存在購物車中
-            if (findItem == default(ViewModels.CartItemViewModel))
+            using (AnviModel db = new AnviModel())
             {
-                using (AnviModel db = new AnviModel())
+                if (findItem == default(ViewModels.CartItemViewModel))
                 {
+
                     var cartItem = (from p in db.Products
                                     join pd in db.ProductDetails on p.ProductID equals pd.ProductID
                                     join s in db.Sizes on pd.SizeID equals s.SizeID
@@ -72,10 +72,14 @@ namespace ANVI_Mvc.Models
                         this.AddCartItem(cartItem);
                     }
                 }
-            }
-            else
-            {
-                findItem.Quantity += 1;
+                else
+                {
+                    var stock = db.ProductDetails.First(x => x.PDID == findItem.PDID).Stock;
+                    if (findItem.Quantity < stock)  //防止有人狂點購物車來新增物品，但實際庫存不足
+                    {
+                        findItem.Quantity += 1;
+                    }
+                }
             }
             return true;
         }
@@ -99,6 +103,15 @@ namespace ANVI_Mvc.Models
             return true;
         }
 
+        public void AddQuantity(string PDID)
+        {
+            cartItems.First(x => x.PDID == PDID).Quantity += 1;
+        }
+        public void ReduceQuantity(string PDID)
+        {
+            cartItems.First(x => x.PDID == PDID).Quantity -= 1;
+        }
+
         public IEnumerator<CartItemViewModel> GetEnumerator()
         {
             IEnumerable<CartItemViewModel> nothing = cartItems;
@@ -109,5 +122,7 @@ namespace ANVI_Mvc.Models
         {
             return GetEnumerator();
         }
+
+        
     }
 }

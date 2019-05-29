@@ -18,6 +18,11 @@ namespace ANVI_Mvc
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "ControlPDID",
+                url: "{controller}/{action}/{pdid}",
+                defaults: new { controller = "Home", action = "Index", pdid = UrlParameter.Optional }
+            );
         }
     }
 }
