@@ -186,9 +186,9 @@ a {
 }
 
 .MenuList {
+    z-index: 999;
     background-color: white;
     margin: 6px 0 0 0;
-   
     border-bottom: #dddddd 1px solid;
     visibility: hidden;
     /*0529*/
