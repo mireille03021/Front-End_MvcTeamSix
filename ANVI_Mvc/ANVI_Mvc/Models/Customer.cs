@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace ANVI_Mvc.Models
 {
     using System;
@@ -13,9 +11,11 @@ namespace ANVI_Mvc.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
+            AspNetUsers = new HashSet<AspNetUser>();
             Orders = new HashSet<Order>();
         }
 
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomerID { get; set; }
 
@@ -48,7 +48,9 @@ namespace ANVI_Mvc.Models
         [StringLength(10)]
         public string CreditCard { get; set; }
 
-        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
