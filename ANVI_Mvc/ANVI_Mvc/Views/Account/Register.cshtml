@@ -1,41 +1,62 @@
-﻿@model ANVI_Mvc.Models.RegisterViewModel
+﻿@model RegisterViewModel
 @{
     ViewBag.Title = "註冊";
 }
-
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@section topCSS
 {
-    @Html.AntiForgeryToken()
-    <h4>建立新帳戶。</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="註冊" />
-        </div>
-    </div>
+    <link href="~/Assets/css/Register.css" rel="stylesheet" />
 }
+<main id="main" role="main">
+    <section>
+        <div class="Container">
+            <div class="P-Content P-Content-fitS P-Content-exN">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @name = "create_customer", @class = "Form F-spaT", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <header class="Form-Header">
+                        <h1 class="Heading u-h1">Register</h1>
+                        <p>Please fill in the information below:</p>
+                    </header>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                    <div class="F-Item">
+                        @*有此畫面但資料庫目前無欄位Last name，可先無視*@
+                        <input type="text" name="customer[last_name]" id="" placeholder="Name" class="F-Input">
+                        <label for="" class="F-FLabel">Name</label>
+                    </div>
+
+                    <div class="F-Item">
+                        @Html.LabelFor(m => m.Email, new { @class = "F-FLabel" })
+                        @*<input type="email" name="customer[email]" id="" placeholder="Email" class="F-Input">*@
+                        @Html.TextBoxFor(m => m.Email, new { @name = "customer[email]", @placeholder = "Email", @class = "F-Input" })
+                        @*<label for="" class="F-FLabel">Email</label>*@
+                    </div>
+
+                    <div class="F-Item">
+                        @Html.LabelFor(m => m.Password, new { @class = "F-FLabel" })
+                        @*<input type="password" name="customer[password]" id="" placeholder="Password" class="F-Input">*@
+                        @Html.PasswordFor(m => m.Password, new { @name = "customer[password]", @placeholder = "Password", @class = "F-Input" })
+                        @*<label for="" class="F-FLabel">Password</label>*@
+                    </div>
+
+                    //再次確認密碼，畫面無此部分。
+                    <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "F-FLabel" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new {  @name = "customer[chickPssword]", @placeholder = "Chick Password", @class = "F-Input" })
+                            </div>
+                        </div>
+
+                    <button type="submit" class="F-Sub Btn-full Btn Btn-pmy" value="註冊">Create my account</button>
+
+                    @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-default" value="註冊" />
+                            </div>
+                        </div>*@
+                }
+
+            </div>
+        </div>
+    </section>
+</main>
