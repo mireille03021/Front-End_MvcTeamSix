@@ -20,6 +20,6 @@ namespace ANVI_Mvc.Models
         [Column(Order = 2)]
         public string UserId { get; set; }
 
-        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUsers { get; set; }
     }
 }
