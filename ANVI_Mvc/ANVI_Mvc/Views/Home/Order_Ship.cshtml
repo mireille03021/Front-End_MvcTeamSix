@@ -33,7 +33,7 @@
                     </div>
                     <div class="main__content">
                         <div class="step">
-                            <form action="" class="edit_checkout">
+                            <form action="/Home/Order_ship" class="edit_checkout" method="post">
                                 <!-- 有用input hidden去記表單 -->
                                 <div class="step__sections">
                                     <div class="section">
@@ -43,7 +43,7 @@
                                                     <div class="review-block__inner">
                                                         <div class="review-block__label">Contact</div>
                                                         <div class="review-block__content">
-                                                            <bdo dir="ltr">bebe1996715548@gmail.com</bdo>
+                                                            <bdo dir="ltr">@ViewData["Email"]</bdo>
                                                         </div>
                                                     </div>
 
@@ -59,8 +59,8 @@
                                                     <div class="review-block__inner">
                                                         <div class="review-block__label">Ship&nbspto</div>
                                                         <div class="review-block__content">
-                                                            <address class="address address--tight">
-                                                                新竹市香山區五福路二段,30012 新竹</ddress>
+                                                            <address class="address address--tight"> @ViewData["Address"]
+                                                                </address>
                                                                 <!-- 不知道原本這邊為啥會有一個地址元素?不懂 -->
                                                         </div>
                                                     </div>
@@ -116,7 +116,7 @@
                                 <!-- loading ICON -->
                                 <span class="btn__content">前往付款方式</span>
                             </button>
-                            <a href="" class="step__footer__previous-link">
+                            <a href="/Home/Order_Customer" class="step__footer__previous-link">
                                 <i class="fas fa-chevron-left"></i><span class="step__footer__previous-link__content">返回客戶資訊</span>
                             </a>
                         </div>

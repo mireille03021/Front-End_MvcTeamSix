@@ -109,25 +109,99 @@ namespace ANVI_Mvc.Controllers
         [HttpGet]
         public ActionResult Order_Customer()  //下單-客戶頁面(填入收件人)!沒有HEADER跟FOOTER
         {
+            if (Session["Order_Session"] != null)
+            {
+                var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+                ViewData["CustomerName"] = OCVM.CustomerName;
+                ViewData["City"] = OCVM.City;
+                ViewData["ZipCode"] = OCVM.ZipCode;
+                ViewData["Address"] = OCVM.Address;
+                ViewData["Phone"] = OCVM.Phone;
+                ViewData["Email"] = OCVM.Email;
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult Order_Customer(FormCollection fc)
+        public ActionResult Order_Customer(OrderCustomerViewModel OCVM)
         {
+            Session["Order_Session"] = OCVM;
+            ViewData["CustomerName"] = OCVM.CustomerName;
+            ViewData["City"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address"] = OCVM.Address;
+            ViewData["Phone"] = OCVM.Phone;
+            ViewData["Email"] = OCVM.Email;
+
+            return View("Order_Ship");
+        }
+        [HttpGet]
+        public ActionResult Order_Ship()  //下單-運送頁面!沒有HEADER跟FOOTER
+        {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["Email"] = OCVM.Email;
+            ViewData["Address"] = OCVM.Address;
+            ViewData.Model = OCVM;
             return View();
         }
 
-        public ActionResult Order_Ship()  //下單-運送頁面!沒有HEADER跟FOOTER
+        [HttpPost]
+        public ActionResult Order_Ship(string Nothing)  //下單-運送頁面!沒有HEADER跟FOOTER
         {
-            return View();
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["CustomerName"] = OCVM.CustomerName;
+            ViewData["City"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address"] = OCVM.Address;
+            ViewData["Phone"] = OCVM.Phone;
+            ViewData["Email"] = OCVM.Email;
+            ViewData.Model = OCVM;
+
+            return View("Order_Pay");
         }
+        [HttpGet]
         public ActionResult Order_Pay()  //下單-付費頁面!沒有HEADER跟FOOTER
         {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["Email"] = OCVM.Email;
+            ViewData["Address"] = OCVM.Address;
+            ViewData.Model = OCVM;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Order_Pay(string Nothing)  //下單-付費頁面!沒有HEADER跟FOOTER
+        {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["CustomerName"] = OCVM.CustomerName;
+            ViewData["City"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address"] = OCVM.Address;
+            ViewData["Phone"] = OCVM.Phone;
+            ViewData["Email"] = OCVM.Email;
+            return View("Order_Check");
+        }
+        [HttpGet]
         public ActionResult Order_Check()  //下單-確認頁面!沒有HEADER跟FOOTER
         {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["CustomerName"] = OCVM.CustomerName;
+            ViewData["City"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address"] = OCVM.Address;
+            ViewData["Email"] = OCVM.Email;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Order_Check(string Nothing)  //下單-確認頁面!沒有HEADER跟FOOTER
+        {
+            var OCVM = (OrderCustomerViewModel)Session["Order_Session"];
+            ViewData["CustomerName"] = OCVM.CustomerName;
+            ViewData["City"] = OCVM.City;
+            ViewData["ZipCode"] = OCVM.ZipCode;
+            ViewData["Address"] = OCVM.Address;
+            ViewData["Phone"] = OCVM.Phone;
+            ViewData["Email"] = OCVM.Email;
             return View();
         }
 
